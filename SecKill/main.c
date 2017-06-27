@@ -17,6 +17,7 @@
 #define MAX_ALL 128000
 
 static char all_users[MAX_ALL];
+static char all_commodities[MAX_ALL];
 
 struct userInfo {
     char id[MAX_LEN];
@@ -55,7 +56,7 @@ static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
         if (h2o_memis(&req->path.base[req->query_at], para_len, "?user_id=", para_len)) {
             status_list = h2o_iovec_init(&req->path.base[req->query_at + para_len], req->path.len - req->query_at - para_len);
             strncpy(user_id, status_list.base, status_list.len);
-            printf("user_id = %s\n", user_id);
+            //printf("user_id = %s\n", user_id);
             //int i = 0;
             //for (; i < status_list.len; i++) {
             //    if (status_list.base[i] == ' ') {
@@ -102,6 +103,67 @@ static int get_user_all(h2o_handler_t *self, h2o_req_t *req)
     //printf("all_users: %s\n", all_users);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, all_users, SIZE_MAX);
+    req->res.status = 200;
+    req->res.reason = "OK";
+    h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("application/json"));
+    h2o_start_response(req, &generator);
+    h2o_send(req, &body, 1, 1);
+
+    return 0;
+}
+
+static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
+{
+    static h2o_generator_t generator = {NULL, NULL};
+
+    if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
+        return -1;
+
+    char commodity_id[20] = { 0 };
+    h2o_iovec_t status_list = { NULL, 0 };
+    size_t para_len = sizeof("?commodity_id=") - 1;
+    if ((req->query_at != SIZE_MAX) && ((req->path.len - req->query_at) > para_len)) {
+        if (h2o_memis(&req->path.base[req->query_at], para_len, "?commodity_id=", para_len)) {
+            status_list = h2o_iovec_init(&req->path.base[req->query_at + para_len], req->path.len - req->query_at - para_len);
+            strncpy(commodity_id, status_list.base, status_list.len);
+        }
+    }
+
+    char result[MSG_LEN] = { 0 };
+    int cid = atoi(commodity_id) - 1;
+    sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%u,\"unit_price\":%f}",
+            commodities[cid].id, commodities[cid].name, commodities[cid].number, commodities[cid].price);
+    
+    h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
+    req->res.status = 200;
+    req->res.reason = "OK";
+    h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("application/json"));
+    h2o_start_response(req, &generator);
+    h2o_send(req, &body, 1, 1);
+
+    return 0;
+}
+
+static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
+{
+    static h2o_generator_t generator = {NULL, NULL};
+
+    if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
+        return -1;
+
+    int cid = 0;
+    memset(all_commodities, 0, MAX_ALL);
+    strcpy(all_commodities, "[");
+    char iterator[MSG_LEN];
+    for (; cid < commodityNum; cid++) {
+        sprintf(iterator, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%u,\"unit_price\":%f},",
+                commodities[cid].id, commodities[cid].name, commodities[cid].number, commodities[cid].price);
+        strcat(all_commodities, iterator);
+    }
+    all_commodities[strlen(all_commodities) - 1] = ']';
+    //printf("all_commodities: %s\n", all_commodities);
+    
+    h2o_iovec_t body = h2o_strdup(&req->pool, all_commodities, SIZE_MAX);
     req->res.status = 200;
     req->res.reason = "OK";
     h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("application/json"));
@@ -201,8 +263,8 @@ int main(int argc, char **argv)
     hostconf = h2o_config_register_host(&config, h2o_iovec_init(H2O_STRLIT("default")), 65535);
     register_handler(hostconf, "/getUserById", get_user_by_id);
     register_handler(hostconf, "/getUserAll", get_user_all);
-    //register_handler(hostconf, "/getUserById", get_user_by_id);
-    //register_handler(hostconf, "/getUserById", get_user_by_id);
+    register_handler(hostconf, "/getCommodityById", get_commodity_by_id);
+    register_handler(hostconf, "/getCommodityAll", get_commodity_all);
     //register_handler(hostconf, "/getUserById", get_user_by_id);
     //register_handler(hostconf, "/getUserById", get_user_by_id);
     //register_handler(hostconf, "/getUserById", get_user_by_id);
