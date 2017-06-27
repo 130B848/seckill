@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/mark-lee/h2o/examples/libh2o/latency-optimization.c" "/home/mark-lee/h2o/CMakeFiles/examples-latency-optimization.dir/examples/libh2o/latency-optimization.c.o"
+  "/home/mark-lee/seckill/examples/libh2o/latency-optimization.c" "/home/mark-lee/seckill/CMakeFiles/examples-latency-optimization.dir/examples/libh2o/latency-optimization.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -31,7 +31,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/mark-lee/h2o/CMakeFiles/libh2o-evloop.dir/DependInfo.cmake"
+  "/home/mark-lee/seckill/CMakeFiles/libh2o-evloop.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/h2o
+CMAKE_SOURCE_DIR = /home/mark-lee/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/h2o
+CMAKE_BINARY_DIR = /home/mark-lee/seckill
 
 # Include any dependencies generated for this target.
 include CMakeFiles/h2o.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/h2o.dir/flags.make
 
 CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o: deps/cloexec/cloexec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o   -c /home/mark-lee/h2o/deps/cloexec/cloexec.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o   -c /home/mark-lee/seckill/deps/cloexec/cloexec.c
 
 CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/cloexec/cloexec.c > CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/cloexec/cloexec.c > CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.i
 
 CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/cloexec/cloexec.c -o CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/cloexec/cloexec.c -o CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.s
 
 CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/hiredis/async.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/hiredis/async.c.o: deps/hiredis/async.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/h2o.dir/deps/hiredis/async.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/async.c.o   -c /home/mark-lee/h2o/deps/hiredis/async.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/h2o.dir/deps/hiredis/async.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/async.c.o   -c /home/mark-lee/seckill/deps/hiredis/async.c
 
 CMakeFiles/h2o.dir/deps/hiredis/async.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/hiredis/async.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/hiredis/async.c > CMakeFiles/h2o.dir/deps/hiredis/async.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/hiredis/async.c > CMakeFiles/h2o.dir/deps/hiredis/async.c.i
 
 CMakeFiles/h2o.dir/deps/hiredis/async.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/hiredis/async.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/hiredis/async.c -o CMakeFiles/h2o.dir/deps/hiredis/async.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/hiredis/async.c -o CMakeFiles/h2o.dir/deps/hiredis/async.c.s
 
 CMakeFiles/h2o.dir/deps/hiredis/async.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/h2o.dir/deps/hiredis/async.c.o.provides.build: CMakeFiles/h2o.dir/dep
 
 CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o: deps/hiredis/hiredis.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o   -c /home/mark-lee/h2o/deps/hiredis/hiredis.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o   -c /home/mark-lee/seckill/deps/hiredis/hiredis.c
 
 CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/hiredis/hiredis.c > CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/hiredis/hiredis.c > CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.i
 
 CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/hiredis/hiredis.c -o CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/hiredis/hiredis.c -o CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.s
 
 CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/hiredis/net.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/hiredis/net.c.o: deps/hiredis/net.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/h2o.dir/deps/hiredis/net.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/net.c.o   -c /home/mark-lee/h2o/deps/hiredis/net.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/h2o.dir/deps/hiredis/net.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/net.c.o   -c /home/mark-lee/seckill/deps/hiredis/net.c
 
 CMakeFiles/h2o.dir/deps/hiredis/net.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/hiredis/net.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/hiredis/net.c > CMakeFiles/h2o.dir/deps/hiredis/net.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/hiredis/net.c > CMakeFiles/h2o.dir/deps/hiredis/net.c.i
 
 CMakeFiles/h2o.dir/deps/hiredis/net.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/hiredis/net.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/hiredis/net.c -o CMakeFiles/h2o.dir/deps/hiredis/net.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/hiredis/net.c -o CMakeFiles/h2o.dir/deps/hiredis/net.c.s
 
 CMakeFiles/h2o.dir/deps/hiredis/net.c.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/h2o.dir/deps/hiredis/net.c.o.provides.build: CMakeFiles/h2o.dir/deps/
 
 CMakeFiles/h2o.dir/deps/hiredis/read.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/hiredis/read.c.o: deps/hiredis/read.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/h2o.dir/deps/hiredis/read.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/read.c.o   -c /home/mark-lee/h2o/deps/hiredis/read.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/h2o.dir/deps/hiredis/read.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/read.c.o   -c /home/mark-lee/seckill/deps/hiredis/read.c
 
 CMakeFiles/h2o.dir/deps/hiredis/read.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/hiredis/read.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/hiredis/read.c > CMakeFiles/h2o.dir/deps/hiredis/read.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/hiredis/read.c > CMakeFiles/h2o.dir/deps/hiredis/read.c.i
 
 CMakeFiles/h2o.dir/deps/hiredis/read.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/hiredis/read.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/hiredis/read.c -o CMakeFiles/h2o.dir/deps/hiredis/read.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/hiredis/read.c -o CMakeFiles/h2o.dir/deps/hiredis/read.c.s
 
 CMakeFiles/h2o.dir/deps/hiredis/read.c.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/h2o.dir/deps/hiredis/read.c.o.provides.build: CMakeFiles/h2o.dir/deps
 
 CMakeFiles/h2o.dir/deps/hiredis/sds.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/hiredis/sds.c.o: deps/hiredis/sds.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/h2o.dir/deps/hiredis/sds.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/sds.c.o   -c /home/mark-lee/h2o/deps/hiredis/sds.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/h2o.dir/deps/hiredis/sds.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/hiredis/sds.c.o   -c /home/mark-lee/seckill/deps/hiredis/sds.c
 
 CMakeFiles/h2o.dir/deps/hiredis/sds.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/hiredis/sds.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/hiredis/sds.c > CMakeFiles/h2o.dir/deps/hiredis/sds.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/hiredis/sds.c > CMakeFiles/h2o.dir/deps/hiredis/sds.c.i
 
 CMakeFiles/h2o.dir/deps/hiredis/sds.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/hiredis/sds.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/hiredis/sds.c -o CMakeFiles/h2o.dir/deps/hiredis/sds.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/hiredis/sds.c -o CMakeFiles/h2o.dir/deps/hiredis/sds.c.s
 
 CMakeFiles/h2o.dir/deps/hiredis/sds.c.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/h2o.dir/deps/hiredis/sds.c.o.provides.build: CMakeFiles/h2o.dir/deps/
 
 CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o: deps/libgkc/gkc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o   -c /home/mark-lee/h2o/deps/libgkc/gkc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o   -c /home/mark-lee/seckill/deps/libgkc/gkc.c
 
 CMakeFiles/h2o.dir/deps/libgkc/gkc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libgkc/gkc.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libgkc/gkc.c > CMakeFiles/h2o.dir/deps/libgkc/gkc.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libgkc/gkc.c > CMakeFiles/h2o.dir/deps/libgkc/gkc.c.i
 
 CMakeFiles/h2o.dir/deps/libgkc/gkc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libgkc/gkc.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libgkc/gkc.c -o CMakeFiles/h2o.dir/deps/libgkc/gkc.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libgkc/gkc.c -o CMakeFiles/h2o.dir/deps/libgkc/gkc.c.s
 
 CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o.provides.build: CMakeFiles/h2o.dir/deps/l
 
 CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o: deps/libyrmcds/close.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/close.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/close.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/close.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/close.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/close.c > CMakeFiles/h2o.dir/deps/libyrmcds/close.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/close.c > CMakeFiles/h2o.dir/deps/libyrmcds/close.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/close.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/close.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/close.c -o CMakeFiles/h2o.dir/deps/libyrmcds/close.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/close.c -o CMakeFiles/h2o.dir/deps/libyrmcds/close.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o: deps/libyrmcds/connect.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/connect.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/connect.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/connect.c > CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/connect.c > CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/connect.c -o CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/connect.c -o CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o.provides.build: CMakeFiles/h2o.dir
 
 CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o: deps/libyrmcds/recv.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/recv.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/recv.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/recv.c > CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/recv.c > CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/recv.c -o CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/recv.c -o CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o.provides.build: CMakeFiles/h2o.dir/de
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o: deps/libyrmcds/send.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/send.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/send.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/send.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/send.c > CMakeFiles/h2o.dir/deps/libyrmcds/send.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/send.c > CMakeFiles/h2o.dir/deps/libyrmcds/send.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/send.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/send.c -o CMakeFiles/h2o.dir/deps/libyrmcds/send.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/send.c -o CMakeFiles/h2o.dir/deps/libyrmcds/send.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o.provides.build: CMakeFiles/h2o.dir/de
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o: deps/libyrmcds/send_text.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/send_text.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/send_text.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/send_text.c > CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/send_text.c > CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/send_text.c -o CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/send_text.c -o CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o.requires:
 
@@ -347,16 +347,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o.provides.build: CMakeFiles/h2o.d
 
 CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o: deps/libyrmcds/socket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/socket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/socket.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/socket.c > CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/socket.c > CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/socket.c -o CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/socket.c -o CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o.requires:
 
@@ -371,16 +371,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o.provides.build: CMakeFiles/h2o.dir/
 
 CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o: deps/libyrmcds/strerror.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/strerror.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/strerror.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/strerror.c > CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/strerror.c > CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/strerror.c -o CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/strerror.c -o CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o.requires:
 
@@ -395,16 +395,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o.provides.build: CMakeFiles/h2o.di
 
 CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o: deps/libyrmcds/text_mode.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o   -c /home/mark-lee/h2o/deps/libyrmcds/text_mode.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o   -c /home/mark-lee/seckill/deps/libyrmcds/text_mode.c
 
 CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/libyrmcds/text_mode.c > CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/libyrmcds/text_mode.c > CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.i
 
 CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/libyrmcds/text_mode.c -o CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/libyrmcds/text_mode.c -o CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.s
 
 CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o.requires:
 
@@ -419,16 +419,16 @@ CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o.provides.build: CMakeFiles/h2o.d
 
 CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o: deps/picohttpparser/picohttpparser.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o   -c /home/mark-lee/h2o/deps/picohttpparser/picohttpparser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o   -c /home/mark-lee/seckill/deps/picohttpparser/picohttpparser.c
 
 CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picohttpparser/picohttpparser.c > CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picohttpparser/picohttpparser.c > CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.i
 
 CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picohttpparser/picohttpparser.c -o CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picohttpparser/picohttpparser.c -o CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.s
 
 CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o.requires:
 
@@ -443,16 +443,16 @@ CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o.provides.build: CMakeF
 
 CMakeFiles/h2o.dir/lib/common/cache.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/cache.c.o: lib/common/cache.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/h2o.dir/lib/common/cache.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/cache.c.o   -c /home/mark-lee/h2o/lib/common/cache.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/h2o.dir/lib/common/cache.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/cache.c.o   -c /home/mark-lee/seckill/lib/common/cache.c
 
 CMakeFiles/h2o.dir/lib/common/cache.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/cache.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/cache.c > CMakeFiles/h2o.dir/lib/common/cache.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/cache.c > CMakeFiles/h2o.dir/lib/common/cache.c.i
 
 CMakeFiles/h2o.dir/lib/common/cache.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/cache.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/cache.c -o CMakeFiles/h2o.dir/lib/common/cache.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/cache.c -o CMakeFiles/h2o.dir/lib/common/cache.c.s
 
 CMakeFiles/h2o.dir/lib/common/cache.c.o.requires:
 
@@ -467,16 +467,16 @@ CMakeFiles/h2o.dir/lib/common/cache.c.o.provides.build: CMakeFiles/h2o.dir/lib/c
 
 CMakeFiles/h2o.dir/lib/common/file.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/file.c.o: lib/common/file.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/h2o.dir/lib/common/file.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/file.c.o   -c /home/mark-lee/h2o/lib/common/file.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/h2o.dir/lib/common/file.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/file.c.o   -c /home/mark-lee/seckill/lib/common/file.c
 
 CMakeFiles/h2o.dir/lib/common/file.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/file.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/file.c > CMakeFiles/h2o.dir/lib/common/file.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/file.c > CMakeFiles/h2o.dir/lib/common/file.c.i
 
 CMakeFiles/h2o.dir/lib/common/file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/file.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/file.c -o CMakeFiles/h2o.dir/lib/common/file.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/file.c -o CMakeFiles/h2o.dir/lib/common/file.c.s
 
 CMakeFiles/h2o.dir/lib/common/file.c.o.requires:
 
@@ -491,16 +491,16 @@ CMakeFiles/h2o.dir/lib/common/file.c.o.provides.build: CMakeFiles/h2o.dir/lib/co
 
 CMakeFiles/h2o.dir/lib/common/filecache.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/filecache.c.o: lib/common/filecache.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/h2o.dir/lib/common/filecache.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/filecache.c.o   -c /home/mark-lee/h2o/lib/common/filecache.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/h2o.dir/lib/common/filecache.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/filecache.c.o   -c /home/mark-lee/seckill/lib/common/filecache.c
 
 CMakeFiles/h2o.dir/lib/common/filecache.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/filecache.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/filecache.c > CMakeFiles/h2o.dir/lib/common/filecache.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/filecache.c > CMakeFiles/h2o.dir/lib/common/filecache.c.i
 
 CMakeFiles/h2o.dir/lib/common/filecache.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/filecache.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/filecache.c -o CMakeFiles/h2o.dir/lib/common/filecache.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/filecache.c -o CMakeFiles/h2o.dir/lib/common/filecache.c.s
 
 CMakeFiles/h2o.dir/lib/common/filecache.c.o.requires:
 
@@ -515,16 +515,16 @@ CMakeFiles/h2o.dir/lib/common/filecache.c.o.provides.build: CMakeFiles/h2o.dir/l
 
 CMakeFiles/h2o.dir/lib/common/hostinfo.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/hostinfo.c.o: lib/common/hostinfo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/h2o.dir/lib/common/hostinfo.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/hostinfo.c.o   -c /home/mark-lee/h2o/lib/common/hostinfo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/h2o.dir/lib/common/hostinfo.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/hostinfo.c.o   -c /home/mark-lee/seckill/lib/common/hostinfo.c
 
 CMakeFiles/h2o.dir/lib/common/hostinfo.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/hostinfo.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/hostinfo.c > CMakeFiles/h2o.dir/lib/common/hostinfo.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/hostinfo.c > CMakeFiles/h2o.dir/lib/common/hostinfo.c.i
 
 CMakeFiles/h2o.dir/lib/common/hostinfo.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/hostinfo.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/hostinfo.c -o CMakeFiles/h2o.dir/lib/common/hostinfo.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/hostinfo.c -o CMakeFiles/h2o.dir/lib/common/hostinfo.c.s
 
 CMakeFiles/h2o.dir/lib/common/hostinfo.c.o.requires:
 
@@ -539,16 +539,16 @@ CMakeFiles/h2o.dir/lib/common/hostinfo.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/common/http1client.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/http1client.c.o: lib/common/http1client.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/h2o.dir/lib/common/http1client.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/http1client.c.o   -c /home/mark-lee/h2o/lib/common/http1client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/h2o.dir/lib/common/http1client.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/http1client.c.o   -c /home/mark-lee/seckill/lib/common/http1client.c
 
 CMakeFiles/h2o.dir/lib/common/http1client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/http1client.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/http1client.c > CMakeFiles/h2o.dir/lib/common/http1client.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/http1client.c > CMakeFiles/h2o.dir/lib/common/http1client.c.i
 
 CMakeFiles/h2o.dir/lib/common/http1client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/http1client.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/http1client.c -o CMakeFiles/h2o.dir/lib/common/http1client.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/http1client.c -o CMakeFiles/h2o.dir/lib/common/http1client.c.s
 
 CMakeFiles/h2o.dir/lib/common/http1client.c.o.requires:
 
@@ -563,16 +563,16 @@ CMakeFiles/h2o.dir/lib/common/http1client.c.o.provides.build: CMakeFiles/h2o.dir
 
 CMakeFiles/h2o.dir/lib/common/memcached.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/memcached.c.o: lib/common/memcached.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/h2o.dir/lib/common/memcached.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/memcached.c.o   -c /home/mark-lee/h2o/lib/common/memcached.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/h2o.dir/lib/common/memcached.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/memcached.c.o   -c /home/mark-lee/seckill/lib/common/memcached.c
 
 CMakeFiles/h2o.dir/lib/common/memcached.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/memcached.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/memcached.c > CMakeFiles/h2o.dir/lib/common/memcached.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/memcached.c > CMakeFiles/h2o.dir/lib/common/memcached.c.i
 
 CMakeFiles/h2o.dir/lib/common/memcached.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/memcached.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/memcached.c -o CMakeFiles/h2o.dir/lib/common/memcached.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/memcached.c -o CMakeFiles/h2o.dir/lib/common/memcached.c.s
 
 CMakeFiles/h2o.dir/lib/common/memcached.c.o.requires:
 
@@ -587,16 +587,16 @@ CMakeFiles/h2o.dir/lib/common/memcached.c.o.provides.build: CMakeFiles/h2o.dir/l
 
 CMakeFiles/h2o.dir/lib/common/memory.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/memory.c.o: lib/common/memory.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/h2o.dir/lib/common/memory.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/memory.c.o   -c /home/mark-lee/h2o/lib/common/memory.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/h2o.dir/lib/common/memory.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/memory.c.o   -c /home/mark-lee/seckill/lib/common/memory.c
 
 CMakeFiles/h2o.dir/lib/common/memory.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/memory.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/memory.c > CMakeFiles/h2o.dir/lib/common/memory.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/memory.c > CMakeFiles/h2o.dir/lib/common/memory.c.i
 
 CMakeFiles/h2o.dir/lib/common/memory.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/memory.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/memory.c -o CMakeFiles/h2o.dir/lib/common/memory.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/memory.c -o CMakeFiles/h2o.dir/lib/common/memory.c.s
 
 CMakeFiles/h2o.dir/lib/common/memory.c.o.requires:
 
@@ -611,16 +611,16 @@ CMakeFiles/h2o.dir/lib/common/memory.c.o.provides.build: CMakeFiles/h2o.dir/lib/
 
 CMakeFiles/h2o.dir/lib/common/multithread.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/multithread.c.o: lib/common/multithread.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/h2o.dir/lib/common/multithread.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/multithread.c.o   -c /home/mark-lee/h2o/lib/common/multithread.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/h2o.dir/lib/common/multithread.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/multithread.c.o   -c /home/mark-lee/seckill/lib/common/multithread.c
 
 CMakeFiles/h2o.dir/lib/common/multithread.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/multithread.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/multithread.c > CMakeFiles/h2o.dir/lib/common/multithread.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/multithread.c > CMakeFiles/h2o.dir/lib/common/multithread.c.i
 
 CMakeFiles/h2o.dir/lib/common/multithread.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/multithread.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/multithread.c -o CMakeFiles/h2o.dir/lib/common/multithread.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/multithread.c -o CMakeFiles/h2o.dir/lib/common/multithread.c.s
 
 CMakeFiles/h2o.dir/lib/common/multithread.c.o.requires:
 
@@ -635,16 +635,16 @@ CMakeFiles/h2o.dir/lib/common/multithread.c.o.provides.build: CMakeFiles/h2o.dir
 
 CMakeFiles/h2o.dir/lib/common/redis.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/redis.c.o: lib/common/redis.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/h2o.dir/lib/common/redis.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/redis.c.o   -c /home/mark-lee/h2o/lib/common/redis.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/h2o.dir/lib/common/redis.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/redis.c.o   -c /home/mark-lee/seckill/lib/common/redis.c
 
 CMakeFiles/h2o.dir/lib/common/redis.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/redis.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/redis.c > CMakeFiles/h2o.dir/lib/common/redis.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/redis.c > CMakeFiles/h2o.dir/lib/common/redis.c.i
 
 CMakeFiles/h2o.dir/lib/common/redis.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/redis.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/redis.c -o CMakeFiles/h2o.dir/lib/common/redis.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/redis.c -o CMakeFiles/h2o.dir/lib/common/redis.c.s
 
 CMakeFiles/h2o.dir/lib/common/redis.c.o.requires:
 
@@ -659,16 +659,16 @@ CMakeFiles/h2o.dir/lib/common/redis.c.o.provides.build: CMakeFiles/h2o.dir/lib/c
 
 CMakeFiles/h2o.dir/lib/common/serverutil.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/serverutil.c.o: lib/common/serverutil.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/h2o.dir/lib/common/serverutil.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/serverutil.c.o   -c /home/mark-lee/h2o/lib/common/serverutil.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/h2o.dir/lib/common/serverutil.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/serverutil.c.o   -c /home/mark-lee/seckill/lib/common/serverutil.c
 
 CMakeFiles/h2o.dir/lib/common/serverutil.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/serverutil.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/serverutil.c > CMakeFiles/h2o.dir/lib/common/serverutil.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/serverutil.c > CMakeFiles/h2o.dir/lib/common/serverutil.c.i
 
 CMakeFiles/h2o.dir/lib/common/serverutil.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/serverutil.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/serverutil.c -o CMakeFiles/h2o.dir/lib/common/serverutil.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/serverutil.c -o CMakeFiles/h2o.dir/lib/common/serverutil.c.s
 
 CMakeFiles/h2o.dir/lib/common/serverutil.c.o.requires:
 
@@ -683,16 +683,16 @@ CMakeFiles/h2o.dir/lib/common/serverutil.c.o.provides.build: CMakeFiles/h2o.dir/
 
 CMakeFiles/h2o.dir/lib/common/socket.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/socket.c.o: lib/common/socket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/h2o.dir/lib/common/socket.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/socket.c.o   -c /home/mark-lee/h2o/lib/common/socket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/h2o.dir/lib/common/socket.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/socket.c.o   -c /home/mark-lee/seckill/lib/common/socket.c
 
 CMakeFiles/h2o.dir/lib/common/socket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/socket.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/socket.c > CMakeFiles/h2o.dir/lib/common/socket.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/socket.c > CMakeFiles/h2o.dir/lib/common/socket.c.i
 
 CMakeFiles/h2o.dir/lib/common/socket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/socket.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/socket.c -o CMakeFiles/h2o.dir/lib/common/socket.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/socket.c -o CMakeFiles/h2o.dir/lib/common/socket.c.s
 
 CMakeFiles/h2o.dir/lib/common/socket.c.o.requires:
 
@@ -707,16 +707,16 @@ CMakeFiles/h2o.dir/lib/common/socket.c.o.provides.build: CMakeFiles/h2o.dir/lib/
 
 CMakeFiles/h2o.dir/lib/common/socketpool.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/socketpool.c.o: lib/common/socketpool.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/h2o.dir/lib/common/socketpool.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/socketpool.c.o   -c /home/mark-lee/h2o/lib/common/socketpool.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/h2o.dir/lib/common/socketpool.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/socketpool.c.o   -c /home/mark-lee/seckill/lib/common/socketpool.c
 
 CMakeFiles/h2o.dir/lib/common/socketpool.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/socketpool.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/socketpool.c > CMakeFiles/h2o.dir/lib/common/socketpool.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/socketpool.c > CMakeFiles/h2o.dir/lib/common/socketpool.c.i
 
 CMakeFiles/h2o.dir/lib/common/socketpool.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/socketpool.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/socketpool.c -o CMakeFiles/h2o.dir/lib/common/socketpool.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/socketpool.c -o CMakeFiles/h2o.dir/lib/common/socketpool.c.s
 
 CMakeFiles/h2o.dir/lib/common/socketpool.c.o.requires:
 
@@ -731,16 +731,16 @@ CMakeFiles/h2o.dir/lib/common/socketpool.c.o.provides.build: CMakeFiles/h2o.dir/
 
 CMakeFiles/h2o.dir/lib/common/string.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/string.c.o: lib/common/string.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/h2o.dir/lib/common/string.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/string.c.o   -c /home/mark-lee/h2o/lib/common/string.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/h2o.dir/lib/common/string.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/string.c.o   -c /home/mark-lee/seckill/lib/common/string.c
 
 CMakeFiles/h2o.dir/lib/common/string.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/string.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/string.c > CMakeFiles/h2o.dir/lib/common/string.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/string.c > CMakeFiles/h2o.dir/lib/common/string.c.i
 
 CMakeFiles/h2o.dir/lib/common/string.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/string.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/string.c -o CMakeFiles/h2o.dir/lib/common/string.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/string.c -o CMakeFiles/h2o.dir/lib/common/string.c.s
 
 CMakeFiles/h2o.dir/lib/common/string.c.o.requires:
 
@@ -755,16 +755,16 @@ CMakeFiles/h2o.dir/lib/common/string.c.o.provides.build: CMakeFiles/h2o.dir/lib/
 
 CMakeFiles/h2o.dir/lib/common/time.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/time.c.o: lib/common/time.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/h2o.dir/lib/common/time.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/time.c.o   -c /home/mark-lee/h2o/lib/common/time.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/h2o.dir/lib/common/time.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/time.c.o   -c /home/mark-lee/seckill/lib/common/time.c
 
 CMakeFiles/h2o.dir/lib/common/time.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/time.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/time.c > CMakeFiles/h2o.dir/lib/common/time.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/time.c > CMakeFiles/h2o.dir/lib/common/time.c.i
 
 CMakeFiles/h2o.dir/lib/common/time.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/time.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/time.c -o CMakeFiles/h2o.dir/lib/common/time.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/time.c -o CMakeFiles/h2o.dir/lib/common/time.c.s
 
 CMakeFiles/h2o.dir/lib/common/time.c.o.requires:
 
@@ -779,16 +779,16 @@ CMakeFiles/h2o.dir/lib/common/time.c.o.provides.build: CMakeFiles/h2o.dir/lib/co
 
 CMakeFiles/h2o.dir/lib/common/timeout.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/timeout.c.o: lib/common/timeout.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/h2o.dir/lib/common/timeout.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/timeout.c.o   -c /home/mark-lee/h2o/lib/common/timeout.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/h2o.dir/lib/common/timeout.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/timeout.c.o   -c /home/mark-lee/seckill/lib/common/timeout.c
 
 CMakeFiles/h2o.dir/lib/common/timeout.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/timeout.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/timeout.c > CMakeFiles/h2o.dir/lib/common/timeout.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/timeout.c > CMakeFiles/h2o.dir/lib/common/timeout.c.i
 
 CMakeFiles/h2o.dir/lib/common/timeout.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/timeout.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/timeout.c -o CMakeFiles/h2o.dir/lib/common/timeout.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/timeout.c -o CMakeFiles/h2o.dir/lib/common/timeout.c.s
 
 CMakeFiles/h2o.dir/lib/common/timeout.c.o.requires:
 
@@ -803,16 +803,16 @@ CMakeFiles/h2o.dir/lib/common/timeout.c.o.provides.build: CMakeFiles/h2o.dir/lib
 
 CMakeFiles/h2o.dir/lib/common/url.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/common/url.c.o: lib/common/url.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/h2o.dir/lib/common/url.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/url.c.o   -c /home/mark-lee/h2o/lib/common/url.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/h2o.dir/lib/common/url.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/common/url.c.o   -c /home/mark-lee/seckill/lib/common/url.c
 
 CMakeFiles/h2o.dir/lib/common/url.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/common/url.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/common/url.c > CMakeFiles/h2o.dir/lib/common/url.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/common/url.c > CMakeFiles/h2o.dir/lib/common/url.c.i
 
 CMakeFiles/h2o.dir/lib/common/url.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/common/url.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/common/url.c -o CMakeFiles/h2o.dir/lib/common/url.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/common/url.c -o CMakeFiles/h2o.dir/lib/common/url.c.s
 
 CMakeFiles/h2o.dir/lib/common/url.c.o.requires:
 
@@ -827,16 +827,16 @@ CMakeFiles/h2o.dir/lib/common/url.c.o.provides.build: CMakeFiles/h2o.dir/lib/com
 
 CMakeFiles/h2o.dir/lib/core/config.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/config.c.o: lib/core/config.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/h2o.dir/lib/core/config.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/config.c.o   -c /home/mark-lee/h2o/lib/core/config.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/h2o.dir/lib/core/config.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/config.c.o   -c /home/mark-lee/seckill/lib/core/config.c
 
 CMakeFiles/h2o.dir/lib/core/config.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/config.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/config.c > CMakeFiles/h2o.dir/lib/core/config.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/config.c > CMakeFiles/h2o.dir/lib/core/config.c.i
 
 CMakeFiles/h2o.dir/lib/core/config.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/config.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/config.c -o CMakeFiles/h2o.dir/lib/core/config.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/config.c -o CMakeFiles/h2o.dir/lib/core/config.c.s
 
 CMakeFiles/h2o.dir/lib/core/config.c.o.requires:
 
@@ -851,16 +851,16 @@ CMakeFiles/h2o.dir/lib/core/config.c.o.provides.build: CMakeFiles/h2o.dir/lib/co
 
 CMakeFiles/h2o.dir/lib/core/configurator.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/configurator.c.o: lib/core/configurator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/h2o.dir/lib/core/configurator.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/configurator.c.o   -c /home/mark-lee/h2o/lib/core/configurator.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/h2o.dir/lib/core/configurator.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/configurator.c.o   -c /home/mark-lee/seckill/lib/core/configurator.c
 
 CMakeFiles/h2o.dir/lib/core/configurator.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/configurator.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/configurator.c > CMakeFiles/h2o.dir/lib/core/configurator.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/configurator.c > CMakeFiles/h2o.dir/lib/core/configurator.c.i
 
 CMakeFiles/h2o.dir/lib/core/configurator.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/configurator.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/configurator.c -o CMakeFiles/h2o.dir/lib/core/configurator.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/configurator.c -o CMakeFiles/h2o.dir/lib/core/configurator.c.s
 
 CMakeFiles/h2o.dir/lib/core/configurator.c.o.requires:
 
@@ -875,16 +875,16 @@ CMakeFiles/h2o.dir/lib/core/configurator.c.o.provides.build: CMakeFiles/h2o.dir/
 
 CMakeFiles/h2o.dir/lib/core/context.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/context.c.o: lib/core/context.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/h2o.dir/lib/core/context.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/context.c.o   -c /home/mark-lee/h2o/lib/core/context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/h2o.dir/lib/core/context.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/context.c.o   -c /home/mark-lee/seckill/lib/core/context.c
 
 CMakeFiles/h2o.dir/lib/core/context.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/context.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/context.c > CMakeFiles/h2o.dir/lib/core/context.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/context.c > CMakeFiles/h2o.dir/lib/core/context.c.i
 
 CMakeFiles/h2o.dir/lib/core/context.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/context.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/context.c -o CMakeFiles/h2o.dir/lib/core/context.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/context.c -o CMakeFiles/h2o.dir/lib/core/context.c.s
 
 CMakeFiles/h2o.dir/lib/core/context.c.o.requires:
 
@@ -899,16 +899,16 @@ CMakeFiles/h2o.dir/lib/core/context.c.o.provides.build: CMakeFiles/h2o.dir/lib/c
 
 CMakeFiles/h2o.dir/lib/core/headers.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/headers.c.o: lib/core/headers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/h2o.dir/lib/core/headers.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/headers.c.o   -c /home/mark-lee/h2o/lib/core/headers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/h2o.dir/lib/core/headers.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/headers.c.o   -c /home/mark-lee/seckill/lib/core/headers.c
 
 CMakeFiles/h2o.dir/lib/core/headers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/headers.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/headers.c > CMakeFiles/h2o.dir/lib/core/headers.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/headers.c > CMakeFiles/h2o.dir/lib/core/headers.c.i
 
 CMakeFiles/h2o.dir/lib/core/headers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/headers.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/headers.c -o CMakeFiles/h2o.dir/lib/core/headers.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/headers.c -o CMakeFiles/h2o.dir/lib/core/headers.c.s
 
 CMakeFiles/h2o.dir/lib/core/headers.c.o.requires:
 
@@ -923,16 +923,16 @@ CMakeFiles/h2o.dir/lib/core/headers.c.o.provides.build: CMakeFiles/h2o.dir/lib/c
 
 CMakeFiles/h2o.dir/lib/core/logconf.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/logconf.c.o: lib/core/logconf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/h2o.dir/lib/core/logconf.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/logconf.c.o   -c /home/mark-lee/h2o/lib/core/logconf.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/h2o.dir/lib/core/logconf.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/logconf.c.o   -c /home/mark-lee/seckill/lib/core/logconf.c
 
 CMakeFiles/h2o.dir/lib/core/logconf.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/logconf.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/logconf.c > CMakeFiles/h2o.dir/lib/core/logconf.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/logconf.c > CMakeFiles/h2o.dir/lib/core/logconf.c.i
 
 CMakeFiles/h2o.dir/lib/core/logconf.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/logconf.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/logconf.c -o CMakeFiles/h2o.dir/lib/core/logconf.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/logconf.c -o CMakeFiles/h2o.dir/lib/core/logconf.c.s
 
 CMakeFiles/h2o.dir/lib/core/logconf.c.o.requires:
 
@@ -947,16 +947,16 @@ CMakeFiles/h2o.dir/lib/core/logconf.c.o.provides.build: CMakeFiles/h2o.dir/lib/c
 
 CMakeFiles/h2o.dir/lib/core/proxy.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/proxy.c.o: lib/core/proxy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/h2o.dir/lib/core/proxy.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/proxy.c.o   -c /home/mark-lee/h2o/lib/core/proxy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/h2o.dir/lib/core/proxy.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/proxy.c.o   -c /home/mark-lee/seckill/lib/core/proxy.c
 
 CMakeFiles/h2o.dir/lib/core/proxy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/proxy.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/proxy.c > CMakeFiles/h2o.dir/lib/core/proxy.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/proxy.c > CMakeFiles/h2o.dir/lib/core/proxy.c.i
 
 CMakeFiles/h2o.dir/lib/core/proxy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/proxy.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/proxy.c -o CMakeFiles/h2o.dir/lib/core/proxy.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/proxy.c -o CMakeFiles/h2o.dir/lib/core/proxy.c.s
 
 CMakeFiles/h2o.dir/lib/core/proxy.c.o.requires:
 
@@ -971,16 +971,16 @@ CMakeFiles/h2o.dir/lib/core/proxy.c.o.provides.build: CMakeFiles/h2o.dir/lib/cor
 
 CMakeFiles/h2o.dir/lib/core/request.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/request.c.o: lib/core/request.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/h2o.dir/lib/core/request.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/request.c.o   -c /home/mark-lee/h2o/lib/core/request.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/h2o.dir/lib/core/request.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/request.c.o   -c /home/mark-lee/seckill/lib/core/request.c
 
 CMakeFiles/h2o.dir/lib/core/request.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/request.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/request.c > CMakeFiles/h2o.dir/lib/core/request.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/request.c > CMakeFiles/h2o.dir/lib/core/request.c.i
 
 CMakeFiles/h2o.dir/lib/core/request.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/request.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/request.c -o CMakeFiles/h2o.dir/lib/core/request.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/request.c -o CMakeFiles/h2o.dir/lib/core/request.c.s
 
 CMakeFiles/h2o.dir/lib/core/request.c.o.requires:
 
@@ -995,16 +995,16 @@ CMakeFiles/h2o.dir/lib/core/request.c.o.provides.build: CMakeFiles/h2o.dir/lib/c
 
 CMakeFiles/h2o.dir/lib/core/token.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/token.c.o: lib/core/token.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/h2o.dir/lib/core/token.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/token.c.o   -c /home/mark-lee/h2o/lib/core/token.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/h2o.dir/lib/core/token.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/token.c.o   -c /home/mark-lee/seckill/lib/core/token.c
 
 CMakeFiles/h2o.dir/lib/core/token.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/token.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/token.c > CMakeFiles/h2o.dir/lib/core/token.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/token.c > CMakeFiles/h2o.dir/lib/core/token.c.i
 
 CMakeFiles/h2o.dir/lib/core/token.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/token.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/token.c -o CMakeFiles/h2o.dir/lib/core/token.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/token.c -o CMakeFiles/h2o.dir/lib/core/token.c.s
 
 CMakeFiles/h2o.dir/lib/core/token.c.o.requires:
 
@@ -1019,16 +1019,16 @@ CMakeFiles/h2o.dir/lib/core/token.c.o.provides.build: CMakeFiles/h2o.dir/lib/cor
 
 CMakeFiles/h2o.dir/lib/core/util.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/core/util.c.o: lib/core/util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/h2o.dir/lib/core/util.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/util.c.o   -c /home/mark-lee/h2o/lib/core/util.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/h2o.dir/lib/core/util.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/core/util.c.o   -c /home/mark-lee/seckill/lib/core/util.c
 
 CMakeFiles/h2o.dir/lib/core/util.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/core/util.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/core/util.c > CMakeFiles/h2o.dir/lib/core/util.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/core/util.c > CMakeFiles/h2o.dir/lib/core/util.c.i
 
 CMakeFiles/h2o.dir/lib/core/util.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/core/util.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/core/util.c -o CMakeFiles/h2o.dir/lib/core/util.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/core/util.c -o CMakeFiles/h2o.dir/lib/core/util.c.s
 
 CMakeFiles/h2o.dir/lib/core/util.c.o.requires:
 
@@ -1043,16 +1043,16 @@ CMakeFiles/h2o.dir/lib/core/util.c.o.provides.build: CMakeFiles/h2o.dir/lib/core
 
 CMakeFiles/h2o.dir/lib/handler/access_log.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/access_log.c.o: lib/handler/access_log.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/h2o.dir/lib/handler/access_log.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/access_log.c.o   -c /home/mark-lee/h2o/lib/handler/access_log.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/h2o.dir/lib/handler/access_log.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/access_log.c.o   -c /home/mark-lee/seckill/lib/handler/access_log.c
 
 CMakeFiles/h2o.dir/lib/handler/access_log.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/access_log.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/access_log.c > CMakeFiles/h2o.dir/lib/handler/access_log.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/access_log.c > CMakeFiles/h2o.dir/lib/handler/access_log.c.i
 
 CMakeFiles/h2o.dir/lib/handler/access_log.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/access_log.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/access_log.c -o CMakeFiles/h2o.dir/lib/handler/access_log.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/access_log.c -o CMakeFiles/h2o.dir/lib/handler/access_log.c.s
 
 CMakeFiles/h2o.dir/lib/handler/access_log.c.o.requires:
 
@@ -1067,16 +1067,16 @@ CMakeFiles/h2o.dir/lib/handler/access_log.c.o.provides.build: CMakeFiles/h2o.dir
 
 CMakeFiles/h2o.dir/lib/handler/chunked.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/chunked.c.o: lib/handler/chunked.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/h2o.dir/lib/handler/chunked.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/chunked.c.o   -c /home/mark-lee/h2o/lib/handler/chunked.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/h2o.dir/lib/handler/chunked.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/chunked.c.o   -c /home/mark-lee/seckill/lib/handler/chunked.c
 
 CMakeFiles/h2o.dir/lib/handler/chunked.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/chunked.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/chunked.c > CMakeFiles/h2o.dir/lib/handler/chunked.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/chunked.c > CMakeFiles/h2o.dir/lib/handler/chunked.c.i
 
 CMakeFiles/h2o.dir/lib/handler/chunked.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/chunked.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/chunked.c -o CMakeFiles/h2o.dir/lib/handler/chunked.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/chunked.c -o CMakeFiles/h2o.dir/lib/handler/chunked.c.s
 
 CMakeFiles/h2o.dir/lib/handler/chunked.c.o.requires:
 
@@ -1091,16 +1091,16 @@ CMakeFiles/h2o.dir/lib/handler/chunked.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/handler/compress.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/compress.c.o: lib/handler/compress.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/h2o.dir/lib/handler/compress.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/compress.c.o   -c /home/mark-lee/h2o/lib/handler/compress.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/h2o.dir/lib/handler/compress.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/compress.c.o   -c /home/mark-lee/seckill/lib/handler/compress.c
 
 CMakeFiles/h2o.dir/lib/handler/compress.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/compress.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/compress.c > CMakeFiles/h2o.dir/lib/handler/compress.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/compress.c > CMakeFiles/h2o.dir/lib/handler/compress.c.i
 
 CMakeFiles/h2o.dir/lib/handler/compress.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/compress.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/compress.c -o CMakeFiles/h2o.dir/lib/handler/compress.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/compress.c -o CMakeFiles/h2o.dir/lib/handler/compress.c.s
 
 CMakeFiles/h2o.dir/lib/handler/compress.c.o.requires:
 
@@ -1115,16 +1115,16 @@ CMakeFiles/h2o.dir/lib/handler/compress.c.o.provides.build: CMakeFiles/h2o.dir/l
 
 CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o: lib/handler/compress/gzip.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o   -c /home/mark-lee/h2o/lib/handler/compress/gzip.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o   -c /home/mark-lee/seckill/lib/handler/compress/gzip.c
 
 CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/compress/gzip.c > CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/compress/gzip.c > CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.i
 
 CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/compress/gzip.c -o CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/compress/gzip.c -o CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.s
 
 CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o.requires:
 
@@ -1139,16 +1139,16 @@ CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o.provides.build: CMakeFiles/h2o.
 
 CMakeFiles/h2o.dir/lib/handler/errordoc.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/errordoc.c.o: lib/handler/errordoc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/h2o.dir/lib/handler/errordoc.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/errordoc.c.o   -c /home/mark-lee/h2o/lib/handler/errordoc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/h2o.dir/lib/handler/errordoc.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/errordoc.c.o   -c /home/mark-lee/seckill/lib/handler/errordoc.c
 
 CMakeFiles/h2o.dir/lib/handler/errordoc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/errordoc.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/errordoc.c > CMakeFiles/h2o.dir/lib/handler/errordoc.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/errordoc.c > CMakeFiles/h2o.dir/lib/handler/errordoc.c.i
 
 CMakeFiles/h2o.dir/lib/handler/errordoc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/errordoc.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/errordoc.c -o CMakeFiles/h2o.dir/lib/handler/errordoc.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/errordoc.c -o CMakeFiles/h2o.dir/lib/handler/errordoc.c.s
 
 CMakeFiles/h2o.dir/lib/handler/errordoc.c.o.requires:
 
@@ -1163,16 +1163,16 @@ CMakeFiles/h2o.dir/lib/handler/errordoc.c.o.provides.build: CMakeFiles/h2o.dir/l
 
 CMakeFiles/h2o.dir/lib/handler/expires.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/expires.c.o: lib/handler/expires.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/h2o.dir/lib/handler/expires.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/expires.c.o   -c /home/mark-lee/h2o/lib/handler/expires.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/h2o.dir/lib/handler/expires.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/expires.c.o   -c /home/mark-lee/seckill/lib/handler/expires.c
 
 CMakeFiles/h2o.dir/lib/handler/expires.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/expires.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/expires.c > CMakeFiles/h2o.dir/lib/handler/expires.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/expires.c > CMakeFiles/h2o.dir/lib/handler/expires.c.i
 
 CMakeFiles/h2o.dir/lib/handler/expires.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/expires.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/expires.c -o CMakeFiles/h2o.dir/lib/handler/expires.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/expires.c -o CMakeFiles/h2o.dir/lib/handler/expires.c.s
 
 CMakeFiles/h2o.dir/lib/handler/expires.c.o.requires:
 
@@ -1187,16 +1187,16 @@ CMakeFiles/h2o.dir/lib/handler/expires.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o: lib/handler/fastcgi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o   -c /home/mark-lee/h2o/lib/handler/fastcgi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o   -c /home/mark-lee/seckill/lib/handler/fastcgi.c
 
 CMakeFiles/h2o.dir/lib/handler/fastcgi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/fastcgi.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/fastcgi.c > CMakeFiles/h2o.dir/lib/handler/fastcgi.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/fastcgi.c > CMakeFiles/h2o.dir/lib/handler/fastcgi.c.i
 
 CMakeFiles/h2o.dir/lib/handler/fastcgi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/fastcgi.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/fastcgi.c -o CMakeFiles/h2o.dir/lib/handler/fastcgi.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/fastcgi.c -o CMakeFiles/h2o.dir/lib/handler/fastcgi.c.s
 
 CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o.requires:
 
@@ -1211,16 +1211,16 @@ CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/handler/file.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/file.c.o: lib/handler/file.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/h2o.dir/lib/handler/file.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/file.c.o   -c /home/mark-lee/h2o/lib/handler/file.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/h2o.dir/lib/handler/file.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/file.c.o   -c /home/mark-lee/seckill/lib/handler/file.c
 
 CMakeFiles/h2o.dir/lib/handler/file.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/file.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/file.c > CMakeFiles/h2o.dir/lib/handler/file.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/file.c > CMakeFiles/h2o.dir/lib/handler/file.c.i
 
 CMakeFiles/h2o.dir/lib/handler/file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/file.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/file.c -o CMakeFiles/h2o.dir/lib/handler/file.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/file.c -o CMakeFiles/h2o.dir/lib/handler/file.c.s
 
 CMakeFiles/h2o.dir/lib/handler/file.c.o.requires:
 
@@ -1235,16 +1235,16 @@ CMakeFiles/h2o.dir/lib/handler/file.c.o.provides.build: CMakeFiles/h2o.dir/lib/h
 
 CMakeFiles/h2o.dir/lib/handler/headers.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/headers.c.o: lib/handler/headers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/h2o.dir/lib/handler/headers.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/headers.c.o   -c /home/mark-lee/h2o/lib/handler/headers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/h2o.dir/lib/handler/headers.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/headers.c.o   -c /home/mark-lee/seckill/lib/handler/headers.c
 
 CMakeFiles/h2o.dir/lib/handler/headers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/headers.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/headers.c > CMakeFiles/h2o.dir/lib/handler/headers.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/headers.c > CMakeFiles/h2o.dir/lib/handler/headers.c.i
 
 CMakeFiles/h2o.dir/lib/handler/headers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/headers.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/headers.c -o CMakeFiles/h2o.dir/lib/handler/headers.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/headers.c -o CMakeFiles/h2o.dir/lib/handler/headers.c.s
 
 CMakeFiles/h2o.dir/lib/handler/headers.c.o.requires:
 
@@ -1259,16 +1259,16 @@ CMakeFiles/h2o.dir/lib/handler/headers.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/handler/mimemap.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/mimemap.c.o: lib/handler/mimemap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/h2o.dir/lib/handler/mimemap.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mimemap.c.o   -c /home/mark-lee/h2o/lib/handler/mimemap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/h2o.dir/lib/handler/mimemap.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mimemap.c.o   -c /home/mark-lee/seckill/lib/handler/mimemap.c
 
 CMakeFiles/h2o.dir/lib/handler/mimemap.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/mimemap.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/mimemap.c > CMakeFiles/h2o.dir/lib/handler/mimemap.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/mimemap.c > CMakeFiles/h2o.dir/lib/handler/mimemap.c.i
 
 CMakeFiles/h2o.dir/lib/handler/mimemap.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/mimemap.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/mimemap.c -o CMakeFiles/h2o.dir/lib/handler/mimemap.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/mimemap.c -o CMakeFiles/h2o.dir/lib/handler/mimemap.c.s
 
 CMakeFiles/h2o.dir/lib/handler/mimemap.c.o.requires:
 
@@ -1283,16 +1283,16 @@ CMakeFiles/h2o.dir/lib/handler/mimemap.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/handler/proxy.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/proxy.c.o: lib/handler/proxy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/h2o.dir/lib/handler/proxy.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/proxy.c.o   -c /home/mark-lee/h2o/lib/handler/proxy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/h2o.dir/lib/handler/proxy.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/proxy.c.o   -c /home/mark-lee/seckill/lib/handler/proxy.c
 
 CMakeFiles/h2o.dir/lib/handler/proxy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/proxy.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/proxy.c > CMakeFiles/h2o.dir/lib/handler/proxy.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/proxy.c > CMakeFiles/h2o.dir/lib/handler/proxy.c.i
 
 CMakeFiles/h2o.dir/lib/handler/proxy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/proxy.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/proxy.c -o CMakeFiles/h2o.dir/lib/handler/proxy.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/proxy.c -o CMakeFiles/h2o.dir/lib/handler/proxy.c.s
 
 CMakeFiles/h2o.dir/lib/handler/proxy.c.o.requires:
 
@@ -1307,16 +1307,16 @@ CMakeFiles/h2o.dir/lib/handler/proxy.c.o.provides.build: CMakeFiles/h2o.dir/lib/
 
 CMakeFiles/h2o.dir/lib/handler/redirect.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/redirect.c.o: lib/handler/redirect.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/h2o.dir/lib/handler/redirect.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/redirect.c.o   -c /home/mark-lee/h2o/lib/handler/redirect.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/h2o.dir/lib/handler/redirect.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/redirect.c.o   -c /home/mark-lee/seckill/lib/handler/redirect.c
 
 CMakeFiles/h2o.dir/lib/handler/redirect.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/redirect.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/redirect.c > CMakeFiles/h2o.dir/lib/handler/redirect.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/redirect.c > CMakeFiles/h2o.dir/lib/handler/redirect.c.i
 
 CMakeFiles/h2o.dir/lib/handler/redirect.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/redirect.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/redirect.c -o CMakeFiles/h2o.dir/lib/handler/redirect.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/redirect.c -o CMakeFiles/h2o.dir/lib/handler/redirect.c.s
 
 CMakeFiles/h2o.dir/lib/handler/redirect.c.o.requires:
 
@@ -1331,16 +1331,16 @@ CMakeFiles/h2o.dir/lib/handler/redirect.c.o.provides.build: CMakeFiles/h2o.dir/l
 
 CMakeFiles/h2o.dir/lib/handler/reproxy.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/reproxy.c.o: lib/handler/reproxy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/h2o.dir/lib/handler/reproxy.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/reproxy.c.o   -c /home/mark-lee/h2o/lib/handler/reproxy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/h2o.dir/lib/handler/reproxy.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/reproxy.c.o   -c /home/mark-lee/seckill/lib/handler/reproxy.c
 
 CMakeFiles/h2o.dir/lib/handler/reproxy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/reproxy.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/reproxy.c > CMakeFiles/h2o.dir/lib/handler/reproxy.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/reproxy.c > CMakeFiles/h2o.dir/lib/handler/reproxy.c.i
 
 CMakeFiles/h2o.dir/lib/handler/reproxy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/reproxy.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/reproxy.c -o CMakeFiles/h2o.dir/lib/handler/reproxy.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/reproxy.c -o CMakeFiles/h2o.dir/lib/handler/reproxy.c.s
 
 CMakeFiles/h2o.dir/lib/handler/reproxy.c.o.requires:
 
@@ -1355,16 +1355,16 @@ CMakeFiles/h2o.dir/lib/handler/reproxy.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o: lib/handler/throttle_resp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o   -c /home/mark-lee/h2o/lib/handler/throttle_resp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o   -c /home/mark-lee/seckill/lib/handler/throttle_resp.c
 
 CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/throttle_resp.c > CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/throttle_resp.c > CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.i
 
 CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/throttle_resp.c -o CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/throttle_resp.c -o CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.s
 
 CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o.requires:
 
@@ -1379,16 +1379,16 @@ CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o.provides.build: CMakeFiles/h2o.
 
 CMakeFiles/h2o.dir/lib/handler/status.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/status.c.o: lib/handler/status.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/h2o.dir/lib/handler/status.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status.c.o   -c /home/mark-lee/h2o/lib/handler/status.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/h2o.dir/lib/handler/status.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status.c.o   -c /home/mark-lee/seckill/lib/handler/status.c
 
 CMakeFiles/h2o.dir/lib/handler/status.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/status.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/status.c > CMakeFiles/h2o.dir/lib/handler/status.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/status.c > CMakeFiles/h2o.dir/lib/handler/status.c.i
 
 CMakeFiles/h2o.dir/lib/handler/status.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/status.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/status.c -o CMakeFiles/h2o.dir/lib/handler/status.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/status.c -o CMakeFiles/h2o.dir/lib/handler/status.c.s
 
 CMakeFiles/h2o.dir/lib/handler/status.c.o.requires:
 
@@ -1403,16 +1403,16 @@ CMakeFiles/h2o.dir/lib/handler/status.c.o.provides.build: CMakeFiles/h2o.dir/lib
 
 CMakeFiles/h2o.dir/lib/handler/headers_util.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/headers_util.c.o: lib/handler/headers_util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/h2o.dir/lib/handler/headers_util.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/headers_util.c.o   -c /home/mark-lee/h2o/lib/handler/headers_util.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/h2o.dir/lib/handler/headers_util.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/headers_util.c.o   -c /home/mark-lee/seckill/lib/handler/headers_util.c
 
 CMakeFiles/h2o.dir/lib/handler/headers_util.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/headers_util.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/headers_util.c > CMakeFiles/h2o.dir/lib/handler/headers_util.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/headers_util.c > CMakeFiles/h2o.dir/lib/handler/headers_util.c.i
 
 CMakeFiles/h2o.dir/lib/handler/headers_util.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/headers_util.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/headers_util.c -o CMakeFiles/h2o.dir/lib/handler/headers_util.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/headers_util.c -o CMakeFiles/h2o.dir/lib/handler/headers_util.c.s
 
 CMakeFiles/h2o.dir/lib/handler/headers_util.c.o.requires:
 
@@ -1427,16 +1427,16 @@ CMakeFiles/h2o.dir/lib/handler/headers_util.c.o.provides.build: CMakeFiles/h2o.d
 
 CMakeFiles/h2o.dir/lib/handler/status/events.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/status/events.c.o: lib/handler/status/events.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/h2o.dir/lib/handler/status/events.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status/events.c.o   -c /home/mark-lee/h2o/lib/handler/status/events.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/h2o.dir/lib/handler/status/events.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status/events.c.o   -c /home/mark-lee/seckill/lib/handler/status/events.c
 
 CMakeFiles/h2o.dir/lib/handler/status/events.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/status/events.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/status/events.c > CMakeFiles/h2o.dir/lib/handler/status/events.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/status/events.c > CMakeFiles/h2o.dir/lib/handler/status/events.c.i
 
 CMakeFiles/h2o.dir/lib/handler/status/events.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/status/events.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/status/events.c -o CMakeFiles/h2o.dir/lib/handler/status/events.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/status/events.c -o CMakeFiles/h2o.dir/lib/handler/status/events.c.s
 
 CMakeFiles/h2o.dir/lib/handler/status/events.c.o.requires:
 
@@ -1451,16 +1451,16 @@ CMakeFiles/h2o.dir/lib/handler/status/events.c.o.provides.build: CMakeFiles/h2o.
 
 CMakeFiles/h2o.dir/lib/handler/status/requests.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/status/requests.c.o: lib/handler/status/requests.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/h2o.dir/lib/handler/status/requests.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status/requests.c.o   -c /home/mark-lee/h2o/lib/handler/status/requests.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/h2o.dir/lib/handler/status/requests.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status/requests.c.o   -c /home/mark-lee/seckill/lib/handler/status/requests.c
 
 CMakeFiles/h2o.dir/lib/handler/status/requests.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/status/requests.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/status/requests.c > CMakeFiles/h2o.dir/lib/handler/status/requests.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/status/requests.c > CMakeFiles/h2o.dir/lib/handler/status/requests.c.i
 
 CMakeFiles/h2o.dir/lib/handler/status/requests.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/status/requests.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/status/requests.c -o CMakeFiles/h2o.dir/lib/handler/status/requests.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/status/requests.c -o CMakeFiles/h2o.dir/lib/handler/status/requests.c.s
 
 CMakeFiles/h2o.dir/lib/handler/status/requests.c.o.requires:
 
@@ -1475,16 +1475,16 @@ CMakeFiles/h2o.dir/lib/handler/status/requests.c.o.provides.build: CMakeFiles/h2
 
 CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o: lib/handler/http2_debug_state.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o   -c /home/mark-lee/h2o/lib/handler/http2_debug_state.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o   -c /home/mark-lee/seckill/lib/handler/http2_debug_state.c
 
 CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/http2_debug_state.c > CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/http2_debug_state.c > CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.i
 
 CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/http2_debug_state.c -o CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/http2_debug_state.c -o CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.s
 
 CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o.requires:
 
@@ -1499,16 +1499,16 @@ CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/h2o.dir/lib/handler/status/durations.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/status/durations.c.o: lib/handler/status/durations.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/h2o.dir/lib/handler/status/durations.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status/durations.c.o   -c /home/mark-lee/h2o/lib/handler/status/durations.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/h2o.dir/lib/handler/status/durations.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/status/durations.c.o   -c /home/mark-lee/seckill/lib/handler/status/durations.c
 
 CMakeFiles/h2o.dir/lib/handler/status/durations.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/status/durations.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/status/durations.c > CMakeFiles/h2o.dir/lib/handler/status/durations.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/status/durations.c > CMakeFiles/h2o.dir/lib/handler/status/durations.c.i
 
 CMakeFiles/h2o.dir/lib/handler/status/durations.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/status/durations.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/status/durations.c -o CMakeFiles/h2o.dir/lib/handler/status/durations.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/status/durations.c -o CMakeFiles/h2o.dir/lib/handler/status/durations.c.s
 
 CMakeFiles/h2o.dir/lib/handler/status/durations.c.o.requires:
 
@@ -1523,16 +1523,16 @@ CMakeFiles/h2o.dir/lib/handler/status/durations.c.o.provides.build: CMakeFiles/h
 
 CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o: lib/handler/configurator/access_log.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/access_log.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/access_log.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/access_log.c > CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/access_log.c > CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/access_log.c -o CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/access_log.c -o CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o.requires:
 
@@ -1547,16 +1547,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o.provides.build: CMake
 
 CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o: lib/handler/configurator/compress.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/compress.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/compress.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/compress.c > CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/compress.c > CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/compress.c -o CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/compress.c -o CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o.requires:
 
@@ -1571,16 +1571,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o.provides.build: CMakeFi
 
 CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o: lib/handler/configurator/errordoc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/errordoc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/errordoc.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/errordoc.c > CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/errordoc.c > CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/errordoc.c -o CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/errordoc.c -o CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o.requires:
 
@@ -1595,16 +1595,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o.provides.build: CMakeFi
 
 CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o: lib/handler/configurator/expires.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/expires.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/expires.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/expires.c > CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/expires.c > CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/expires.c -o CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/expires.c -o CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o.requires:
 
@@ -1619,16 +1619,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o.provides.build: CMakeFil
 
 CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o: lib/handler/configurator/fastcgi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/fastcgi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/fastcgi.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/fastcgi.c > CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/fastcgi.c > CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/fastcgi.c -o CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/fastcgi.c -o CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o.requires:
 
@@ -1643,16 +1643,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o.provides.build: CMakeFil
 
 CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o: lib/handler/configurator/file.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/file.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/file.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/file.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/file.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/file.c > CMakeFiles/h2o.dir/lib/handler/configurator/file.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/file.c > CMakeFiles/h2o.dir/lib/handler/configurator/file.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/file.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/file.c -o CMakeFiles/h2o.dir/lib/handler/configurator/file.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/file.c -o CMakeFiles/h2o.dir/lib/handler/configurator/file.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o.requires:
 
@@ -1667,16 +1667,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o: lib/handler/configurator/headers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/headers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/headers.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/headers.c > CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/headers.c > CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/headers.c -o CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/headers.c -o CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o.requires:
 
@@ -1691,16 +1691,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o.provides.build: CMakeFil
 
 CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o: lib/handler/configurator/proxy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/proxy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/proxy.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/proxy.c > CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/proxy.c > CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/proxy.c -o CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/proxy.c -o CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o.requires:
 
@@ -1715,16 +1715,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o.provides.build: CMakeFiles
 
 CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o: lib/handler/configurator/redirect.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/redirect.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/redirect.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/redirect.c > CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/redirect.c > CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/redirect.c -o CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/redirect.c -o CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o.requires:
 
@@ -1739,16 +1739,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o.provides.build: CMakeFi
 
 CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o: lib/handler/configurator/reproxy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/reproxy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/reproxy.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/reproxy.c > CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/reproxy.c > CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/reproxy.c -o CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/reproxy.c -o CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o.requires:
 
@@ -1763,16 +1763,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o.provides.build: CMakeFil
 
 CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o: lib/handler/configurator/throttle_resp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/throttle_resp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/throttle_resp.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/throttle_resp.c > CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/throttle_resp.c > CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/throttle_resp.c -o CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/throttle_resp.c -o CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o.requires:
 
@@ -1787,16 +1787,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o.provides.build: CM
 
 CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o: lib/handler/configurator/status.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/status.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/status.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/status.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/status.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/status.c > CMakeFiles/h2o.dir/lib/handler/configurator/status.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/status.c > CMakeFiles/h2o.dir/lib/handler/configurator/status.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/status.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/status.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/status.c -o CMakeFiles/h2o.dir/lib/handler/configurator/status.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/status.c -o CMakeFiles/h2o.dir/lib/handler/configurator/status.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o.requires:
 
@@ -1811,16 +1811,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o.provides.build: CMakeFile
 
 CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o: lib/handler/configurator/http2_debug_state.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/http2_debug_state.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/http2_debug_state.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/http2_debug_state.c > CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/http2_debug_state.c > CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/http2_debug_state.c -o CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/http2_debug_state.c -o CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o.requires:
 
@@ -1835,16 +1835,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o.provides.build
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o: lib/handler/configurator/headers_util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/headers_util.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/headers_util.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/headers_util.c > CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/headers_util.c > CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/headers_util.c -o CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/headers_util.c -o CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o.requires:
 
@@ -1859,16 +1859,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o.provides.build: CMa
 
 CMakeFiles/h2o.dir/lib/http1.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http1.c.o: lib/http1.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/h2o.dir/lib/http1.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http1.c.o   -c /home/mark-lee/h2o/lib/http1.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/h2o.dir/lib/http1.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http1.c.o   -c /home/mark-lee/seckill/lib/http1.c
 
 CMakeFiles/h2o.dir/lib/http1.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http1.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http1.c > CMakeFiles/h2o.dir/lib/http1.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http1.c > CMakeFiles/h2o.dir/lib/http1.c.i
 
 CMakeFiles/h2o.dir/lib/http1.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http1.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http1.c -o CMakeFiles/h2o.dir/lib/http1.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http1.c -o CMakeFiles/h2o.dir/lib/http1.c.s
 
 CMakeFiles/h2o.dir/lib/http1.c.o.requires:
 
@@ -1883,16 +1883,16 @@ CMakeFiles/h2o.dir/lib/http1.c.o.provides.build: CMakeFiles/h2o.dir/lib/http1.c.
 
 CMakeFiles/h2o.dir/lib/tunnel.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/tunnel.c.o: lib/tunnel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/h2o.dir/lib/tunnel.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/tunnel.c.o   -c /home/mark-lee/h2o/lib/tunnel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/h2o.dir/lib/tunnel.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/tunnel.c.o   -c /home/mark-lee/seckill/lib/tunnel.c
 
 CMakeFiles/h2o.dir/lib/tunnel.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/tunnel.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/tunnel.c > CMakeFiles/h2o.dir/lib/tunnel.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/tunnel.c > CMakeFiles/h2o.dir/lib/tunnel.c.i
 
 CMakeFiles/h2o.dir/lib/tunnel.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/tunnel.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/tunnel.c -o CMakeFiles/h2o.dir/lib/tunnel.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/tunnel.c -o CMakeFiles/h2o.dir/lib/tunnel.c.s
 
 CMakeFiles/h2o.dir/lib/tunnel.c.o.requires:
 
@@ -1907,16 +1907,16 @@ CMakeFiles/h2o.dir/lib/tunnel.c.o.provides.build: CMakeFiles/h2o.dir/lib/tunnel.
 
 CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o: lib/http2/cache_digests.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o   -c /home/mark-lee/h2o/lib/http2/cache_digests.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o   -c /home/mark-lee/seckill/lib/http2/cache_digests.c
 
 CMakeFiles/h2o.dir/lib/http2/cache_digests.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/cache_digests.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/cache_digests.c > CMakeFiles/h2o.dir/lib/http2/cache_digests.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/cache_digests.c > CMakeFiles/h2o.dir/lib/http2/cache_digests.c.i
 
 CMakeFiles/h2o.dir/lib/http2/cache_digests.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/cache_digests.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/cache_digests.c -o CMakeFiles/h2o.dir/lib/http2/cache_digests.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/cache_digests.c -o CMakeFiles/h2o.dir/lib/http2/cache_digests.c.s
 
 CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o.requires:
 
@@ -1931,16 +1931,16 @@ CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o.provides.build: CMakeFiles/h2o.di
 
 CMakeFiles/h2o.dir/lib/http2/casper.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/casper.c.o: lib/http2/casper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/h2o.dir/lib/http2/casper.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/casper.c.o   -c /home/mark-lee/h2o/lib/http2/casper.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/h2o.dir/lib/http2/casper.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/casper.c.o   -c /home/mark-lee/seckill/lib/http2/casper.c
 
 CMakeFiles/h2o.dir/lib/http2/casper.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/casper.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/casper.c > CMakeFiles/h2o.dir/lib/http2/casper.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/casper.c > CMakeFiles/h2o.dir/lib/http2/casper.c.i
 
 CMakeFiles/h2o.dir/lib/http2/casper.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/casper.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/casper.c -o CMakeFiles/h2o.dir/lib/http2/casper.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/casper.c -o CMakeFiles/h2o.dir/lib/http2/casper.c.s
 
 CMakeFiles/h2o.dir/lib/http2/casper.c.o.requires:
 
@@ -1955,16 +1955,16 @@ CMakeFiles/h2o.dir/lib/http2/casper.c.o.provides.build: CMakeFiles/h2o.dir/lib/h
 
 CMakeFiles/h2o.dir/lib/http2/connection.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/connection.c.o: lib/http2/connection.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/h2o.dir/lib/http2/connection.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/connection.c.o   -c /home/mark-lee/h2o/lib/http2/connection.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/h2o.dir/lib/http2/connection.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/connection.c.o   -c /home/mark-lee/seckill/lib/http2/connection.c
 
 CMakeFiles/h2o.dir/lib/http2/connection.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/connection.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/connection.c > CMakeFiles/h2o.dir/lib/http2/connection.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/connection.c > CMakeFiles/h2o.dir/lib/http2/connection.c.i
 
 CMakeFiles/h2o.dir/lib/http2/connection.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/connection.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/connection.c -o CMakeFiles/h2o.dir/lib/http2/connection.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/connection.c -o CMakeFiles/h2o.dir/lib/http2/connection.c.s
 
 CMakeFiles/h2o.dir/lib/http2/connection.c.o.requires:
 
@@ -1979,16 +1979,16 @@ CMakeFiles/h2o.dir/lib/http2/connection.c.o.provides.build: CMakeFiles/h2o.dir/l
 
 CMakeFiles/h2o.dir/lib/http2/frame.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/frame.c.o: lib/http2/frame.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/h2o.dir/lib/http2/frame.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/frame.c.o   -c /home/mark-lee/h2o/lib/http2/frame.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/h2o.dir/lib/http2/frame.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/frame.c.o   -c /home/mark-lee/seckill/lib/http2/frame.c
 
 CMakeFiles/h2o.dir/lib/http2/frame.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/frame.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/frame.c > CMakeFiles/h2o.dir/lib/http2/frame.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/frame.c > CMakeFiles/h2o.dir/lib/http2/frame.c.i
 
 CMakeFiles/h2o.dir/lib/http2/frame.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/frame.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/frame.c -o CMakeFiles/h2o.dir/lib/http2/frame.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/frame.c -o CMakeFiles/h2o.dir/lib/http2/frame.c.s
 
 CMakeFiles/h2o.dir/lib/http2/frame.c.o.requires:
 
@@ -2003,16 +2003,16 @@ CMakeFiles/h2o.dir/lib/http2/frame.c.o.provides.build: CMakeFiles/h2o.dir/lib/ht
 
 CMakeFiles/h2o.dir/lib/http2/hpack.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/hpack.c.o: lib/http2/hpack.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/h2o.dir/lib/http2/hpack.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/hpack.c.o   -c /home/mark-lee/h2o/lib/http2/hpack.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/h2o.dir/lib/http2/hpack.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/hpack.c.o   -c /home/mark-lee/seckill/lib/http2/hpack.c
 
 CMakeFiles/h2o.dir/lib/http2/hpack.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/hpack.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/hpack.c > CMakeFiles/h2o.dir/lib/http2/hpack.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/hpack.c > CMakeFiles/h2o.dir/lib/http2/hpack.c.i
 
 CMakeFiles/h2o.dir/lib/http2/hpack.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/hpack.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/hpack.c -o CMakeFiles/h2o.dir/lib/http2/hpack.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/hpack.c -o CMakeFiles/h2o.dir/lib/http2/hpack.c.s
 
 CMakeFiles/h2o.dir/lib/http2/hpack.c.o.requires:
 
@@ -2027,16 +2027,16 @@ CMakeFiles/h2o.dir/lib/http2/hpack.c.o.provides.build: CMakeFiles/h2o.dir/lib/ht
 
 CMakeFiles/h2o.dir/lib/http2/scheduler.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/scheduler.c.o: lib/http2/scheduler.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/h2o.dir/lib/http2/scheduler.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/scheduler.c.o   -c /home/mark-lee/h2o/lib/http2/scheduler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/h2o.dir/lib/http2/scheduler.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/scheduler.c.o   -c /home/mark-lee/seckill/lib/http2/scheduler.c
 
 CMakeFiles/h2o.dir/lib/http2/scheduler.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/scheduler.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/scheduler.c > CMakeFiles/h2o.dir/lib/http2/scheduler.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/scheduler.c > CMakeFiles/h2o.dir/lib/http2/scheduler.c.i
 
 CMakeFiles/h2o.dir/lib/http2/scheduler.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/scheduler.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/scheduler.c -o CMakeFiles/h2o.dir/lib/http2/scheduler.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/scheduler.c -o CMakeFiles/h2o.dir/lib/http2/scheduler.c.s
 
 CMakeFiles/h2o.dir/lib/http2/scheduler.c.o.requires:
 
@@ -2051,16 +2051,16 @@ CMakeFiles/h2o.dir/lib/http2/scheduler.c.o.provides.build: CMakeFiles/h2o.dir/li
 
 CMakeFiles/h2o.dir/lib/http2/stream.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/stream.c.o: lib/http2/stream.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/h2o.dir/lib/http2/stream.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/stream.c.o   -c /home/mark-lee/h2o/lib/http2/stream.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/h2o.dir/lib/http2/stream.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/stream.c.o   -c /home/mark-lee/seckill/lib/http2/stream.c
 
 CMakeFiles/h2o.dir/lib/http2/stream.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/stream.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/stream.c > CMakeFiles/h2o.dir/lib/http2/stream.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/stream.c > CMakeFiles/h2o.dir/lib/http2/stream.c.i
 
 CMakeFiles/h2o.dir/lib/http2/stream.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/stream.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/stream.c -o CMakeFiles/h2o.dir/lib/http2/stream.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/stream.c -o CMakeFiles/h2o.dir/lib/http2/stream.c.s
 
 CMakeFiles/h2o.dir/lib/http2/stream.c.o.requires:
 
@@ -2075,16 +2075,16 @@ CMakeFiles/h2o.dir/lib/http2/stream.c.o.provides.build: CMakeFiles/h2o.dir/lib/h
 
 CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o: lib/http2/http2_debug_state.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o   -c /home/mark-lee/h2o/lib/http2/http2_debug_state.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o   -c /home/mark-lee/seckill/lib/http2/http2_debug_state.c
 
 CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/http2/http2_debug_state.c > CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/http2/http2_debug_state.c > CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.i
 
 CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/http2/http2_debug_state.c -o CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/http2/http2_debug_state.c -o CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.s
 
 CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o.requires:
 
@@ -2099,16 +2099,16 @@ CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o.provides.build: CMakeFiles/h2
 
 CMakeFiles/h2o.dir/deps/yaml/src/api.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/api.c.o: deps/yaml/src/api.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/api.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/api.c.o   -c /home/mark-lee/h2o/deps/yaml/src/api.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/api.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/api.c.o   -c /home/mark-lee/seckill/deps/yaml/src/api.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/api.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/api.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/api.c > CMakeFiles/h2o.dir/deps/yaml/src/api.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/api.c > CMakeFiles/h2o.dir/deps/yaml/src/api.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/api.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/api.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/api.c -o CMakeFiles/h2o.dir/deps/yaml/src/api.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/api.c -o CMakeFiles/h2o.dir/deps/yaml/src/api.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/api.c.o.requires:
 
@@ -2123,16 +2123,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/api.c.o.provides.build: CMakeFiles/h2o.dir/deps
 
 CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o: deps/yaml/src/dumper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o   -c /home/mark-lee/h2o/deps/yaml/src/dumper.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o   -c /home/mark-lee/seckill/deps/yaml/src/dumper.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/dumper.c > CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/dumper.c > CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/dumper.c -o CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/dumper.c -o CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o.requires:
 
@@ -2147,16 +2147,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o: deps/yaml/src/emitter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o   -c /home/mark-lee/h2o/deps/yaml/src/emitter.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o   -c /home/mark-lee/seckill/deps/yaml/src/emitter.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/emitter.c > CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/emitter.c > CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/emitter.c -o CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/emitter.c -o CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o.requires:
 
@@ -2171,16 +2171,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o.provides.build: CMakeFiles/h2o.dir/
 
 CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o: deps/yaml/src/loader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o   -c /home/mark-lee/h2o/deps/yaml/src/loader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o   -c /home/mark-lee/seckill/deps/yaml/src/loader.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/loader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/loader.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/loader.c > CMakeFiles/h2o.dir/deps/yaml/src/loader.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/loader.c > CMakeFiles/h2o.dir/deps/yaml/src/loader.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/loader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/loader.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/loader.c -o CMakeFiles/h2o.dir/deps/yaml/src/loader.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/loader.c -o CMakeFiles/h2o.dir/deps/yaml/src/loader.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o.requires:
 
@@ -2195,16 +2195,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o: deps/yaml/src/parser.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o   -c /home/mark-lee/h2o/deps/yaml/src/parser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o   -c /home/mark-lee/seckill/deps/yaml/src/parser.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/parser.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/parser.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/parser.c > CMakeFiles/h2o.dir/deps/yaml/src/parser.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/parser.c > CMakeFiles/h2o.dir/deps/yaml/src/parser.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/parser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/parser.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/parser.c -o CMakeFiles/h2o.dir/deps/yaml/src/parser.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/parser.c -o CMakeFiles/h2o.dir/deps/yaml/src/parser.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o.requires:
 
@@ -2219,16 +2219,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o: deps/yaml/src/reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o   -c /home/mark-lee/h2o/deps/yaml/src/reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o   -c /home/mark-lee/seckill/deps/yaml/src/reader.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/reader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/reader.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/reader.c > CMakeFiles/h2o.dir/deps/yaml/src/reader.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/reader.c > CMakeFiles/h2o.dir/deps/yaml/src/reader.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/reader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/reader.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/reader.c -o CMakeFiles/h2o.dir/deps/yaml/src/reader.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/reader.c -o CMakeFiles/h2o.dir/deps/yaml/src/reader.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o.requires:
 
@@ -2243,16 +2243,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o: deps/yaml/src/scanner.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o   -c /home/mark-lee/h2o/deps/yaml/src/scanner.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o   -c /home/mark-lee/seckill/deps/yaml/src/scanner.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/scanner.c > CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/scanner.c > CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/scanner.c -o CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/scanner.c -o CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o.requires:
 
@@ -2267,16 +2267,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o.provides.build: CMakeFiles/h2o.dir/
 
 CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o: deps/yaml/src/writer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o   -c /home/mark-lee/h2o/deps/yaml/src/writer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o   -c /home/mark-lee/seckill/deps/yaml/src/writer.c
 
 CMakeFiles/h2o.dir/deps/yaml/src/writer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/yaml/src/writer.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/yaml/src/writer.c > CMakeFiles/h2o.dir/deps/yaml/src/writer.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/yaml/src/writer.c > CMakeFiles/h2o.dir/deps/yaml/src/writer.c.i
 
 CMakeFiles/h2o.dir/deps/yaml/src/writer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/yaml/src/writer.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/yaml/src/writer.c -o CMakeFiles/h2o.dir/deps/yaml/src/writer.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/yaml/src/writer.c -o CMakeFiles/h2o.dir/deps/yaml/src/writer.c.s
 
 CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o.requires:
 
@@ -2291,16 +2291,16 @@ CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o.provides.build: CMakeFiles/h2o.dir/d
 
 CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o: deps/brotli/enc/backward_references.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/backward_references.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/backward_references.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/backward_references.cc > CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/backward_references.cc > CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/backward_references.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/backward_references.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o.requires:
 
@@ -2315,16 +2315,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o.provides.build: CMak
 
 CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o: deps/brotli/enc/block_splitter.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/block_splitter.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/block_splitter.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/block_splitter.cc > CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/block_splitter.cc > CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/block_splitter.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/block_splitter.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o.requires:
 
@@ -2339,16 +2339,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o.provides.build: CMakeFile
 
 CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o: deps/brotli/enc/brotli_bit_stream.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/brotli_bit_stream.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/brotli_bit_stream.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/brotli_bit_stream.cc > CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/brotli_bit_stream.cc > CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/brotli_bit_stream.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/brotli_bit_stream.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o.requires:
 
@@ -2363,16 +2363,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o.provides.build: CMakeF
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o: deps/brotli/enc/compress_fragment.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/compress_fragment.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/compress_fragment.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/compress_fragment.cc > CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/compress_fragment.cc > CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/compress_fragment.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/compress_fragment.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o.requires:
 
@@ -2387,16 +2387,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o.provides.build: CMakeF
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o: deps/brotli/enc/compress_fragment_two_pass.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/compress_fragment_two_pass.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/compress_fragment_two_pass.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/compress_fragment_two_pass.cc > CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/compress_fragment_two_pass.cc > CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/compress_fragment_two_pass.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/compress_fragment_two_pass.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o.requires:
 
@@ -2411,16 +2411,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o.provides.buil
 
 CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o: deps/brotli/enc/dictionary.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/dictionary.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/dictionary.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/dictionary.cc > CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/dictionary.cc > CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/dictionary.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/dictionary.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o.requires:
 
@@ -2435,16 +2435,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o.provides.build: CMakeFiles/h2
 
 CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o: deps/brotli/enc/encode.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/encode.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/encode.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/encode.cc > CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/encode.cc > CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/encode.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/encode.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o.requires:
 
@@ -2459,16 +2459,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o.provides.build: CMakeFiles/h2o.di
 
 CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o: deps/brotli/enc/entropy_encode.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/entropy_encode.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/entropy_encode.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/entropy_encode.cc > CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/entropy_encode.cc > CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/entropy_encode.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/entropy_encode.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o.requires:
 
@@ -2483,16 +2483,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o.provides.build: CMakeFile
 
 CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o: deps/brotli/enc/histogram.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/histogram.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/histogram.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/histogram.cc > CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/histogram.cc > CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/histogram.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/histogram.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o.requires:
 
@@ -2507,16 +2507,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o.provides.build: CMakeFiles/h2o
 
 CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o: deps/brotli/enc/literal_cost.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/literal_cost.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/literal_cost.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/literal_cost.cc > CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/literal_cost.cc > CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/literal_cost.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/literal_cost.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o.requires:
 
@@ -2531,16 +2531,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o.provides.build: CMakeFiles/
 
 CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o: deps/brotli/enc/metablock.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/metablock.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/metablock.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/metablock.cc > CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/metablock.cc > CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/metablock.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/metablock.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o.requires:
 
@@ -2555,16 +2555,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o.provides.build: CMakeFiles/h2o
 
 CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o: deps/brotli/enc/static_dict.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/static_dict.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/static_dict.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/static_dict.cc > CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/static_dict.cc > CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/static_dict.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/static_dict.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o.requires:
 
@@ -2579,16 +2579,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o.provides.build: CMakeFiles/h
 
 CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o: deps/brotli/enc/streams.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/streams.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/streams.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/streams.cc > CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/streams.cc > CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/streams.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/streams.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o.requires:
 
@@ -2603,16 +2603,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o.provides.build: CMakeFiles/h2o.d
 
 CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o: deps/brotli/enc/utf8_util.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o -c /home/mark-lee/h2o/deps/brotli/enc/utf8_util.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o -c /home/mark-lee/seckill/deps/brotli/enc/utf8_util.cc
 
 CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/deps/brotli/enc/utf8_util.cc > CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/deps/brotli/enc/utf8_util.cc > CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.i
 
 CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/deps/brotli/enc/utf8_util.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/deps/brotli/enc/utf8_util.cc -o CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.s
 
 CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o.requires:
 
@@ -2627,16 +2627,16 @@ CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o.provides.build: CMakeFiles/h2o
 
 CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o: lib/handler/compress/brotli.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o -c /home/mark-lee/h2o/lib/handler/compress/brotli.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o -c /home/mark-lee/seckill/lib/handler/compress/brotli.cc
 
 CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/h2o/lib/handler/compress/brotli.cc > CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mark-lee/seckill/lib/handler/compress/brotli.cc > CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.i
 
 CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/h2o/lib/handler/compress/brotli.cc -o CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mark-lee/seckill/lib/handler/compress/brotli.cc -o CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.s
 
 CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o.requires:
 
@@ -2651,16 +2651,16 @@ CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o.provides.build: CMakeFiles/h
 
 CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o: deps/neverbleed/neverbleed.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building C object CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o   -c /home/mark-lee/h2o/deps/neverbleed/neverbleed.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building C object CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o   -c /home/mark-lee/seckill/deps/neverbleed/neverbleed.c
 
 CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/neverbleed/neverbleed.c > CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/neverbleed/neverbleed.c > CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.i
 
 CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/neverbleed/neverbleed.c -o CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/neverbleed/neverbleed.c -o CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.s
 
 CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o.requires:
 
@@ -2675,16 +2675,16 @@ CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o.provides.build: CMakeFiles/h2o
 
 CMakeFiles/h2o.dir/src/main.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/src/main.c.o: src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building C object CMakeFiles/h2o.dir/src/main.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/src/main.c.o   -c /home/mark-lee/h2o/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building C object CMakeFiles/h2o.dir/src/main.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/src/main.c.o   -c /home/mark-lee/seckill/src/main.c
 
 CMakeFiles/h2o.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/src/main.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/src/main.c > CMakeFiles/h2o.dir/src/main.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/src/main.c > CMakeFiles/h2o.dir/src/main.c.i
 
 CMakeFiles/h2o.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/src/main.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/src/main.c -o CMakeFiles/h2o.dir/src/main.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/src/main.c -o CMakeFiles/h2o.dir/src/main.c.s
 
 CMakeFiles/h2o.dir/src/main.c.o.requires:
 
@@ -2699,16 +2699,16 @@ CMakeFiles/h2o.dir/src/main.c.o.provides.build: CMakeFiles/h2o.dir/src/main.c.o
 
 CMakeFiles/h2o.dir/src/ssl.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/src/ssl.c.o: src/ssl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building C object CMakeFiles/h2o.dir/src/ssl.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/src/ssl.c.o   -c /home/mark-lee/h2o/src/ssl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building C object CMakeFiles/h2o.dir/src/ssl.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/src/ssl.c.o   -c /home/mark-lee/seckill/src/ssl.c
 
 CMakeFiles/h2o.dir/src/ssl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/src/ssl.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/src/ssl.c > CMakeFiles/h2o.dir/src/ssl.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/src/ssl.c > CMakeFiles/h2o.dir/src/ssl.c.i
 
 CMakeFiles/h2o.dir/src/ssl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/src/ssl.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/src/ssl.c -o CMakeFiles/h2o.dir/src/ssl.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/src/ssl.c -o CMakeFiles/h2o.dir/src/ssl.c.s
 
 CMakeFiles/h2o.dir/src/ssl.c.o.requires:
 
@@ -2723,16 +2723,16 @@ CMakeFiles/h2o.dir/src/ssl.c.o.provides.build: CMakeFiles/h2o.dir/src/ssl.c.o
 
 CMakeFiles/h2o.dir/lib/handler/mruby.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/mruby.c.o: lib/handler/mruby.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building C object CMakeFiles/h2o.dir/lib/handler/mruby.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mruby.c.o   -c /home/mark-lee/h2o/lib/handler/mruby.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building C object CMakeFiles/h2o.dir/lib/handler/mruby.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mruby.c.o   -c /home/mark-lee/seckill/lib/handler/mruby.c
 
 CMakeFiles/h2o.dir/lib/handler/mruby.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/mruby.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/mruby.c > CMakeFiles/h2o.dir/lib/handler/mruby.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/mruby.c > CMakeFiles/h2o.dir/lib/handler/mruby.c.i
 
 CMakeFiles/h2o.dir/lib/handler/mruby.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/mruby.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/mruby.c -o CMakeFiles/h2o.dir/lib/handler/mruby.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/mruby.c -o CMakeFiles/h2o.dir/lib/handler/mruby.c.s
 
 CMakeFiles/h2o.dir/lib/handler/mruby.c.o.requires:
 
@@ -2747,16 +2747,16 @@ CMakeFiles/h2o.dir/lib/handler/mruby.c.o.provides.build: CMakeFiles/h2o.dir/lib/
 
 CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o: lib/handler/mruby/chunked.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building C object CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o   -c /home/mark-lee/h2o/lib/handler/mruby/chunked.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building C object CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o   -c /home/mark-lee/seckill/lib/handler/mruby/chunked.c
 
 CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/mruby/chunked.c > CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/mruby/chunked.c > CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.i
 
 CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/mruby/chunked.c -o CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/mruby/chunked.c -o CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.s
 
 CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o.requires:
 
@@ -2771,16 +2771,16 @@ CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o.provides.build: CMakeFiles/h2o.
 
 CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o: lib/handler/mruby/http_request.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o   -c /home/mark-lee/h2o/lib/handler/mruby/http_request.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o   -c /home/mark-lee/seckill/lib/handler/mruby/http_request.c
 
 CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/mruby/http_request.c > CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/mruby/http_request.c > CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.i
 
 CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/mruby/http_request.c -o CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/mruby/http_request.c -o CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.s
 
 CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o.requires:
 
@@ -2795,16 +2795,16 @@ CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o.provides.build: CMakeFiles
 
 CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o: lib/handler/configurator/mruby.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o   -c /home/mark-lee/h2o/lib/handler/configurator/mruby.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building C object CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o   -c /home/mark-lee/seckill/lib/handler/configurator/mruby.c
 
 CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/handler/configurator/mruby.c > CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/handler/configurator/mruby.c > CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.i
 
 CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/handler/configurator/mruby.c -o CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/handler/configurator/mruby.c -o CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.s
 
 CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o.requires:
 
@@ -2819,16 +2819,16 @@ CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o.provides.build: CMakeFiles
 
 CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o: deps/picotls/deps/micro-ecc/uECC.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/micro-ecc/uECC.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/micro-ecc/uECC.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/micro-ecc/uECC.c > CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/micro-ecc/uECC.c > CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/micro-ecc/uECC.c -o CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/micro-ecc/uECC.c -o CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o.requires:
 
@@ -2843,16 +2843,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o.provides.build: CMakeFil
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o: deps/picotls/deps/cifra/src/aes.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/aes.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/aes.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/aes.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/aes.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/aes.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/aes.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o.requires:
 
@@ -2867,16 +2867,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o.provides.build: CMakeFile
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o: deps/picotls/deps/cifra/src/blockwise.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/blockwise.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/blockwise.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/blockwise.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/blockwise.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/blockwise.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/blockwise.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o.requires:
 
@@ -2891,16 +2891,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o.provides.build: CMa
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o: deps/picotls/deps/cifra/src/chash.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/chash.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/chash.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/chash.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/chash.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/chash.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/chash.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o.requires:
 
@@ -2915,16 +2915,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o.provides.build: CMakeFi
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o: deps/picotls/deps/cifra/src/curve25519.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/curve25519.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/curve25519.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/curve25519.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/curve25519.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/curve25519.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/curve25519.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o.requires:
 
@@ -2939,16 +2939,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o.provides.build: CM
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o: deps/picotls/deps/cifra/src/drbg.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/drbg.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/drbg.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/drbg.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/drbg.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/drbg.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/drbg.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o.requires:
 
@@ -2963,16 +2963,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o.provides.build: CMakeFil
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o: deps/picotls/deps/cifra/src/hmac.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/hmac.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/hmac.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/hmac.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/hmac.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/hmac.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/hmac.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o.requires:
 
@@ -2987,16 +2987,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o.provides.build: CMakeFil
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o: deps/picotls/deps/cifra/src/gcm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/gcm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/gcm.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/gcm.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/gcm.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/gcm.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/gcm.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o.requires:
 
@@ -3011,16 +3011,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o.provides.build: CMakeFile
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o: deps/picotls/deps/cifra/src/gf128.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/gf128.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/gf128.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/gf128.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/gf128.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/gf128.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/gf128.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o.requires:
 
@@ -3035,16 +3035,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o.provides.build: CMakeFi
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o: deps/picotls/deps/cifra/src/modes.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/modes.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/modes.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/modes.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/modes.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/modes.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/modes.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o.requires:
 
@@ -3059,16 +3059,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o.provides.build: CMakeFi
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o: deps/picotls/deps/cifra/src/sha256.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o   -c /home/mark-lee/h2o/deps/picotls/deps/cifra/src/sha256.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o   -c /home/mark-lee/seckill/deps/picotls/deps/cifra/src/sha256.c
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/deps/cifra/src/sha256.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/deps/cifra/src/sha256.c > CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/deps/cifra/src/sha256.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/deps/cifra/src/sha256.c -o CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o.requires:
 
@@ -3083,16 +3083,16 @@ CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o.provides.build: CMakeF
 
 CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o: deps/picotls/lib/picotls.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o   -c /home/mark-lee/h2o/deps/picotls/lib/picotls.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o   -c /home/mark-lee/seckill/deps/picotls/lib/picotls.c
 
 CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/lib/picotls.c > CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/lib/picotls.c > CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/lib/picotls.c -o CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/lib/picotls.c -o CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o.requires:
 
@@ -3107,16 +3107,16 @@ CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o.provides.build: CMakeFiles/h2o.d
 
 CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o: deps/picotls/lib/cifra.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o   -c /home/mark-lee/h2o/deps/picotls/lib/cifra.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o   -c /home/mark-lee/seckill/deps/picotls/lib/cifra.c
 
 CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/lib/cifra.c > CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/lib/cifra.c > CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/lib/cifra.c -o CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/lib/cifra.c -o CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o.requires:
 
@@ -3131,16 +3131,16 @@ CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o.provides.build: CMakeFiles/h2o.dir
 
 CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o: deps/picotls/lib/uecc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o   -c /home/mark-lee/h2o/deps/picotls/lib/uecc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o   -c /home/mark-lee/seckill/deps/picotls/lib/uecc.c
 
 CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/lib/uecc.c > CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/lib/uecc.c > CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/lib/uecc.c -o CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/lib/uecc.c -o CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o.requires:
 
@@ -3155,16 +3155,16 @@ CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o.provides.build: CMakeFiles/h2o.dir/
 
 CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o: CMakeFiles/h2o.dir/flags.make
 CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o: deps/picotls/lib/openssl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o   -c /home/mark-lee/h2o/deps/picotls/lib/openssl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building C object CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o   -c /home/mark-lee/seckill/deps/picotls/lib/openssl.c
 
 CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/deps/picotls/lib/openssl.c > CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/deps/picotls/lib/openssl.c > CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.i
 
 CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/deps/picotls/lib/openssl.c -o CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/deps/picotls/lib/openssl.c -o CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.s
 
 CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o.requires:
 
@@ -3450,13 +3450,294 @@ h2o: mruby/host/lib/libmruby.a
 h2o: mruby/host/mrbgems/mruby-onig-regexp/onigmo-6.1.1/.libs/libonigmo.a
 h2o: /usr/lib/x86_64-linux-gnu/libz.so
 h2o: CMakeFiles/h2o.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Linking CXX executable h2o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Linking CXX executable h2o"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/h2o.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 CMakeFiles/h2o.dir/build: h2o
 
 .PHONY : CMakeFiles/h2o.dir/build
+
+# Object files for target h2o
+h2o_OBJECTS = \
+"CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o" \
+"CMakeFiles/h2o.dir/deps/hiredis/async.c.o" \
+"CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o" \
+"CMakeFiles/h2o.dir/deps/hiredis/net.c.o" \
+"CMakeFiles/h2o.dir/deps/hiredis/read.c.o" \
+"CMakeFiles/h2o.dir/deps/hiredis/sds.c.o" \
+"CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o" \
+"CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o" \
+"CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o" \
+"CMakeFiles/h2o.dir/lib/common/cache.c.o" \
+"CMakeFiles/h2o.dir/lib/common/file.c.o" \
+"CMakeFiles/h2o.dir/lib/common/filecache.c.o" \
+"CMakeFiles/h2o.dir/lib/common/hostinfo.c.o" \
+"CMakeFiles/h2o.dir/lib/common/http1client.c.o" \
+"CMakeFiles/h2o.dir/lib/common/memcached.c.o" \
+"CMakeFiles/h2o.dir/lib/common/memory.c.o" \
+"CMakeFiles/h2o.dir/lib/common/multithread.c.o" \
+"CMakeFiles/h2o.dir/lib/common/redis.c.o" \
+"CMakeFiles/h2o.dir/lib/common/serverutil.c.o" \
+"CMakeFiles/h2o.dir/lib/common/socket.c.o" \
+"CMakeFiles/h2o.dir/lib/common/socketpool.c.o" \
+"CMakeFiles/h2o.dir/lib/common/string.c.o" \
+"CMakeFiles/h2o.dir/lib/common/time.c.o" \
+"CMakeFiles/h2o.dir/lib/common/timeout.c.o" \
+"CMakeFiles/h2o.dir/lib/common/url.c.o" \
+"CMakeFiles/h2o.dir/lib/core/config.c.o" \
+"CMakeFiles/h2o.dir/lib/core/configurator.c.o" \
+"CMakeFiles/h2o.dir/lib/core/context.c.o" \
+"CMakeFiles/h2o.dir/lib/core/headers.c.o" \
+"CMakeFiles/h2o.dir/lib/core/logconf.c.o" \
+"CMakeFiles/h2o.dir/lib/core/proxy.c.o" \
+"CMakeFiles/h2o.dir/lib/core/request.c.o" \
+"CMakeFiles/h2o.dir/lib/core/token.c.o" \
+"CMakeFiles/h2o.dir/lib/core/util.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/access_log.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/chunked.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/compress.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/errordoc.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/expires.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/file.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/headers.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/mimemap.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/proxy.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/redirect.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/reproxy.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/status.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/headers_util.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/status/events.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/status/requests.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/status/durations.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o" \
+"CMakeFiles/h2o.dir/lib/http1.c.o" \
+"CMakeFiles/h2o.dir/lib/tunnel.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/casper.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/connection.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/frame.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/hpack.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/scheduler.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/stream.c.o" \
+"CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/api.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o" \
+"CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o" \
+"CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o" \
+"CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o" \
+"CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o" \
+"CMakeFiles/h2o.dir/src/main.c.o" \
+"CMakeFiles/h2o.dir/src/ssl.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/mruby.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o" \
+"CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o" \
+"CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o"
+
+# External object files for target h2o
+h2o_EXTERNAL_OBJECTS =
+
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/hiredis/async.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/hiredis/net.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/hiredis/read.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/hiredis/sds.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/cache.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/file.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/filecache.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/hostinfo.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/http1client.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/memcached.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/memory.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/multithread.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/redis.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/serverutil.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/socket.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/socketpool.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/string.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/time.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/timeout.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/common/url.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/config.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/configurator.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/context.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/headers.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/logconf.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/proxy.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/request.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/token.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/core/util.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/access_log.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/chunked.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/compress.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/compress/gzip.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/errordoc.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/expires.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/fastcgi.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/file.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/headers.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/mimemap.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/proxy.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/redirect.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/reproxy.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/status.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/headers_util.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/status/events.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/status/requests.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/status/durations.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http1.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/tunnel.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/cache_digests.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/casper.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/connection.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/frame.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/hpack.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/scheduler.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/stream.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/api.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/neverbleed/neverbleed.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/src/main.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/src/ssl.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/mruby.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/micro-ecc/uECC.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/aes.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/blockwise.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/chash.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/curve25519.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/drbg.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/hmac.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gcm.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/gf128.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/modes.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/deps/cifra/src/sha256.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/lib/picotls.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/lib/cifra.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/lib/uecc.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/build.make
+CMakeFiles/CMakeRelink.dir/h2o: libressl-build/lib/libssl.a
+CMakeFiles/CMakeRelink.dir/h2o: libressl-build/lib/libcrypto.a
+CMakeFiles/CMakeRelink.dir/h2o: mruby/host/lib/libmruby.a
+CMakeFiles/CMakeRelink.dir/h2o: mruby/host/mrbgems/mruby-onig-regexp/onigmo-6.1.1/.libs/libonigmo.a
+CMakeFiles/CMakeRelink.dir/h2o: /usr/lib/x86_64-linux-gnu/libz.so
+CMakeFiles/CMakeRelink.dir/h2o: CMakeFiles/h2o.dir/relink.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Linking CXX executable CMakeFiles/CMakeRelink.dir/h2o"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/h2o.dir/relink.txt --verbose=$(VERBOSE)
+
+# Rule to relink during preinstall.
+CMakeFiles/h2o.dir/preinstall: CMakeFiles/CMakeRelink.dir/h2o
+
+.PHONY : CMakeFiles/h2o.dir/preinstall
 
 CMakeFiles/h2o.dir/requires: CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o.requires
 CMakeFiles/h2o.dir/requires: CMakeFiles/h2o.dir/deps/hiredis/async.c.o.requires
@@ -3596,6 +3877,6 @@ CMakeFiles/h2o.dir/clean:
 .PHONY : CMakeFiles/h2o.dir/clean
 
 CMakeFiles/h2o.dir/depend:
-	cd /home/mark-lee/h2o && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o/CMakeFiles/h2o.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mark-lee/seckill && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill/CMakeFiles/h2o.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/h2o.dir/depend
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/h2o
+CMAKE_SOURCE_DIR = /home/mark-lee/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/h2o
+CMAKE_BINARY_DIR = /home/mark-lee/seckill
 
 # Utility rule file for mruby.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mark-lee/h2o
 include CMakeFiles/mruby.dir/progress.make
 
 CMakeFiles/mruby:
-	cd /home/mark-lee/h2o/deps/mruby && MRUBY_TOOLCHAIN=gcc MRUBY_CONFIG=/home/mark-lee/h2o/misc/mruby_config.rb MRUBY_BUILD_DIR=/home/mark-lee/h2o/mruby ruby minirake
+	cd /home/mark-lee/seckill/deps/mruby && MRUBY_TOOLCHAIN=gcc MRUBY_CONFIG=/home/mark-lee/seckill/misc/mruby_config.rb MRUBY_BUILD_DIR=/home/mark-lee/seckill/mruby ruby minirake
 
 mruby: CMakeFiles/mruby
 mruby: CMakeFiles/mruby.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/mruby.dir/clean:
 .PHONY : CMakeFiles/mruby.dir/clean
 
 CMakeFiles/mruby.dir/depend:
-	cd /home/mark-lee/h2o && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o/CMakeFiles/mruby.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mark-lee/seckill && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill/CMakeFiles/mruby.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mruby.dir/depend
 

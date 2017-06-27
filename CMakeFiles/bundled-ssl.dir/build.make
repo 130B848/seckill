@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/h2o
+CMAKE_SOURCE_DIR = /home/mark-lee/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/h2o
+CMAKE_BINARY_DIR = /home/mark-lee/seckill
 
 # Utility rule file for bundled-ssl.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mark-lee/h2o
 include CMakeFiles/bundled-ssl.dir/progress.make
 
 CMakeFiles/bundled-ssl:
-	make -f /home/mark-lee/h2o/misc/libressl.mk SOURCE_DIR=/home/mark-lee/h2o/misc
+	make -f /home/mark-lee/seckill/misc/libressl.mk SOURCE_DIR=/home/mark-lee/seckill/misc
 
 bundled-ssl: CMakeFiles/bundled-ssl
 bundled-ssl: CMakeFiles/bundled-ssl.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/bundled-ssl.dir/clean:
 .PHONY : CMakeFiles/bundled-ssl.dir/clean
 
 CMakeFiles/bundled-ssl.dir/depend:
-	cd /home/mark-lee/h2o && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o/CMakeFiles/bundled-ssl.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mark-lee/seckill && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill/CMakeFiles/bundled-ssl.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/bundled-ssl.dir/depend
 

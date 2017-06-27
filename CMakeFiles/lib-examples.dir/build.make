@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/h2o
+CMAKE_SOURCE_DIR = /home/mark-lee/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/h2o
+CMAKE_BINARY_DIR = /home/mark-lee/seckill
 
 # Utility rule file for lib-examples.
 
@@ -73,6 +73,6 @@ CMakeFiles/lib-examples.dir/clean:
 .PHONY : CMakeFiles/lib-examples.dir/clean
 
 CMakeFiles/lib-examples.dir/depend:
-	cd /home/mark-lee/h2o && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o/CMakeFiles/lib-examples.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mark-lee/seckill && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill/CMakeFiles/lib-examples.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lib-examples.dir/depend
 

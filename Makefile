@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/h2o
+CMAKE_SOURCE_DIR = /home/mark-lee/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/h2o
+CMAKE_BINARY_DIR = /home/mark-lee/seckill
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,17 +100,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -124,9 +113,9 @@ install/local/fast: install/local
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mark-lee/h2o/CMakeFiles /home/mark-lee/h2o/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mark-lee/seckill/CMakeFiles /home/mark-lee/seckill/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mark-lee/h2o/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mark-lee/seckill/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -348,6 +337,11 @@ h2o: cmake_check_build_system
 h2o/fast:
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/build
 .PHONY : h2o/fast
+
+# Manual pre-install relink rule for target.
+h2o/preinstall:
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/preinstall
+.PHONY : h2o/preinstall
 
 #=============================================================================
 # Target rules for targets named check
@@ -5903,7 +5897,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... list_install_components"
 	@echo "... install"
-	@echo "... install/strip"
 	@echo "... check-as-root"
 	@echo "... lib-examples"
 	@echo "... t-00unit-libuv.t"

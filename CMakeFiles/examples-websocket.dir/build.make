@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/h2o
+CMAKE_SOURCE_DIR = /home/mark-lee/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/h2o
+CMAKE_BINARY_DIR = /home/mark-lee/seckill
 
 # Include any dependencies generated for this target.
 include CMakeFiles/examples-websocket.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/examples-websocket.dir/flags.make
 
 CMakeFiles/examples-websocket.dir/lib/websocket.c.o: CMakeFiles/examples-websocket.dir/flags.make
 CMakeFiles/examples-websocket.dir/lib/websocket.c.o: lib/websocket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/examples-websocket.dir/lib/websocket.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/examples-websocket.dir/lib/websocket.c.o   -c /home/mark-lee/h2o/lib/websocket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/examples-websocket.dir/lib/websocket.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/examples-websocket.dir/lib/websocket.c.o   -c /home/mark-lee/seckill/lib/websocket.c
 
 CMakeFiles/examples-websocket.dir/lib/websocket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/examples-websocket.dir/lib/websocket.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/lib/websocket.c > CMakeFiles/examples-websocket.dir/lib/websocket.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/lib/websocket.c > CMakeFiles/examples-websocket.dir/lib/websocket.c.i
 
 CMakeFiles/examples-websocket.dir/lib/websocket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/examples-websocket.dir/lib/websocket.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/lib/websocket.c -o CMakeFiles/examples-websocket.dir/lib/websocket.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/lib/websocket.c -o CMakeFiles/examples-websocket.dir/lib/websocket.c.s
 
 CMakeFiles/examples-websocket.dir/lib/websocket.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/examples-websocket.dir/lib/websocket.c.o.provides.build: CMakeFiles/e
 
 CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.o: CMakeFiles/examples-websocket.dir/flags.make
 CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.o: examples/libh2o/websocket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.o   -c /home/mark-lee/h2o/examples/libh2o/websocket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.o   -c /home/mark-lee/seckill/examples/libh2o/websocket.c
 
 CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/h2o/examples/libh2o/websocket.c > CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mark-lee/seckill/examples/libh2o/websocket.c > CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.i
 
 CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/h2o/examples/libh2o/websocket.c -o CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mark-lee/seckill/examples/libh2o/websocket.c -o CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.s
 
 CMakeFiles/examples-websocket.dir/examples/libh2o/websocket.c.o.requires:
 
@@ -122,7 +122,7 @@ examples-websocket: /usr/lib/x86_64-linux-gnu/libssl.so
 examples-websocket: /usr/lib/x86_64-linux-gnu/libcrypto.so
 examples-websocket: /usr/lib/x86_64-linux-gnu/libz.so
 examples-websocket: CMakeFiles/examples-websocket.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mark-lee/h2o/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable examples-websocket"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mark-lee/seckill/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable examples-websocket"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/examples-websocket.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -140,6 +140,6 @@ CMakeFiles/examples-websocket.dir/clean:
 .PHONY : CMakeFiles/examples-websocket.dir/clean
 
 CMakeFiles/examples-websocket.dir/depend:
-	cd /home/mark-lee/h2o && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o/CMakeFiles/examples-websocket.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mark-lee/seckill && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill/CMakeFiles/examples-websocket.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/examples-websocket.dir/depend
 

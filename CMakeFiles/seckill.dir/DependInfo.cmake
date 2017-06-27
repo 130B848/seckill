@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/mark-lee/h2o/SecKill/main.c" "/home/mark-lee/h2o/CMakeFiles/seckill.dir/SecKill/main.c.o"
+  "/home/mark-lee/seckill/SecKill/main.c" "/home/mark-lee/seckill/CMakeFiles/seckill.dir/SecKill/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -31,7 +31,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/mark-lee/h2o/CMakeFiles/libh2o.dir/DependInfo.cmake"
+  "/home/mark-lee/seckill/CMakeFiles/libh2o.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

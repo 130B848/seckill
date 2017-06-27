@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/h2o
+CMAKE_SOURCE_DIR = /home/mark-lee/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/h2o
+CMAKE_BINARY_DIR = /home/mark-lee/seckill
 
 # Utility rule file for check-as-root-valgrind.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mark-lee/h2o
 include CMakeFiles/check-as-root-valgrind.dir/progress.make
 
 CMakeFiles/check-as-root-valgrind:
-	env H2O_VALGRIND=./misc/h2o_valgrind/ H2O_ROOT=. BINARY_DIR=/home/mark-lee/h2o prove -v t/90root-*.t
+	env H2O_VALGRIND=./misc/h2o_valgrind/ H2O_ROOT=. BINARY_DIR=/home/mark-lee/seckill prove -v t/90root-*.t
 
 check-as-root-valgrind: CMakeFiles/check-as-root-valgrind
 check-as-root-valgrind: CMakeFiles/check-as-root-valgrind.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/check-as-root-valgrind.dir/clean:
 .PHONY : CMakeFiles/check-as-root-valgrind.dir/clean
 
 CMakeFiles/check-as-root-valgrind.dir/depend:
-	cd /home/mark-lee/h2o && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o /home/mark-lee/h2o/CMakeFiles/check-as-root-valgrind.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mark-lee/seckill && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill /home/mark-lee/seckill/CMakeFiles/check-as-root-valgrind.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/check-as-root-valgrind.dir/depend
 

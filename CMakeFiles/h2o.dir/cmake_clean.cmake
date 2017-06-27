@@ -131,6 +131,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/h2o.dir/deps/picotls/lib/openssl.c.o"
   "h2o.pdb"
   "h2o"
+  "h2o.pdb"
+  "CMakeFiles/CMakeRelink.dir/h2o"
 )
 
 # Per-language clean rules from dependency scanning.
