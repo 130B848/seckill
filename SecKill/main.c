@@ -1,6 +1,7 @@
 #include <h2o.h>
 #include <uv.h>
 
+#include <time.h>
 #include <stdio.h>
 #include <errno.h>
 #include <limits.h>
@@ -42,8 +43,15 @@ static h2o_globalconf_t config;
 static h2o_context_t ctx;
 static h2o_accept_ctx_t accept_ctx;
 
+static redisContext *conn;
+static redisReply *reply;
+
 static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
 {
+    time_t ts;
+    time(&ts);
+    printf("timestamp: %ld\n", ts);
+
     static h2o_generator_t generator = {NULL, NULL};
 
     if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
@@ -70,8 +78,10 @@ static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
 
     char result[MSG_LEN] = { 0 };
     int uid = atoi(user_id) - 1;
-    sprintf(result, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%f}", 
-            users[uid].id, users[uid].name, users[uid].balance);
+    reply = (redisReply *)redisCommand(conn, "GET _u_%s", user_id);
+    sprintf(result, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s}", 
+            users[uid].id, users[uid].name, reply->str);
+    freeReplyObject(reply);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
     req->res.status = 200;
@@ -95,8 +105,10 @@ static int get_user_all(h2o_handler_t *self, h2o_req_t *req)
     strcpy(all_users, "[");
     char iterator[MSG_LEN];
     for (; uid < userNum; uid++) {
-        sprintf(iterator, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%f},",
-                users[uid].id, users[uid].name, users[uid].balance);
+        reply = (redisReply *)redisCommand(conn, "GET _u_%s", users[uid].id);
+        sprintf(iterator, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s},", 
+                users[uid].id, users[uid].name, reply->str);
+        freeReplyObject(reply);
         strcat(all_users, iterator);
     }
     all_users[strlen(all_users) - 1] = ']';
@@ -131,8 +143,10 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
 
     char result[MSG_LEN] = { 0 };
     int cid = atoi(commodity_id) - 1;
-    sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%u,\"unit_price\":%f}",
-            commodities[cid].id, commodities[cid].name, commodities[cid].number, commodities[cid].price);
+    reply = (redisReply *)redisCommand(conn, "GET _c_%s", commodity_id);
+    sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f}",
+            commodities[cid].id, commodities[cid].name, reply->str, commodities[cid].price);
+    freeReplyObject(reply);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
     req->res.status = 200;
@@ -156,8 +170,10 @@ static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
     strcpy(all_commodities, "[");
     char iterator[MSG_LEN];
     for (; cid < commodityNum; cid++) {
-        sprintf(iterator, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%u,\"unit_price\":%f},",
-                commodities[cid].id, commodities[cid].name, commodities[cid].number, commodities[cid].price);
+        reply = (redisReply *)redisCommand(conn, "GET _c_%s", commodities[cid].id);
+        sprintf(iterator, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f},",
+                commodities[cid].id, commodities[cid].name, reply->str, commodities[cid].price);
+        freeReplyObject(reply);
         strcat(all_commodities, iterator);
     }
     all_commodities[strlen(all_commodities) - 1] = ']';
@@ -183,15 +199,23 @@ int data_init() {
     
     fscanf(fp, "%u\n", &userNum);
     memset(users, 0, sizeof(user_t) * MAX_NUM);
+    float balance;
     for (i = 0; i < userNum; i++) {
-        fscanf(fp, "%20[^,],%20[^,],%f\n", users[i].id, users[i].name, &users[i].balance);
+        fscanf(fp, "%20[^,],%20[^,],%f\n", users[i].id, users[i].name, &balance);
+        // prefix "_u_" means user
+        reply = redisCommand(conn,"SET _u_%s %f", users[i].id, balance);
+        freeReplyObject(reply);
     }
     
     fscanf(fp, "%u\n", &commodityNum);
     memset(commodities, 0, sizeof(commodity_t) * MAX_NUM);
+    int number;
     for (i = 0; i < commodityNum; i++) {
         fscanf(fp, "%20[^,],%20[^,],%u,%f\n", commodities[i].id, commodities[i].name, 
-                &commodities[i].number, &commodities[i].price);
+                &number, &commodities[i].price);
+        // prefix "_c_" means user
+        reply = redisCommand(conn,"SET _c_%s %u", commodities[i].id, number);
+        freeReplyObject(reply);
     }
     
     fclose(fp);
@@ -251,10 +275,6 @@ Error:
 
 int main(int argc, char **argv)
 {
-    if (data_init() < 0) {
-        return -1;
-    }
-    
     h2o_hostconf_t *hostconf;
 
     signal(SIGPIPE, SIG_IGN);
@@ -284,8 +304,26 @@ int main(int argc, char **argv)
         goto Error;
     }
 
+    struct timeval timeout = { 1, 500000 }; // 1.5 seconds
+    conn = redisConnectWithTimeout("127.0.0.1", 6379, timeout);
+    if (conn == NULL || conn->err) {
+        if (conn) {
+            printf("Connection error: %s\n", conn->errstr);
+            redisFree(conn);
+        } else {
+            printf("Connection error: can't allocate redis context\n");
+        }
+        return 1;
+    }
+    if (data_init() < 0) {
+        return 1;
+    }
+
     uv_run(ctx.loop, UV_RUN_DEFAULT);
 
 Error:
+    /* Disconnects and frees the context */
+    redisFree(conn);
+
     return 1;
 }
