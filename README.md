@@ -25,3 +25,9 @@ request.get('http://localhost:7890/getCommodityAll').text
 request.get('http://localhost:7890/seckill?user_id=1&commodiy_id=1').text
 request.get('http://localhost:7890/getOrderAll').text
 ```
+
+## Benchmark 
+```bash
+#!/bin/bash
+wrt -t12 -c400 -d30s "http://localhost:7890/seckill?user_id=1&commodity_id=1"
+```

@@ -198,7 +198,8 @@ static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
     return 0;
 }
 
-static int seckill(h2o_handler_t *self, h2o_req_t *req) {
+static int seckill(h2o_handler_t *self, h2o_req_t *req) 
+{
     static h2o_generator_t generator = {NULL, NULL};
 
     if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
@@ -231,7 +232,6 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req) {
     
     redisReply *reply;
     reply = (redisReply *)redisCommand(conn, "GET _u_%s", user_id);
-    //printf("balance: %s\n", reply->str);
     balance = atof(reply->str);
     freeReplyObject(reply);
     if (balance < price) {
@@ -260,6 +260,7 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req) {
 END:
     unlock(&locks[uid]);
    
+    //printf("%s\n", result);
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
     req->res.status = 200;
     req->res.reason = "OK";
@@ -403,7 +404,7 @@ static int create_listener(void)
     int r;
 
     uv_tcp_init(ctx.loop, &listener);
-    uv_ip4_addr("127.0.0.1", 7890, &addr);
+    uv_ip4_addr("localhost", 7890, &addr);
     if ((r = uv_tcp_bind(&listener, (struct sockaddr *)&addr, 0)) != 0) {
         fprintf(stderr, "uv_tcp_bind:%s\n", uv_strerror(r));
         goto Error;
