@@ -20,10 +20,10 @@ make seckill -j8
 ```python
 #!/usr/bin/python
 import requests
-request.get('http://localhost:7890/getUserAll').text
-request.get('http://localhost:7890/getCommodityAll').text
-request.get('http://localhost:7890/seckill?user_id=1&commodiy_id=1').text
-request.get('http://localhost:7890/getOrderAll').text
+request.get('http://localhost:7890/seckill/getUserAll').text
+request.get('http://localhost:7890/seckill/getCommodityAll').text
+request.get('http://localhost:7890/seckill/seckill?user_id=1&commodiy_id=1').text
+request.get('http://localhost:7890/seckill/getOrderAll').text
 ```
 
 ## Benchmark 

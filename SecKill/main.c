@@ -428,13 +428,13 @@ int main(int argc, char **argv)
 
     h2o_config_init(&config);
     hostconf = h2o_config_register_host(&config, h2o_iovec_init(H2O_STRLIT("default")), 65535);
-    register_handler(hostconf, "/getUserById", get_user_by_id);
-    register_handler(hostconf, "/getUserAll", get_user_all);
-    register_handler(hostconf, "/getCommodityById", get_commodity_by_id);
-    register_handler(hostconf, "/getCommodityAll", get_commodity_all);
-    register_handler(hostconf, "/seckill", seckill);
-    register_handler(hostconf, "/getOrderById", get_order_by_id);
-    register_handler(hostconf, "/getOrderAll", get_order_all);
+    register_handler(hostconf, "/seckill/getUserById", get_user_by_id);
+    register_handler(hostconf, "/seckill/getUserAll", get_user_all);
+    register_handler(hostconf, "/seckill/getCommodityById", get_commodity_by_id);
+    register_handler(hostconf, "/seckill/getCommodityAll", get_commodity_all);
+    register_handler(hostconf, "/seckill/seckill", seckill);
+    register_handler(hostconf, "/seckill/getOrderById", get_order_by_id);
+    register_handler(hostconf, "/seckill/getOrderAll", get_order_all);
 
     uv_loop_t loop;
     uv_loop_init(&loop);
