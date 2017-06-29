@@ -4,7 +4,7 @@
 ```bash
 #!/bin/bash
 sudo apt update
-sudo apt install libuv1-dev redis-server wrk
+sudo apt install libuv1-dev libssl-dev redis-server wrk
 ```
 
 ## Build and Run
