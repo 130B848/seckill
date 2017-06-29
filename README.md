@@ -1,10 +1,10 @@
 # SecKill
 
-## Environment
+## Dependency (wrk needs Ubuntu's APT)
 ```bash
 #!/bin/bash
 sudo apt update
-sudo apt install libuv1-dev
+sudo apt install libuv1-dev wrk
 ```
 
 ## Build and Run
