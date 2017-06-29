@@ -4,7 +4,7 @@
 ```bash
 #!/bin/bash
 sudo apt update
-sudo apt install libuv1-dev wrk
+sudo apt install libuv1-dev redis-server wrk
 ```
 
 ## Build and Run
@@ -13,6 +13,7 @@ sudo apt install libuv1-dev wrk
 cd seckill
 cmake -DWITH_BUNDLED_SSL=on .
 make seckill -j8
+./redis-server
 ./seckill
 ```
 
