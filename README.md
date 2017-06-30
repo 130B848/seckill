@@ -15,7 +15,7 @@ cd seckill
 cmake -DWITH_BUNDLED_SSL=on .
 make seckill -j8
 # start redis-server in another window
-redis-server
+redis-server # Use *redis-cli* to FLUSHALL if you want to clear and return to initial status
 ./seckill
 ```
 
