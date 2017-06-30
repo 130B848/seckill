@@ -17,6 +17,7 @@
 #define MSG_LEN 1024
 #define MAX_ALL 128000
 
+// return json string for /get***All
 static char all_users[MAX_ALL];
 static char all_commodities[MAX_ALL];
 static char all_orders[MAX_ALL];
@@ -149,11 +150,13 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
     }
 
     char result[MSG_LEN] = { 0 };
-    int cid = atoi(commodity_id) - 1;
+    int cid = atoi(commodity_id) - 1, quantity;
     redisReply *reply;
     reply = (redisReply *)redisCommand(conn, "GET _c_%s", commodity_id);
+    quantity = atoi(reply->str);
+    quantity = quantity < 0 ? 0 : quantity;
     sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f}",
-            commodities[cid].id, commodities[cid].name, reply->str, commodities[cid].price);
+            commodities[cid].id, commodities[cid].name, quantity, commodities[cid].price);
     freeReplyObject(reply);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
@@ -173,13 +176,15 @@ static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
     if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
         return -1;
 
-    int cid = 0;
+    int cid = 0, quantity;
     memset(all_commodities, 0, MAX_ALL);
     strcpy(all_commodities, "[");
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; cid < commodityNum; cid++) {
         reply = (redisReply *)redisCommand(conn, "GET _c_%s", commodities[cid].id);
+        quantity = atoi(reply->str);
+        quantity = quantity < 0 ? 0 : quantity;
         sprintf(iterator, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f},",
                 commodities[cid].id, commodities[cid].name, reply->str, commodities[cid].price);
         freeReplyObject(reply);
@@ -205,6 +210,7 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
         return -1;
 
+    // parse user_id and commodity_id from url
     char user_id[MAX_LEN] = { 0 }, commodity_id[MAX_LEN] = { 0 };
     h2o_iovec_t status_list = { NULL, 0 };
     size_t para_len = sizeof("?user_id=") - 1;
