@@ -15,7 +15,7 @@ cd seckill
 cmake -DWITH_BUNDLED_SSL=on .
 make seckill -j8
 # start redis-server in another window
-./redis-server
+redis-server
 ./seckill
 ```
 
