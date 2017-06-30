@@ -1,5 +1,5 @@
 # SecKill
-* NOTICE: ./ means the project root directory
+* NOTICE:  ./ means the corresponding project's root directory
 
 ## Dependency
 ```bash
@@ -58,8 +58,13 @@ sudo make install
 chmod +x ./SecKill/initUrls.py
 ./SecKill/initUrls.py
 ```
-* *siege* for random pressure test
+* *siege* for pressure test
 ```bash
 #!/bin/bash
+# sequential test
+siege -c 200 -r 50000 -f ./SecKill/user_intensive.url
+siege -c 200 -r 50000 -f ./SecKill/commodity_intensive.url
+# random test
 siege -i -c 200 -r 50000 -f ./SecKill/user_intensive.url
+siege -i -c 200 -r 50000 -f ./SecKill/commodity_intensive.url
 ```
