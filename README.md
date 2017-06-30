@@ -1,4 +1,5 @@
 # SecKill
+* NOTICE: ./ means the project root directory
 
 ## Dependency
 ```bash
@@ -50,6 +51,12 @@ cd siege
 ./configure --with-ssl=/usr/bin/openssl
 make -j8
 sudo make install
+```
+* For the first time, you need to generate test urls
+```bash
+#!/bin/bash
+chmod +x ./SecKill/initUrls.py
+./SecKill/initUrls.py
 ```
 * *siege* for random pressure test
 ```bash
