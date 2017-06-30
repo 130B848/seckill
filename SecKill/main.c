@@ -337,7 +337,8 @@ static int get_order_all(h2o_handler_t *self, h2o_req_t *req)
 
 int data_init() {
     FILE *fp;
-    if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
+    //if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
+    if ((fp = fopen("./SecKill/test1000.txt", "r")) == NULL) {
         return -1;
     }
 
