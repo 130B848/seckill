@@ -365,7 +365,7 @@ int data_init() {
     memset(commodities, 0, sizeof(commodity_t) * MAX_NUM);
     int number;
     for (i = 0; i < commodityNum; i++) {
-        fscanf(fp, "%36[^,],%36[^,],%d,%f\n", commodities[i].id, commodities[i].name, 
+        fscanf(fp, "%36[^,],%36[^,],%f,%d\n", commodities[i].id, commodities[i].name, 
                 &commodities[i].price, &number);
         // prefix "_c_" means user
         reply = redisCommand(conn,"SET _c_%s %u", commodities[i].id, number);
