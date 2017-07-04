@@ -174,6 +174,7 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
         if (h2o_memis(&req->path.base[req->query_at], para_len, "?commodity_id=", para_len)) {
             status_list = h2o_iovec_init(&req->path.base[req->query_at + para_len], req->path.len - req->query_at - para_len);
             strncpy(commodity_id, status_list.base, status_list.len);
+            //printf("commodity_id = %s\n", commodity_id);
         }
     }
 
@@ -184,7 +185,7 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
     quantity = atoi(reply->str);
     quantity = quantity < 0 ? 0 : quantity;
     sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f}",
-            commodities[cid].id, commodities[cid].name, quantity, commodities[cid].price);
+            commodity_id, commodities[cid].name, quantity, commodities[cid].price);
     freeReplyObject(reply);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
@@ -398,7 +399,6 @@ void sort() {
 
 int data_init() {
     FILE *fp;
-    //if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
     if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
         return -1;
     }
