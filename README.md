@@ -27,7 +27,7 @@ redis-server --port 6381
 import requests
 request.get('http://localhost:7890/seckill/getUserAll').text
 request.get('http://localhost:7890/seckill/getCommodityAll').text
-request.get('http://localhost:7890/seckill/seckill?user_id=1&commodiy_id=1').text
+request.get('http://localhost:7890/seckill/seckill?user_id=d60677a1-a49f-4b91-a20d-6d952970f3df&commodity_id=d1173b66-4eeb-4207-a42a-26382fde0ea4').text
 request.get('http://localhost:7890/seckill/getOrderAll').text
 ```
 
