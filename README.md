@@ -14,8 +14,10 @@ sudo apt install libuv1-dev libssl-dev redis-server
 cd seckill
 cmake -DWITH_BUNDLED_SSL=on .
 make seckill -j8
-# start redis-server in another window
-redis-server # Use *redis-cli* to FLUSHALL if you want to clear and return to initial status
+# start redis-server in other windows or use & to run in background
+redis-server --port 6379 # Use *redis-cli -p 6379* to FLUSHALL if you want to clear and return to initial status
+redis-server --port 6380
+redis-server --port 6381
 ./seckill
 ```
 
@@ -38,7 +40,7 @@ sudo apt install wrk
 * *wrk* for single kind of request
 ```bash
 #!/bin/bash
-wrk -t12 -c400 -d30s "http://localhost:7890/seckill/seckill?user_id=1&commodity_id=1"
+wrk -t12 -c400 -d30s "http://localhost:7890/seckill/seckill?user_id=d60677a1-a49f-4b91-a20d-6d952970f3df&commodity_id=d1173b66-4eeb-4207-a42a-26382fde0ea4"
 ```
 * Install *siege*
 ```bash
@@ -47,6 +49,7 @@ sudo apt update
 sudo apt install autoconf automake libtool
 git clone https://github.com/JoeDog/siege.git
 cd siege
+./utils/bootstrap
 # "which openssl" to get path to ssl, here shows the default path
 ./configure --with-ssl=/usr/bin/openssl
 make -j8
