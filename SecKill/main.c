@@ -9,6 +9,7 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
 
@@ -25,7 +26,8 @@ static char all_orders[MAX_ALL];
 struct userInfo {
     char id[MAX_LEN];
     char name[MAX_LEN];
-    //float balance;
+    float balance;
+    bool dirty;
 };
 typedef struct userInfo user_t;
 static user_t users[MAX_NUM];
@@ -33,8 +35,9 @@ static user_t users[MAX_NUM];
 struct commodityInfo {
     char id[MAX_LEN];
     char name[MAX_LEN];
-    //unsigned int number;
+    unsigned int number;
     float price;
+    bool dirty;
 };
 typedef struct commodityInfo commodity_t;
 static commodity_t commodities[MAX_NUM];
@@ -410,9 +413,9 @@ int data_init() {
     memset(users, 0, sizeof(user_t) * MAX_NUM);
     float balance;
     for (i = 0; i < userNum; i++) {
-        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &balance);
+        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &users[i].balance);
         // prefix "_u_" means user
-        reply = redisCommand(conn,"SET _u_%s %f", users[i].id, balance);
+        reply = redisCommand(conn,"SET _u_%s %f", users[i].id, users[i].balance);
         freeReplyObject(reply);
     }
     
@@ -421,12 +424,12 @@ int data_init() {
     int number;
     for (i = 0; i < commodityNum; i++) {
         fscanf(fp, "%36[^,],%36[^,],%f,%d\n", commodities[i].id, commodities[i].name, 
-                &commodities[i].price, &number);
+                &commodities[i].price, &commodities[i].number);
         // prefix "_c_" means user
-        reply = redisCommand(conn,"SET _c_%s %u", commodities[i].id, number);
+        reply = redisCommand(conn,"SET _c_%s %u", commodities[i].id, commodities[i].number);
         freeReplyObject(reply);
     }
-    
+
     fclose(fp);
     sort();
     return 0;
