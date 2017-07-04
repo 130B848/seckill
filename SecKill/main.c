@@ -12,7 +12,7 @@
 #include <sys/socket.h>
 #include <sys/stat.h>
 
-#define MAX_LEN 32
+#define MAX_LEN 40
 #define MAX_NUM 1000
 #define MSG_LEN 1024
 #define MAX_ALL 128000
@@ -344,7 +344,7 @@ static int get_order_all(h2o_handler_t *self, h2o_req_t *req)
 int data_init() {
     FILE *fp;
     //if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
-    if ((fp = fopen("./SecKill/test1000.txt", "r")) == NULL) {
+    if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
         return -1;
     }
 
@@ -355,7 +355,7 @@ int data_init() {
     memset(users, 0, sizeof(user_t) * MAX_NUM);
     float balance;
     for (i = 0; i < userNum; i++) {
-        fscanf(fp, "%20[^,],%20[^,],%f\n", users[i].id, users[i].name, &balance);
+        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &balance);
         // prefix "_u_" means user
         reply = redisCommand(conn,"SET _u_%s %f", users[i].id, balance);
         freeReplyObject(reply);
@@ -365,8 +365,8 @@ int data_init() {
     memset(commodities, 0, sizeof(commodity_t) * MAX_NUM);
     int number;
     for (i = 0; i < commodityNum; i++) {
-        fscanf(fp, "%20[^,],%20[^,],%d,%f\n", commodities[i].id, commodities[i].name, 
-                &number, &commodities[i].price);
+        fscanf(fp, "%36[^,],%36[^,],%d,%f\n", commodities[i].id, commodities[i].name, 
+                &commodities[i].price, &number);
         // prefix "_c_" means user
         reply = redisCommand(conn,"SET _c_%s %u", commodities[i].id, number);
         freeReplyObject(reply);
