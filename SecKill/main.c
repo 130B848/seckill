@@ -12,7 +12,7 @@
 #include <sys/socket.h>
 #include <sys/stat.h>
 
-#define MAX_LEN 32
+#define MAX_LEN 40
 #define MAX_NUM 1000
 #define MSG_LEN 1024
 #define MAX_ALL 128000
@@ -61,6 +61,34 @@ static inline void unlock(int *lock)
     __sync_lock_release(lock);
 }
 
+static int id2idx_user(char *id) {
+    int l = 0, r = userNum - 1;
+    while (l <= r) {
+        int mid = (l + r) >> 1;
+        int d = strcmp(id, users[mid].id);
+        if (d > 0)
+            l = mid + 1;
+        else if (d < 0)
+            r = mid - 1;
+        else return mid;
+    }
+    return -1;
+}
+
+static int id2idx_cmdt(char *id) {
+    int l = 0, r = commodityNum - 1;
+    while (l <= r) {
+        int mid = (l + r) >> 1;
+        int d = strcmp(id, commodities[mid].id);
+        if (d > 0)
+            l = mid + 1;
+        else if (d < 0)
+            r = mid - 1;
+        else return mid;
+    }
+    return -1;
+}
+
 static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
 {
     static h2o_generator_t generator = {NULL, NULL};
@@ -82,7 +110,7 @@ static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
 
     // get info from redis
     char result[MSG_LEN] = { 0 };
-    int uid = atoi(user_id) - 1;
+    int uid = id2idx_user(user_id);
     redisReply *reply;
     reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
     sprintf(result, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s}",
@@ -150,7 +178,7 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
     }
 
     char result[MSG_LEN] = { 0 };
-    int cid = atoi(commodity_id) - 1, quantity;
+    int cid = id2idx_cmdt(commodity_id), quantity;
     redisReply *reply;
     reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodity_id);
     quantity = atoi(reply->str);
@@ -231,7 +259,7 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     }
 
     char result[MSG_LEN] = { 0 };
-    int cid = atoi(commodity_id) - 1, uid = atoi(user_id) - 1, quantity;
+    int cid = id2idx_cmdt(commodity_id), uid = id2idx_user(user_id) - 1, quantity;
     float price = commodities[cid].price, balance;
     
     lock(&locks[uid]);
@@ -341,10 +369,37 @@ static int get_order_all(h2o_handler_t *self, h2o_req_t *req)
     return 0;
 }
 
+void swap(char *x, char *y) {
+    char t[MAX_LEN];
+    strcpy(t, x);
+    strcpy(x, y);
+    strcpy(y, t);
+}
+
+void sort() {
+    int i, j;
+    for (i = 0; i < userNum; i++)
+        for (j = i + 1; j < userNum; j++)
+            if (strcmp(users[i].id, users[j].id) > 0) {
+                swap(users[i].id, users[j].id);
+                swap(users[i].name, users[j].name);
+            }
+    for (i = 0; i < commodityNum; i++)
+        for (j = i + 1; j < commodityNum; j++)
+            if (strcmp(commodities[i].id, commodities[j].id) > 0) {
+                swap(commodities[i].id, commodities[j].id);
+                swap(commodities[i].name, commodities[j].name);
+
+                float tmp = commodities[i].price;
+                commodities[i].price = commodities[j].price;
+                commodities[j].price = tmp;
+            }
+}
+
 int data_init() {
     FILE *fp;
     //if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
-    if ((fp = fopen("./SecKill/test1000.txt", "r")) == NULL) {
+    if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
         return -1;
     }
 
@@ -355,7 +410,7 @@ int data_init() {
     memset(users, 0, sizeof(user_t) * MAX_NUM);
     float balance;
     for (i = 0; i < userNum; i++) {
-        fscanf(fp, "%20[^,],%20[^,],%f\n", users[i].id, users[i].name, &balance);
+        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &balance);
         // prefix "_u_" means user
         reply = redisCommand(user_conn,"SET _u_%s %f", users[i].id, balance);
         freeReplyObject(reply);
@@ -365,14 +420,15 @@ int data_init() {
     memset(commodities, 0, sizeof(commodity_t) * MAX_NUM);
     int number;
     for (i = 0; i < commodityNum; i++) {
-        fscanf(fp, "%20[^,],%20[^,],%d,%f\n", commodities[i].id, commodities[i].name, 
-                &number, &commodities[i].price);
+        fscanf(fp, "%36[^,],%36[^,],%f,%d\n", commodities[i].id, commodities[i].name, 
+                &commodities[i].price, &number);
         // prefix "_c_" means user
         reply = redisCommand(commodity_conn,"SET _c_%s %u", commodities[i].id, number);
         freeReplyObject(reply);
     }
     
     fclose(fp);
+    sort();
     return 0;
 }
 
