@@ -48,7 +48,7 @@ static h2o_globalconf_t config;
 static h2o_context_t ctx;
 static h2o_accept_ctx_t accept_ctx;
 
-static redisContext *conn;
+static redisContext *conn, *user_conn, *commodity_conn, *order_conn;
 static unsigned long long _order_id = 1LLU;
 
 static int locks[MAX_NUM] = { 0 };
@@ -115,7 +115,7 @@ static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
     char result[MSG_LEN] = { 0 };
     int uid = id2idx_user(user_id);
     redisReply *reply;
-    reply = (redisReply *)redisCommand(conn, "GET _u_%s", user_id);
+    reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
     sprintf(result, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s}",
             users[uid].id, users[uid].name, reply->str);
     freeReplyObject(reply);
@@ -144,7 +144,7 @@ static int get_user_all(h2o_handler_t *self, h2o_req_t *req)
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; uid < userNum; uid++) {
-        reply = (redisReply *)redisCommand(conn, "GET _u_%s", users[uid].id);
+        reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", users[uid].id);
         sprintf(iterator, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s},", 
                 users[uid].id, users[uid].name, reply->str);
         freeReplyObject(reply);
@@ -177,17 +177,18 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
         if (h2o_memis(&req->path.base[req->query_at], para_len, "?commodity_id=", para_len)) {
             status_list = h2o_iovec_init(&req->path.base[req->query_at + para_len], req->path.len - req->query_at - para_len);
             strncpy(commodity_id, status_list.base, status_list.len);
+            //printf("commodity_id = %s\n", commodity_id);
         }
     }
 
     char result[MSG_LEN] = { 0 };
     int cid = id2idx_cmdt(commodity_id), quantity;
     redisReply *reply;
-    reply = (redisReply *)redisCommand(conn, "GET _c_%s", commodity_id);
+    reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodity_id);
     quantity = atoi(reply->str);
     quantity = quantity < 0 ? 0 : quantity;
-    sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f}",
-            commodities[cid].id, commodities[cid].name, quantity, commodities[cid].price);
+    sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%d,\"unit_price\":%f}",
+            commodity_id, commodities[cid].name, quantity, commodities[cid].price);
     freeReplyObject(reply);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
@@ -213,7 +214,7 @@ static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; cid < commodityNum; cid++) {
-        reply = (redisReply *)redisCommand(conn, "GET _c_%s", commodities[cid].id);
+        reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodities[cid].id);
         quantity = atoi(reply->str);
         quantity = quantity < 0 ? 0 : quantity;
         sprintf(iterator, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f},",
@@ -268,7 +269,7 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     lock(&locks[uid]);
     
     redisReply *reply;
-    reply = (redisReply *)redisCommand(conn, "GET _u_%s", user_id);
+    reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
     balance = atof(reply->str);
     freeReplyObject(reply);
     if (balance < price) {
@@ -276,7 +277,7 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
         goto END;
     }
 
-    reply = (redisReply *)redisCommand(conn, "DECR _c_%s", commodity_id);
+    reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
     //printf("quantity: %lld\n", reply->integer);
     quantity = reply->integer;
     freeReplyObject(reply);
@@ -287,9 +288,9 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
         time(&ts);
         //printf("timestamp: %ld\n", ts);
         unsigned long long oid = _order_id++, 
-        reply = (redisReply *)redisCommand(conn, "SET _o_%llu \"user_id\":%s,\"commodity_id\":%s,\"timestamp\":%ld}", oid, user_id, commodity_id, ts);
+        reply = (redisReply *)redisCommand(order_conn, "SET _o_%llu \"user_id\":%s,\"commodity_id\":%s,\"timestamp\":%ld}", oid, user_id, commodity_id, ts);
         freeReplyObject(reply);
-        reply = (redisReply *)redisCommand(conn, "INCRBYFLOAT _u_%s -%f", user_id, price);
+        reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s -%f", user_id, price);
         freeReplyObject(reply);
         sprintf(result, "{\"result\":1,\"order_id\":%llu,\"user_id\":%s,\"commodity_id\":%s}", oid, user_id, commodity_id);
     }
@@ -327,7 +328,7 @@ static int get_order_by_id(h2o_handler_t *self, h2o_req_t *req)
 
     char result[MSG_LEN] = { 0 };
     redisReply *reply;
-    reply = (redisReply *)redisCommand(conn, "GET _o_%s", order_id);
+    reply = (redisReply *)redisCommand(order_conn, "GET _o_%s", order_id);
     sprintf(result, "{\"order_id\":%s,%s", order_id, reply->str);
     freeReplyObject(reply);
     
@@ -354,7 +355,7 @@ static int get_order_all(h2o_handler_t *self, h2o_req_t *req)
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; oid < _order_id; oid++) {
-        reply = (redisReply *)redisCommand(conn, "GET _o_%llu", oid);
+        reply = (redisReply *)redisCommand(order_conn, "GET _o_%llu", oid);
         sprintf(iterator, "{\"order_id\":%llu,%s,", oid, reply->str);
         freeReplyObject(reply);
         strcat(all_orders, iterator);
@@ -401,7 +402,6 @@ void sort() {
 
 int data_init() {
     FILE *fp;
-    //if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
     if ((fp = fopen("./SecKill/input.txt", "r")) == NULL) {
         return -1;
     }
@@ -413,9 +413,9 @@ int data_init() {
     memset(users, 0, sizeof(user_t) * MAX_NUM);
     float balance;
     for (i = 0; i < userNum; i++) {
-        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &users[i].balance);
+        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &balance);
         // prefix "_u_" means user
-        reply = redisCommand(conn,"SET _u_%s %f", users[i].id, users[i].balance);
+        reply = redisCommand(user_conn,"SET _u_%s %f", users[i].id, balance);
         freeReplyObject(reply);
     }
     
@@ -424,9 +424,9 @@ int data_init() {
     int number;
     for (i = 0; i < commodityNum; i++) {
         fscanf(fp, "%36[^,],%36[^,],%f,%d\n", commodities[i].id, commodities[i].name, 
-                &commodities[i].price, &commodities[i].number);
+                &commodities[i].price, &number);
         // prefix "_c_" means user
-        reply = redisCommand(conn,"SET _c_%s %u", commodities[i].id, commodities[i].number);
+        reply = redisCommand(commodity_conn,"SET _c_%s %u", commodities[i].id, number);
         freeReplyObject(reply);
     }
 
@@ -518,11 +518,31 @@ int main(int argc, char **argv)
     }
 
     struct timeval timeout = { 1, 500000 }; // 1.5 seconds
-    conn = redisConnectWithTimeout("127.0.0.1", 6379, timeout);
-    if (conn == NULL || conn->err) {
-        if (conn) {
-            printf("Connection error: %s\n", conn->errstr);
-            redisFree(conn);
+    user_conn = redisConnectWithTimeout("127.0.0.1", 6379, timeout);
+    if (user_conn == NULL || user_conn->err) {
+        if (user_conn) {
+            printf("Connection error: %s\n", user_conn->errstr);
+            redisFree(user_conn);
+        } else {
+            printf("Connection error: can't allocate redis context\n");
+        }
+        return 1;
+    }
+    commodity_conn = redisConnectWithTimeout("127.0.0.1", 6380, timeout);
+    if (commodity_conn == NULL || commodity_conn->err) {
+        if (commodity_conn) {
+            printf("Connection error: %s\n", commodity_conn->errstr);
+            redisFree(commodity_conn);
+        } else {
+            printf("Connection error: can't allocate redis context\n");
+        }
+        return 1;
+    }
+    order_conn = redisConnectWithTimeout("127.0.0.1", 6381, timeout);
+    if (order_conn == NULL || order_conn->err) {
+        if (order_conn) {
+            printf("Connection error: %s\n", order_conn->errstr);
+            redisFree(order_conn);
         } else {
             printf("Connection error: can't allocate redis context\n");
         }
@@ -536,7 +556,9 @@ int main(int argc, char **argv)
 
 Error:
     /* Disconnects and frees the context */
-    redisFree(conn);
+    redisFree(user_conn);
+    redisFree(commodity_conn);
+    redisFree(order_conn);
 
     return 1;
 }
