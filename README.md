@@ -1,7 +1,7 @@
 # SecKill
 * NOTICE:  ./ means the corresponding project's root directory
-* Now we shall start three Redis on ports 6379, 6380 and 6381. Tmux is recommended for split windows
-* The HTTP port is changed to 80, just send request to IP/localhost directly is OK.
+* Now we shall start three Redis on ports 6379, 6380 and 6381. Tmux is recommended for spliting windows
+* The HTTP port was changed to 80, just send request to IP/localhost without ":port" is OK.
 
 ## Dependency
 ```bash
