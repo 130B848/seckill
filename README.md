@@ -27,10 +27,10 @@ redis-server --port 6381
 ```python
 #!/usr/bin/python
 import requests
-request.get('http://localhost/seckill/getUserAll').text
-request.get('http://localhost/seckill/getCommodityAll').text
-request.get('http://localhost/seckill/seckill?user_id=d60677a1-a49f-4b91-a20d-6d952970f3df&commodity_id=d1173b66-4eeb-4207-a42a-26382fde0ea4').text
-request.get('http://localhost/seckill/getOrderAll').text
+requests.get('http://localhost/seckill/getUserAll').text
+requests.get('http://localhost/seckill/getCommodityAll').text
+requests.get('http://localhost/seckill/seckill?user_id=d60677a1-a49f-4b91-a20d-6d952970f3df&commodity_id=d1173b66-4eeb-4207-a42a-26382fde0ea4').text
+requests.get('http://localhost/seckill/getOrderAll').text
 ```
 
 ## Benchmark 
