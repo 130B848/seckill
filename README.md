@@ -29,7 +29,7 @@ redis-server --port 6381
 import requests
 requests.get('http://localhost/seckill/getUserAll').text
 requests.get('http://localhost/seckill/getCommodityAll').text
-requests.get('http://localhost/seckill/seckill?user_id=d60677a1-a49f-4b91-a20d-6d952970f3df&commodity_id=d1173b66-4eeb-4207-a42a-26382fde0ea4').text
+requests.get('http://localhost/seckill/seckill?user_id=e3351fa5-e422-41db-82b1-888881309cfb&commodity_id=a6bdd278-138c-4f11-bc71-47da49e74b4e').text
 requests.get('http://localhost/seckill/getOrderAll').text
 ```
 
@@ -42,7 +42,7 @@ sudo apt install wrk
 * *wrk* for single kind of request
 ```bash
 #!/bin/bash
-wrk -t12 -c400 -d30s "http://localhost/seckill/seckill?user_id=d60677a1-a49f-4b91-a20d-6d952970f3df&commodity_id=d1173b66-4eeb-4207-a42a-26382fde0ea4"
+wrk -t12 -c400 -d30s "http://localhost/seckill/seckill?user_id=e3351fa5-e422-41db-82b1-888881309cfb&commodity_id=a6bdd278-138c-4f11-bc71-47da49e74b4e"
 ```
 * Install *siege*
 ```bash
