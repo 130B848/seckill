@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mark-lee/seckill
+CMAKE_SOURCE_DIR = /home/howie/seckill
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mark-lee/seckill
+CMAKE_BINARY_DIR = /home/howie/seckill
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,6 +67,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,16 +88,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -100,22 +101,21 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : install/local/fast
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mark-lee/seckill/CMakeFiles /home/mark-lee/seckill/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/howie/seckill/CMakeFiles /home/howie/seckill/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mark-lee/seckill/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/howie/seckill/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -144,6 +144,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named check-as-root-valgrind
+
+# Build rule for target.
+check-as-root-valgrind: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 check-as-root-valgrind
+.PHONY : check-as-root-valgrind
+
+# fast build rule for target.
+check-as-root-valgrind/fast:
+	$(MAKE) -f CMakeFiles/check-as-root-valgrind.dir/build.make CMakeFiles/check-as-root-valgrind.dir/build
+.PHONY : check-as-root-valgrind/fast
+
+#=============================================================================
 # Target rules for targets named check-as-root
 
 # Build rule for target.
@@ -155,6 +168,45 @@ check-as-root: cmake_check_build_system
 check-as-root/fast:
 	$(MAKE) -f CMakeFiles/check-as-root.dir/build.make CMakeFiles/check-as-root.dir/build
 .PHONY : check-as-root/fast
+
+#=============================================================================
+# Target rules for targets named check-valgrind
+
+# Build rule for target.
+check-valgrind: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 check-valgrind
+.PHONY : check-valgrind
+
+# fast build rule for target.
+check-valgrind/fast:
+	$(MAKE) -f CMakeFiles/check-valgrind.dir/build.make CMakeFiles/check-valgrind.dir/build
+.PHONY : check-valgrind/fast
+
+#=============================================================================
+# Target rules for targets named check
+
+# Build rule for target.
+check: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 check
+.PHONY : check
+
+# fast build rule for target.
+check/fast:
+	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
+.PHONY : check/fast
+
+#=============================================================================
+# Target rules for targets named t-00unit-evloop.t
+
+# Build rule for target.
+t-00unit-evloop.t: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 t-00unit-evloop.t
+.PHONY : t-00unit-evloop.t
+
+# fast build rule for target.
+t-00unit-evloop.t/fast:
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/build
+.PHONY : t-00unit-evloop.t/fast
 
 #=============================================================================
 # Target rules for targets named lib-examples
@@ -170,17 +222,17 @@ lib-examples/fast:
 .PHONY : lib-examples/fast
 
 #=============================================================================
-# Target rules for targets named t-00unit-libuv.t
+# Target rules for targets named examples-socket-client
 
 # Build rule for target.
-t-00unit-libuv.t: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 t-00unit-libuv.t
-.PHONY : t-00unit-libuv.t
+examples-socket-client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 examples-socket-client
+.PHONY : examples-socket-client
 
 # fast build rule for target.
-t-00unit-libuv.t/fast:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/build
-.PHONY : t-00unit-libuv.t/fast
+examples-socket-client/fast:
+	$(MAKE) -f CMakeFiles/examples-socket-client.dir/build.make CMakeFiles/examples-socket-client.dir/build
+.PHONY : examples-socket-client/fast
 
 #=============================================================================
 # Target rules for targets named libh2o-evloop
@@ -194,6 +246,63 @@ libh2o-evloop: cmake_check_build_system
 libh2o-evloop/fast:
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/build
 .PHONY : libh2o-evloop/fast
+
+#=============================================================================
+# Target rules for targets named libh2o
+
+# Build rule for target.
+libh2o: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libh2o
+.PHONY : libh2o
+
+# fast build rule for target.
+libh2o/fast:
+	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/build
+.PHONY : libh2o/fast
+
+#=============================================================================
+# Target rules for targets named h2o
+
+# Build rule for target.
+h2o: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 h2o
+.PHONY : h2o
+
+# fast build rule for target.
+h2o/fast:
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/build
+.PHONY : h2o/fast
+
+# Manual pre-install relink rule for target.
+h2o/preinstall:
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/preinstall
+.PHONY : h2o/preinstall
+
+#=============================================================================
+# Target rules for targets named examples-http1client
+
+# Build rule for target.
+examples-http1client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 examples-http1client
+.PHONY : examples-http1client
+
+# fast build rule for target.
+examples-http1client/fast:
+	$(MAKE) -f CMakeFiles/examples-http1client.dir/build.make CMakeFiles/examples-http1client.dir/build
+.PHONY : examples-http1client/fast
+
+#=============================================================================
+# Target rules for targets named t-00unit-libuv.t
+
+# Build rule for target.
+t-00unit-libuv.t: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 t-00unit-libuv.t
+.PHONY : t-00unit-libuv.t
+
+# fast build rule for target.
+t-00unit-libuv.t/fast:
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/build
+.PHONY : t-00unit-libuv.t/fast
 
 #=============================================================================
 # Target rules for targets named bundled-ssl
@@ -222,58 +331,6 @@ examples-simple/fast:
 .PHONY : examples-simple/fast
 
 #=============================================================================
-# Target rules for targets named examples-socket-client
-
-# Build rule for target.
-examples-socket-client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 examples-socket-client
-.PHONY : examples-socket-client
-
-# fast build rule for target.
-examples-socket-client/fast:
-	$(MAKE) -f CMakeFiles/examples-socket-client.dir/build.make CMakeFiles/examples-socket-client.dir/build
-.PHONY : examples-socket-client/fast
-
-#=============================================================================
-# Target rules for targets named libh2o
-
-# Build rule for target.
-libh2o: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 libh2o
-.PHONY : libh2o
-
-# fast build rule for target.
-libh2o/fast:
-	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/build
-.PHONY : libh2o/fast
-
-#=============================================================================
-# Target rules for targets named examples-http1client
-
-# Build rule for target.
-examples-http1client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 examples-http1client
-.PHONY : examples-http1client
-
-# fast build rule for target.
-examples-http1client/fast:
-	$(MAKE) -f CMakeFiles/examples-http1client.dir/build.make CMakeFiles/examples-http1client.dir/build
-.PHONY : examples-http1client/fast
-
-#=============================================================================
-# Target rules for targets named check-valgrind
-
-# Build rule for target.
-check-valgrind: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 check-valgrind
-.PHONY : check-valgrind
-
-# fast build rule for target.
-check-valgrind/fast:
-	$(MAKE) -f CMakeFiles/check-valgrind.dir/build.make CMakeFiles/check-valgrind.dir/build
-.PHONY : check-valgrind/fast
-
-#=============================================================================
 # Target rules for targets named examples-websocket
 
 # Build rule for target.
@@ -285,19 +342,6 @@ examples-websocket: cmake_check_build_system
 examples-websocket/fast:
 	$(MAKE) -f CMakeFiles/examples-websocket.dir/build.make CMakeFiles/examples-websocket.dir/build
 .PHONY : examples-websocket/fast
-
-#=============================================================================
-# Target rules for targets named examples-latency-optimization
-
-# Build rule for target.
-examples-latency-optimization: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 examples-latency-optimization
-.PHONY : examples-latency-optimization
-
-# fast build rule for target.
-examples-latency-optimization/fast:
-	$(MAKE) -f CMakeFiles/examples-latency-optimization.dir/build.make CMakeFiles/examples-latency-optimization.dir/build
-.PHONY : examples-latency-optimization/fast
 
 #=============================================================================
 # Target rules for targets named seckill
@@ -313,74 +357,17 @@ seckill/fast:
 .PHONY : seckill/fast
 
 #=============================================================================
-# Target rules for targets named mruby
+# Target rules for targets named examples-latency-optimization
 
 # Build rule for target.
-mruby: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mruby
-.PHONY : mruby
+examples-latency-optimization: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 examples-latency-optimization
+.PHONY : examples-latency-optimization
 
 # fast build rule for target.
-mruby/fast:
-	$(MAKE) -f CMakeFiles/mruby.dir/build.make CMakeFiles/mruby.dir/build
-.PHONY : mruby/fast
-
-#=============================================================================
-# Target rules for targets named h2o
-
-# Build rule for target.
-h2o: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 h2o
-.PHONY : h2o
-
-# fast build rule for target.
-h2o/fast:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/build
-.PHONY : h2o/fast
-
-# Manual pre-install relink rule for target.
-h2o/preinstall:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/preinstall
-.PHONY : h2o/preinstall
-
-#=============================================================================
-# Target rules for targets named check
-
-# Build rule for target.
-check: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 check
-.PHONY : check
-
-# fast build rule for target.
-check/fast:
-	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
-.PHONY : check/fast
-
-#=============================================================================
-# Target rules for targets named check-as-root-valgrind
-
-# Build rule for target.
-check-as-root-valgrind: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 check-as-root-valgrind
-.PHONY : check-as-root-valgrind
-
-# fast build rule for target.
-check-as-root-valgrind/fast:
-	$(MAKE) -f CMakeFiles/check-as-root-valgrind.dir/build.make CMakeFiles/check-as-root-valgrind.dir/build
-.PHONY : check-as-root-valgrind/fast
-
-#=============================================================================
-# Target rules for targets named t-00unit-evloop.t
-
-# Build rule for target.
-t-00unit-evloop.t: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 t-00unit-evloop.t
-.PHONY : t-00unit-evloop.t
-
-# fast build rule for target.
-t-00unit-evloop.t/fast:
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/build
-.PHONY : t-00unit-evloop.t/fast
+examples-latency-optimization/fast:
+	$(MAKE) -f CMakeFiles/examples-latency-optimization.dir/build.make CMakeFiles/examples-latency-optimization.dir/build
+.PHONY : examples-latency-optimization/fast
 
 SecKill/main.o: SecKill/main.c.o
 
@@ -415,9 +402,9 @@ deps/brotli/enc/backward_references.o: deps/brotli/enc/backward_references.cc.o
 
 # target to build an object file
 deps/brotli/enc/backward_references.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/backward_references.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/backward_references.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/backward_references.cc.o
 .PHONY : deps/brotli/enc/backward_references.cc.o
 
 deps/brotli/enc/backward_references.i: deps/brotli/enc/backward_references.cc.i
@@ -426,9 +413,9 @@ deps/brotli/enc/backward_references.i: deps/brotli/enc/backward_references.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/backward_references.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/backward_references.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/backward_references.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/backward_references.cc.i
 .PHONY : deps/brotli/enc/backward_references.cc.i
 
 deps/brotli/enc/backward_references.s: deps/brotli/enc/backward_references.cc.s
@@ -437,9 +424,9 @@ deps/brotli/enc/backward_references.s: deps/brotli/enc/backward_references.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/backward_references.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/backward_references.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/backward_references.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/backward_references.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/backward_references.cc.s
 .PHONY : deps/brotli/enc/backward_references.cc.s
 
 deps/brotli/enc/block_splitter.o: deps/brotli/enc/block_splitter.cc.o
@@ -448,9 +435,9 @@ deps/brotli/enc/block_splitter.o: deps/brotli/enc/block_splitter.cc.o
 
 # target to build an object file
 deps/brotli/enc/block_splitter.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/block_splitter.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/block_splitter.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/block_splitter.cc.o
 .PHONY : deps/brotli/enc/block_splitter.cc.o
 
 deps/brotli/enc/block_splitter.i: deps/brotli/enc/block_splitter.cc.i
@@ -459,9 +446,9 @@ deps/brotli/enc/block_splitter.i: deps/brotli/enc/block_splitter.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/block_splitter.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/block_splitter.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/block_splitter.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/block_splitter.cc.i
 .PHONY : deps/brotli/enc/block_splitter.cc.i
 
 deps/brotli/enc/block_splitter.s: deps/brotli/enc/block_splitter.cc.s
@@ -470,9 +457,9 @@ deps/brotli/enc/block_splitter.s: deps/brotli/enc/block_splitter.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/block_splitter.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/block_splitter.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/block_splitter.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/block_splitter.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/block_splitter.cc.s
 .PHONY : deps/brotli/enc/block_splitter.cc.s
 
 deps/brotli/enc/brotli_bit_stream.o: deps/brotli/enc/brotli_bit_stream.cc.o
@@ -481,9 +468,9 @@ deps/brotli/enc/brotli_bit_stream.o: deps/brotli/enc/brotli_bit_stream.cc.o
 
 # target to build an object file
 deps/brotli/enc/brotli_bit_stream.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/brotli_bit_stream.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/brotli_bit_stream.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/brotli_bit_stream.cc.o
 .PHONY : deps/brotli/enc/brotli_bit_stream.cc.o
 
 deps/brotli/enc/brotli_bit_stream.i: deps/brotli/enc/brotli_bit_stream.cc.i
@@ -492,9 +479,9 @@ deps/brotli/enc/brotli_bit_stream.i: deps/brotli/enc/brotli_bit_stream.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/brotli_bit_stream.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/brotli_bit_stream.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/brotli_bit_stream.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/brotli_bit_stream.cc.i
 .PHONY : deps/brotli/enc/brotli_bit_stream.cc.i
 
 deps/brotli/enc/brotli_bit_stream.s: deps/brotli/enc/brotli_bit_stream.cc.s
@@ -503,9 +490,9 @@ deps/brotli/enc/brotli_bit_stream.s: deps/brotli/enc/brotli_bit_stream.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/brotli_bit_stream.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/brotli_bit_stream.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/brotli_bit_stream.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/brotli_bit_stream.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/brotli_bit_stream.cc.s
 .PHONY : deps/brotli/enc/brotli_bit_stream.cc.s
 
 deps/brotli/enc/compress_fragment.o: deps/brotli/enc/compress_fragment.cc.o
@@ -514,9 +501,9 @@ deps/brotli/enc/compress_fragment.o: deps/brotli/enc/compress_fragment.cc.o
 
 # target to build an object file
 deps/brotli/enc/compress_fragment.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/compress_fragment.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment.cc.o
 .PHONY : deps/brotli/enc/compress_fragment.cc.o
 
 deps/brotli/enc/compress_fragment.i: deps/brotli/enc/compress_fragment.cc.i
@@ -525,9 +512,9 @@ deps/brotli/enc/compress_fragment.i: deps/brotli/enc/compress_fragment.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/compress_fragment.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/compress_fragment.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment.cc.i
 .PHONY : deps/brotli/enc/compress_fragment.cc.i
 
 deps/brotli/enc/compress_fragment.s: deps/brotli/enc/compress_fragment.cc.s
@@ -536,9 +523,9 @@ deps/brotli/enc/compress_fragment.s: deps/brotli/enc/compress_fragment.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/compress_fragment.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/compress_fragment.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment.cc.s
 .PHONY : deps/brotli/enc/compress_fragment.cc.s
 
 deps/brotli/enc/compress_fragment_two_pass.o: deps/brotli/enc/compress_fragment_two_pass.cc.o
@@ -547,9 +534,9 @@ deps/brotli/enc/compress_fragment_two_pass.o: deps/brotli/enc/compress_fragment_
 
 # target to build an object file
 deps/brotli/enc/compress_fragment_two_pass.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.o
 .PHONY : deps/brotli/enc/compress_fragment_two_pass.cc.o
 
 deps/brotli/enc/compress_fragment_two_pass.i: deps/brotli/enc/compress_fragment_two_pass.cc.i
@@ -558,9 +545,9 @@ deps/brotli/enc/compress_fragment_two_pass.i: deps/brotli/enc/compress_fragment_
 
 # target to preprocess a source file
 deps/brotli/enc/compress_fragment_two_pass.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.i
 .PHONY : deps/brotli/enc/compress_fragment_two_pass.cc.i
 
 deps/brotli/enc/compress_fragment_two_pass.s: deps/brotli/enc/compress_fragment_two_pass.cc.s
@@ -569,9 +556,9 @@ deps/brotli/enc/compress_fragment_two_pass.s: deps/brotli/enc/compress_fragment_
 
 # target to generate assembly for a file
 deps/brotli/enc/compress_fragment_two_pass.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/compress_fragment_two_pass.cc.s
 .PHONY : deps/brotli/enc/compress_fragment_two_pass.cc.s
 
 deps/brotli/enc/dictionary.o: deps/brotli/enc/dictionary.cc.o
@@ -580,9 +567,9 @@ deps/brotli/enc/dictionary.o: deps/brotli/enc/dictionary.cc.o
 
 # target to build an object file
 deps/brotli/enc/dictionary.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/dictionary.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/dictionary.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/dictionary.cc.o
 .PHONY : deps/brotli/enc/dictionary.cc.o
 
 deps/brotli/enc/dictionary.i: deps/brotli/enc/dictionary.cc.i
@@ -591,9 +578,9 @@ deps/brotli/enc/dictionary.i: deps/brotli/enc/dictionary.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/dictionary.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/dictionary.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/dictionary.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/dictionary.cc.i
 .PHONY : deps/brotli/enc/dictionary.cc.i
 
 deps/brotli/enc/dictionary.s: deps/brotli/enc/dictionary.cc.s
@@ -602,9 +589,9 @@ deps/brotli/enc/dictionary.s: deps/brotli/enc/dictionary.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/dictionary.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/dictionary.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/dictionary.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/dictionary.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/dictionary.cc.s
 .PHONY : deps/brotli/enc/dictionary.cc.s
 
 deps/brotli/enc/encode.o: deps/brotli/enc/encode.cc.o
@@ -613,9 +600,9 @@ deps/brotli/enc/encode.o: deps/brotli/enc/encode.cc.o
 
 # target to build an object file
 deps/brotli/enc/encode.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/encode.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/encode.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/encode.cc.o
 .PHONY : deps/brotli/enc/encode.cc.o
 
 deps/brotli/enc/encode.i: deps/brotli/enc/encode.cc.i
@@ -624,9 +611,9 @@ deps/brotli/enc/encode.i: deps/brotli/enc/encode.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/encode.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/encode.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/encode.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/encode.cc.i
 .PHONY : deps/brotli/enc/encode.cc.i
 
 deps/brotli/enc/encode.s: deps/brotli/enc/encode.cc.s
@@ -635,9 +622,9 @@ deps/brotli/enc/encode.s: deps/brotli/enc/encode.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/encode.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/encode.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/encode.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/encode.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/encode.cc.s
 .PHONY : deps/brotli/enc/encode.cc.s
 
 deps/brotli/enc/entropy_encode.o: deps/brotli/enc/entropy_encode.cc.o
@@ -646,9 +633,9 @@ deps/brotli/enc/entropy_encode.o: deps/brotli/enc/entropy_encode.cc.o
 
 # target to build an object file
 deps/brotli/enc/entropy_encode.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/entropy_encode.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/entropy_encode.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/entropy_encode.cc.o
 .PHONY : deps/brotli/enc/entropy_encode.cc.o
 
 deps/brotli/enc/entropy_encode.i: deps/brotli/enc/entropy_encode.cc.i
@@ -657,9 +644,9 @@ deps/brotli/enc/entropy_encode.i: deps/brotli/enc/entropy_encode.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/entropy_encode.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/entropy_encode.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/entropy_encode.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/entropy_encode.cc.i
 .PHONY : deps/brotli/enc/entropy_encode.cc.i
 
 deps/brotli/enc/entropy_encode.s: deps/brotli/enc/entropy_encode.cc.s
@@ -668,9 +655,9 @@ deps/brotli/enc/entropy_encode.s: deps/brotli/enc/entropy_encode.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/entropy_encode.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/entropy_encode.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/entropy_encode.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/entropy_encode.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/entropy_encode.cc.s
 .PHONY : deps/brotli/enc/entropy_encode.cc.s
 
 deps/brotli/enc/histogram.o: deps/brotli/enc/histogram.cc.o
@@ -679,9 +666,9 @@ deps/brotli/enc/histogram.o: deps/brotli/enc/histogram.cc.o
 
 # target to build an object file
 deps/brotli/enc/histogram.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/histogram.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/histogram.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/histogram.cc.o
 .PHONY : deps/brotli/enc/histogram.cc.o
 
 deps/brotli/enc/histogram.i: deps/brotli/enc/histogram.cc.i
@@ -690,9 +677,9 @@ deps/brotli/enc/histogram.i: deps/brotli/enc/histogram.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/histogram.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/histogram.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/histogram.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/histogram.cc.i
 .PHONY : deps/brotli/enc/histogram.cc.i
 
 deps/brotli/enc/histogram.s: deps/brotli/enc/histogram.cc.s
@@ -701,9 +688,9 @@ deps/brotli/enc/histogram.s: deps/brotli/enc/histogram.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/histogram.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/histogram.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/histogram.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/histogram.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/histogram.cc.s
 .PHONY : deps/brotli/enc/histogram.cc.s
 
 deps/brotli/enc/literal_cost.o: deps/brotli/enc/literal_cost.cc.o
@@ -712,9 +699,9 @@ deps/brotli/enc/literal_cost.o: deps/brotli/enc/literal_cost.cc.o
 
 # target to build an object file
 deps/brotli/enc/literal_cost.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/literal_cost.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/literal_cost.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/literal_cost.cc.o
 .PHONY : deps/brotli/enc/literal_cost.cc.o
 
 deps/brotli/enc/literal_cost.i: deps/brotli/enc/literal_cost.cc.i
@@ -723,9 +710,9 @@ deps/brotli/enc/literal_cost.i: deps/brotli/enc/literal_cost.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/literal_cost.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/literal_cost.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/literal_cost.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/literal_cost.cc.i
 .PHONY : deps/brotli/enc/literal_cost.cc.i
 
 deps/brotli/enc/literal_cost.s: deps/brotli/enc/literal_cost.cc.s
@@ -734,9 +721,9 @@ deps/brotli/enc/literal_cost.s: deps/brotli/enc/literal_cost.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/literal_cost.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/literal_cost.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/literal_cost.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/literal_cost.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/literal_cost.cc.s
 .PHONY : deps/brotli/enc/literal_cost.cc.s
 
 deps/brotli/enc/metablock.o: deps/brotli/enc/metablock.cc.o
@@ -745,9 +732,9 @@ deps/brotli/enc/metablock.o: deps/brotli/enc/metablock.cc.o
 
 # target to build an object file
 deps/brotli/enc/metablock.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/metablock.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/metablock.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/metablock.cc.o
 .PHONY : deps/brotli/enc/metablock.cc.o
 
 deps/brotli/enc/metablock.i: deps/brotli/enc/metablock.cc.i
@@ -756,9 +743,9 @@ deps/brotli/enc/metablock.i: deps/brotli/enc/metablock.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/metablock.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/metablock.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/metablock.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/metablock.cc.i
 .PHONY : deps/brotli/enc/metablock.cc.i
 
 deps/brotli/enc/metablock.s: deps/brotli/enc/metablock.cc.s
@@ -767,9 +754,9 @@ deps/brotli/enc/metablock.s: deps/brotli/enc/metablock.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/metablock.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/metablock.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/metablock.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/metablock.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/metablock.cc.s
 .PHONY : deps/brotli/enc/metablock.cc.s
 
 deps/brotli/enc/static_dict.o: deps/brotli/enc/static_dict.cc.o
@@ -778,9 +765,9 @@ deps/brotli/enc/static_dict.o: deps/brotli/enc/static_dict.cc.o
 
 # target to build an object file
 deps/brotli/enc/static_dict.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/static_dict.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/static_dict.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/static_dict.cc.o
 .PHONY : deps/brotli/enc/static_dict.cc.o
 
 deps/brotli/enc/static_dict.i: deps/brotli/enc/static_dict.cc.i
@@ -789,9 +776,9 @@ deps/brotli/enc/static_dict.i: deps/brotli/enc/static_dict.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/static_dict.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/static_dict.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/static_dict.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/static_dict.cc.i
 .PHONY : deps/brotli/enc/static_dict.cc.i
 
 deps/brotli/enc/static_dict.s: deps/brotli/enc/static_dict.cc.s
@@ -800,9 +787,9 @@ deps/brotli/enc/static_dict.s: deps/brotli/enc/static_dict.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/static_dict.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/static_dict.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/static_dict.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/static_dict.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/static_dict.cc.s
 .PHONY : deps/brotli/enc/static_dict.cc.s
 
 deps/brotli/enc/streams.o: deps/brotli/enc/streams.cc.o
@@ -811,9 +798,9 @@ deps/brotli/enc/streams.o: deps/brotli/enc/streams.cc.o
 
 # target to build an object file
 deps/brotli/enc/streams.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/streams.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/streams.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/streams.cc.o
 .PHONY : deps/brotli/enc/streams.cc.o
 
 deps/brotli/enc/streams.i: deps/brotli/enc/streams.cc.i
@@ -822,9 +809,9 @@ deps/brotli/enc/streams.i: deps/brotli/enc/streams.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/streams.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/streams.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/streams.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/streams.cc.i
 .PHONY : deps/brotli/enc/streams.cc.i
 
 deps/brotli/enc/streams.s: deps/brotli/enc/streams.cc.s
@@ -833,9 +820,9 @@ deps/brotli/enc/streams.s: deps/brotli/enc/streams.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/streams.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/streams.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/streams.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/streams.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/streams.cc.s
 .PHONY : deps/brotli/enc/streams.cc.s
 
 deps/brotli/enc/utf8_util.o: deps/brotli/enc/utf8_util.cc.o
@@ -844,9 +831,9 @@ deps/brotli/enc/utf8_util.o: deps/brotli/enc/utf8_util.cc.o
 
 # target to build an object file
 deps/brotli/enc/utf8_util.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/utf8_util.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/utf8_util.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/utf8_util.cc.o
 .PHONY : deps/brotli/enc/utf8_util.cc.o
 
 deps/brotli/enc/utf8_util.i: deps/brotli/enc/utf8_util.cc.i
@@ -855,9 +842,9 @@ deps/brotli/enc/utf8_util.i: deps/brotli/enc/utf8_util.cc.i
 
 # target to preprocess a source file
 deps/brotli/enc/utf8_util.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/utf8_util.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/utf8_util.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/utf8_util.cc.i
 .PHONY : deps/brotli/enc/utf8_util.cc.i
 
 deps/brotli/enc/utf8_util.s: deps/brotli/enc/utf8_util.cc.s
@@ -866,9 +853,9 @@ deps/brotli/enc/utf8_util.s: deps/brotli/enc/utf8_util.cc.s
 
 # target to generate assembly for a file
 deps/brotli/enc/utf8_util.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/utf8_util.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/brotli/enc/utf8_util.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/brotli/enc/utf8_util.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/brotli/enc/utf8_util.cc.s
 .PHONY : deps/brotli/enc/utf8_util.cc.s
 
 deps/cloexec/cloexec.o: deps/cloexec/cloexec.c.o
@@ -877,11 +864,11 @@ deps/cloexec/cloexec.o: deps/cloexec/cloexec.c.o
 
 # target to build an object file
 deps/cloexec/cloexec.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/cloexec/cloexec.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/cloexec/cloexec.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/cloexec/cloexec.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/cloexec/cloexec.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/cloexec/cloexec.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/cloexec/cloexec.c.o
 .PHONY : deps/cloexec/cloexec.c.o
 
 deps/cloexec/cloexec.i: deps/cloexec/cloexec.c.i
@@ -890,11 +877,11 @@ deps/cloexec/cloexec.i: deps/cloexec/cloexec.c.i
 
 # target to preprocess a source file
 deps/cloexec/cloexec.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/cloexec/cloexec.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/cloexec/cloexec.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/cloexec/cloexec.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/cloexec/cloexec.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/cloexec/cloexec.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/cloexec/cloexec.c.i
 .PHONY : deps/cloexec/cloexec.c.i
 
 deps/cloexec/cloexec.s: deps/cloexec/cloexec.c.s
@@ -903,11 +890,11 @@ deps/cloexec/cloexec.s: deps/cloexec/cloexec.c.s
 
 # target to generate assembly for a file
 deps/cloexec/cloexec.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/cloexec/cloexec.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/cloexec/cloexec.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/cloexec/cloexec.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/cloexec/cloexec.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/cloexec/cloexec.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/cloexec/cloexec.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/cloexec/cloexec.c.s
 .PHONY : deps/cloexec/cloexec.c.s
 
 deps/hiredis/async.o: deps/hiredis/async.c.o
@@ -916,11 +903,11 @@ deps/hiredis/async.o: deps/hiredis/async.c.o
 
 # target to build an object file
 deps/hiredis/async.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/async.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/async.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/async.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/async.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/async.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/async.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/async.c.o
 .PHONY : deps/hiredis/async.c.o
 
 deps/hiredis/async.i: deps/hiredis/async.c.i
@@ -929,11 +916,11 @@ deps/hiredis/async.i: deps/hiredis/async.c.i
 
 # target to preprocess a source file
 deps/hiredis/async.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/async.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/async.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/async.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/async.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/async.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/async.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/async.c.i
 .PHONY : deps/hiredis/async.c.i
 
 deps/hiredis/async.s: deps/hiredis/async.c.s
@@ -942,11 +929,11 @@ deps/hiredis/async.s: deps/hiredis/async.c.s
 
 # target to generate assembly for a file
 deps/hiredis/async.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/async.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/async.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/async.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/async.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/async.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/async.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/async.c.s
 .PHONY : deps/hiredis/async.c.s
 
 deps/hiredis/hiredis.o: deps/hiredis/hiredis.c.o
@@ -955,11 +942,11 @@ deps/hiredis/hiredis.o: deps/hiredis/hiredis.c.o
 
 # target to build an object file
 deps/hiredis/hiredis.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/hiredis.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/hiredis.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/hiredis.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/hiredis.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/hiredis.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/hiredis.c.o
 .PHONY : deps/hiredis/hiredis.c.o
 
 deps/hiredis/hiredis.i: deps/hiredis/hiredis.c.i
@@ -968,11 +955,11 @@ deps/hiredis/hiredis.i: deps/hiredis/hiredis.c.i
 
 # target to preprocess a source file
 deps/hiredis/hiredis.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/hiredis.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/hiredis.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/hiredis.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/hiredis.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/hiredis.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/hiredis.c.i
 .PHONY : deps/hiredis/hiredis.c.i
 
 deps/hiredis/hiredis.s: deps/hiredis/hiredis.c.s
@@ -981,11 +968,11 @@ deps/hiredis/hiredis.s: deps/hiredis/hiredis.c.s
 
 # target to generate assembly for a file
 deps/hiredis/hiredis.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/hiredis.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/hiredis.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/hiredis.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/hiredis.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/hiredis.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/hiredis.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/hiredis.c.s
 .PHONY : deps/hiredis/hiredis.c.s
 
 deps/hiredis/net.o: deps/hiredis/net.c.o
@@ -994,11 +981,11 @@ deps/hiredis/net.o: deps/hiredis/net.c.o
 
 # target to build an object file
 deps/hiredis/net.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/net.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/net.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/net.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/net.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/net.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/net.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/net.c.o
 .PHONY : deps/hiredis/net.c.o
 
 deps/hiredis/net.i: deps/hiredis/net.c.i
@@ -1007,11 +994,11 @@ deps/hiredis/net.i: deps/hiredis/net.c.i
 
 # target to preprocess a source file
 deps/hiredis/net.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/net.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/net.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/net.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/net.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/net.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/net.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/net.c.i
 .PHONY : deps/hiredis/net.c.i
 
 deps/hiredis/net.s: deps/hiredis/net.c.s
@@ -1020,11 +1007,11 @@ deps/hiredis/net.s: deps/hiredis/net.c.s
 
 # target to generate assembly for a file
 deps/hiredis/net.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/net.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/net.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/net.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/net.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/net.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/net.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/net.c.s
 .PHONY : deps/hiredis/net.c.s
 
 deps/hiredis/read.o: deps/hiredis/read.c.o
@@ -1033,11 +1020,11 @@ deps/hiredis/read.o: deps/hiredis/read.c.o
 
 # target to build an object file
 deps/hiredis/read.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/read.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/read.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/read.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/read.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/read.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/read.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/read.c.o
 .PHONY : deps/hiredis/read.c.o
 
 deps/hiredis/read.i: deps/hiredis/read.c.i
@@ -1046,11 +1033,11 @@ deps/hiredis/read.i: deps/hiredis/read.c.i
 
 # target to preprocess a source file
 deps/hiredis/read.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/read.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/read.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/read.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/read.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/read.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/read.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/read.c.i
 .PHONY : deps/hiredis/read.c.i
 
 deps/hiredis/read.s: deps/hiredis/read.c.s
@@ -1059,11 +1046,11 @@ deps/hiredis/read.s: deps/hiredis/read.c.s
 
 # target to generate assembly for a file
 deps/hiredis/read.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/read.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/read.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/read.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/read.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/read.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/read.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/read.c.s
 .PHONY : deps/hiredis/read.c.s
 
 deps/hiredis/sds.o: deps/hiredis/sds.c.o
@@ -1072,11 +1059,11 @@ deps/hiredis/sds.o: deps/hiredis/sds.c.o
 
 # target to build an object file
 deps/hiredis/sds.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/sds.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/sds.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/sds.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/sds.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/sds.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/sds.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/sds.c.o
 .PHONY : deps/hiredis/sds.c.o
 
 deps/hiredis/sds.i: deps/hiredis/sds.c.i
@@ -1085,11 +1072,11 @@ deps/hiredis/sds.i: deps/hiredis/sds.c.i
 
 # target to preprocess a source file
 deps/hiredis/sds.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/sds.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/sds.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/sds.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/sds.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/sds.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/sds.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/sds.c.i
 .PHONY : deps/hiredis/sds.c.i
 
 deps/hiredis/sds.s: deps/hiredis/sds.c.s
@@ -1098,11 +1085,11 @@ deps/hiredis/sds.s: deps/hiredis/sds.c.s
 
 # target to generate assembly for a file
 deps/hiredis/sds.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/sds.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/sds.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/hiredis/sds.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/hiredis/sds.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/hiredis/sds.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/hiredis/sds.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/hiredis/sds.c.s
 .PHONY : deps/hiredis/sds.c.s
 
 deps/libgkc/gkc.o: deps/libgkc/gkc.c.o
@@ -1111,11 +1098,11 @@ deps/libgkc/gkc.o: deps/libgkc/gkc.c.o
 
 # target to build an object file
 deps/libgkc/gkc.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libgkc/gkc.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libgkc/gkc.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libgkc/gkc.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libgkc/gkc.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libgkc/gkc.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libgkc/gkc.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libgkc/gkc.c.o
 .PHONY : deps/libgkc/gkc.c.o
 
 deps/libgkc/gkc.i: deps/libgkc/gkc.c.i
@@ -1124,11 +1111,11 @@ deps/libgkc/gkc.i: deps/libgkc/gkc.c.i
 
 # target to preprocess a source file
 deps/libgkc/gkc.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libgkc/gkc.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libgkc/gkc.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libgkc/gkc.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libgkc/gkc.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libgkc/gkc.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libgkc/gkc.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libgkc/gkc.c.i
 .PHONY : deps/libgkc/gkc.c.i
 
 deps/libgkc/gkc.s: deps/libgkc/gkc.c.s
@@ -1137,11 +1124,11 @@ deps/libgkc/gkc.s: deps/libgkc/gkc.c.s
 
 # target to generate assembly for a file
 deps/libgkc/gkc.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libgkc/gkc.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libgkc/gkc.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libgkc/gkc.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libgkc/gkc.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libgkc/gkc.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libgkc/gkc.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libgkc/gkc.c.s
 .PHONY : deps/libgkc/gkc.c.s
 
 deps/libyrmcds/close.o: deps/libyrmcds/close.c.o
@@ -1150,11 +1137,11 @@ deps/libyrmcds/close.o: deps/libyrmcds/close.c.o
 
 # target to build an object file
 deps/libyrmcds/close.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/close.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/close.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/close.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/close.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/close.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/close.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/close.c.o
 .PHONY : deps/libyrmcds/close.c.o
 
 deps/libyrmcds/close.i: deps/libyrmcds/close.c.i
@@ -1163,11 +1150,11 @@ deps/libyrmcds/close.i: deps/libyrmcds/close.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/close.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/close.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/close.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/close.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/close.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/close.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/close.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/close.c.i
 .PHONY : deps/libyrmcds/close.c.i
 
 deps/libyrmcds/close.s: deps/libyrmcds/close.c.s
@@ -1176,11 +1163,11 @@ deps/libyrmcds/close.s: deps/libyrmcds/close.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/close.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/close.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/close.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/close.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/close.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/close.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/close.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/close.c.s
 .PHONY : deps/libyrmcds/close.c.s
 
 deps/libyrmcds/connect.o: deps/libyrmcds/connect.c.o
@@ -1189,11 +1176,11 @@ deps/libyrmcds/connect.o: deps/libyrmcds/connect.c.o
 
 # target to build an object file
 deps/libyrmcds/connect.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/connect.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/connect.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/connect.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/connect.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/connect.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/connect.c.o
 .PHONY : deps/libyrmcds/connect.c.o
 
 deps/libyrmcds/connect.i: deps/libyrmcds/connect.c.i
@@ -1202,11 +1189,11 @@ deps/libyrmcds/connect.i: deps/libyrmcds/connect.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/connect.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/connect.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/connect.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/connect.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/connect.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/connect.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/connect.c.i
 .PHONY : deps/libyrmcds/connect.c.i
 
 deps/libyrmcds/connect.s: deps/libyrmcds/connect.c.s
@@ -1215,11 +1202,11 @@ deps/libyrmcds/connect.s: deps/libyrmcds/connect.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/connect.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/connect.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/connect.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/connect.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/connect.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/connect.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/connect.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/connect.c.s
 .PHONY : deps/libyrmcds/connect.c.s
 
 deps/libyrmcds/recv.o: deps/libyrmcds/recv.c.o
@@ -1228,11 +1215,11 @@ deps/libyrmcds/recv.o: deps/libyrmcds/recv.c.o
 
 # target to build an object file
 deps/libyrmcds/recv.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/recv.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/recv.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/recv.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/recv.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/recv.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/recv.c.o
 .PHONY : deps/libyrmcds/recv.c.o
 
 deps/libyrmcds/recv.i: deps/libyrmcds/recv.c.i
@@ -1241,11 +1228,11 @@ deps/libyrmcds/recv.i: deps/libyrmcds/recv.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/recv.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/recv.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/recv.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/recv.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/recv.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/recv.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/recv.c.i
 .PHONY : deps/libyrmcds/recv.c.i
 
 deps/libyrmcds/recv.s: deps/libyrmcds/recv.c.s
@@ -1254,11 +1241,11 @@ deps/libyrmcds/recv.s: deps/libyrmcds/recv.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/recv.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/recv.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/recv.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/recv.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/recv.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/recv.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/recv.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/recv.c.s
 .PHONY : deps/libyrmcds/recv.c.s
 
 deps/libyrmcds/send.o: deps/libyrmcds/send.c.o
@@ -1267,11 +1254,11 @@ deps/libyrmcds/send.o: deps/libyrmcds/send.c.o
 
 # target to build an object file
 deps/libyrmcds/send.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/send.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/send.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/send.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send.c.o
 .PHONY : deps/libyrmcds/send.c.o
 
 deps/libyrmcds/send.i: deps/libyrmcds/send.c.i
@@ -1280,11 +1267,11 @@ deps/libyrmcds/send.i: deps/libyrmcds/send.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/send.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/send.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/send.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/send.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send.c.i
 .PHONY : deps/libyrmcds/send.c.i
 
 deps/libyrmcds/send.s: deps/libyrmcds/send.c.s
@@ -1293,11 +1280,11 @@ deps/libyrmcds/send.s: deps/libyrmcds/send.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/send.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/send.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/send.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/send.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send.c.s
 .PHONY : deps/libyrmcds/send.c.s
 
 deps/libyrmcds/send_text.o: deps/libyrmcds/send_text.c.o
@@ -1306,11 +1293,11 @@ deps/libyrmcds/send_text.o: deps/libyrmcds/send_text.c.o
 
 # target to build an object file
 deps/libyrmcds/send_text.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send_text.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send_text.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/send_text.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/send_text.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send_text.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send_text.c.o
 .PHONY : deps/libyrmcds/send_text.c.o
 
 deps/libyrmcds/send_text.i: deps/libyrmcds/send_text.c.i
@@ -1319,11 +1306,11 @@ deps/libyrmcds/send_text.i: deps/libyrmcds/send_text.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/send_text.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send_text.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send_text.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/send_text.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/send_text.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send_text.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send_text.c.i
 .PHONY : deps/libyrmcds/send_text.c.i
 
 deps/libyrmcds/send_text.s: deps/libyrmcds/send_text.c.s
@@ -1332,11 +1319,11 @@ deps/libyrmcds/send_text.s: deps/libyrmcds/send_text.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/send_text.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send_text.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send_text.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/send_text.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/send_text.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/send_text.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/send_text.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/send_text.c.s
 .PHONY : deps/libyrmcds/send_text.c.s
 
 deps/libyrmcds/socket.o: deps/libyrmcds/socket.c.o
@@ -1345,11 +1332,11 @@ deps/libyrmcds/socket.o: deps/libyrmcds/socket.c.o
 
 # target to build an object file
 deps/libyrmcds/socket.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/socket.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/socket.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/socket.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/socket.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/socket.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/socket.c.o
 .PHONY : deps/libyrmcds/socket.c.o
 
 deps/libyrmcds/socket.i: deps/libyrmcds/socket.c.i
@@ -1358,11 +1345,11 @@ deps/libyrmcds/socket.i: deps/libyrmcds/socket.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/socket.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/socket.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/socket.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/socket.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/socket.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/socket.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/socket.c.i
 .PHONY : deps/libyrmcds/socket.c.i
 
 deps/libyrmcds/socket.s: deps/libyrmcds/socket.c.s
@@ -1371,11 +1358,11 @@ deps/libyrmcds/socket.s: deps/libyrmcds/socket.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/socket.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/socket.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/socket.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/socket.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/socket.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/socket.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/socket.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/socket.c.s
 .PHONY : deps/libyrmcds/socket.c.s
 
 deps/libyrmcds/strerror.o: deps/libyrmcds/strerror.c.o
@@ -1384,11 +1371,11 @@ deps/libyrmcds/strerror.o: deps/libyrmcds/strerror.c.o
 
 # target to build an object file
 deps/libyrmcds/strerror.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/strerror.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/strerror.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/strerror.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/strerror.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/strerror.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/strerror.c.o
 .PHONY : deps/libyrmcds/strerror.c.o
 
 deps/libyrmcds/strerror.i: deps/libyrmcds/strerror.c.i
@@ -1397,11 +1384,11 @@ deps/libyrmcds/strerror.i: deps/libyrmcds/strerror.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/strerror.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/strerror.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/strerror.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/strerror.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/strerror.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/strerror.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/strerror.c.i
 .PHONY : deps/libyrmcds/strerror.c.i
 
 deps/libyrmcds/strerror.s: deps/libyrmcds/strerror.c.s
@@ -1410,11 +1397,11 @@ deps/libyrmcds/strerror.s: deps/libyrmcds/strerror.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/strerror.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/strerror.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/strerror.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/strerror.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/strerror.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/strerror.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/strerror.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/strerror.c.s
 .PHONY : deps/libyrmcds/strerror.c.s
 
 deps/libyrmcds/text_mode.o: deps/libyrmcds/text_mode.c.o
@@ -1423,11 +1410,11 @@ deps/libyrmcds/text_mode.o: deps/libyrmcds/text_mode.c.o
 
 # target to build an object file
 deps/libyrmcds/text_mode.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/text_mode.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/text_mode.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/text_mode.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/text_mode.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/text_mode.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/text_mode.c.o
 .PHONY : deps/libyrmcds/text_mode.c.o
 
 deps/libyrmcds/text_mode.i: deps/libyrmcds/text_mode.c.i
@@ -1436,11 +1423,11 @@ deps/libyrmcds/text_mode.i: deps/libyrmcds/text_mode.c.i
 
 # target to preprocess a source file
 deps/libyrmcds/text_mode.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/text_mode.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/text_mode.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/text_mode.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/text_mode.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/text_mode.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/text_mode.c.i
 .PHONY : deps/libyrmcds/text_mode.c.i
 
 deps/libyrmcds/text_mode.s: deps/libyrmcds/text_mode.c.s
@@ -1449,11 +1436,11 @@ deps/libyrmcds/text_mode.s: deps/libyrmcds/text_mode.c.s
 
 # target to generate assembly for a file
 deps/libyrmcds/text_mode.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/text_mode.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/text_mode.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/libyrmcds/text_mode.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/libyrmcds/text_mode.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/libyrmcds/text_mode.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/libyrmcds/text_mode.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/libyrmcds/text_mode.c.s
 .PHONY : deps/libyrmcds/text_mode.c.s
 
 deps/neverbleed/neverbleed.o: deps/neverbleed/neverbleed.c.o
@@ -1489,11 +1476,11 @@ deps/picohttpparser/picohttpparser.o: deps/picohttpparser/picohttpparser.c.o
 
 # target to build an object file
 deps/picohttpparser/picohttpparser.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picohttpparser/picohttpparser.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picohttpparser/picohttpparser.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/picohttpparser/picohttpparser.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/picohttpparser/picohttpparser.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picohttpparser/picohttpparser.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picohttpparser/picohttpparser.c.o
 .PHONY : deps/picohttpparser/picohttpparser.c.o
 
 deps/picohttpparser/picohttpparser.i: deps/picohttpparser/picohttpparser.c.i
@@ -1502,11 +1489,11 @@ deps/picohttpparser/picohttpparser.i: deps/picohttpparser/picohttpparser.c.i
 
 # target to preprocess a source file
 deps/picohttpparser/picohttpparser.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picohttpparser/picohttpparser.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picohttpparser/picohttpparser.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/picohttpparser/picohttpparser.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/picohttpparser/picohttpparser.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picohttpparser/picohttpparser.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picohttpparser/picohttpparser.c.i
 .PHONY : deps/picohttpparser/picohttpparser.c.i
 
 deps/picohttpparser/picohttpparser.s: deps/picohttpparser/picohttpparser.c.s
@@ -1515,11 +1502,11 @@ deps/picohttpparser/picohttpparser.s: deps/picohttpparser/picohttpparser.c.s
 
 # target to generate assembly for a file
 deps/picohttpparser/picohttpparser.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picohttpparser/picohttpparser.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picohttpparser/picohttpparser.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/deps/picohttpparser/picohttpparser.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/deps/picohttpparser/picohttpparser.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/picohttpparser/picohttpparser.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picohttpparser/picohttpparser.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picohttpparser/picohttpparser.c.s
 .PHONY : deps/picohttpparser/picohttpparser.c.s
 
 deps/picotest/picotest.o: deps/picotest/picotest.c.o
@@ -1528,8 +1515,8 @@ deps/picotest/picotest.o: deps/picotest/picotest.c.o
 
 # target to build an object file
 deps/picotest/picotest.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picotest/picotest.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picotest/picotest.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picotest/picotest.c.o
 .PHONY : deps/picotest/picotest.c.o
 
 deps/picotest/picotest.i: deps/picotest/picotest.c.i
@@ -1538,8 +1525,8 @@ deps/picotest/picotest.i: deps/picotest/picotest.c.i
 
 # target to preprocess a source file
 deps/picotest/picotest.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picotest/picotest.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picotest/picotest.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picotest/picotest.c.i
 .PHONY : deps/picotest/picotest.c.i
 
 deps/picotest/picotest.s: deps/picotest/picotest.c.s
@@ -1548,8 +1535,8 @@ deps/picotest/picotest.s: deps/picotest/picotest.c.s
 
 # target to generate assembly for a file
 deps/picotest/picotest.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picotest/picotest.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/picotest/picotest.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/picotest/picotest.c.s
 .PHONY : deps/picotest/picotest.c.s
 
 deps/picotls/deps/cifra/src/aes.o: deps/picotls/deps/cifra/src/aes.c.o
@@ -1963,9 +1950,9 @@ deps/yaml/src/api.o: deps/yaml/src/api.c.o
 
 # target to build an object file
 deps/yaml/src/api.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/api.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/api.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/api.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/api.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/api.c.o
 .PHONY : deps/yaml/src/api.c.o
 
 deps/yaml/src/api.i: deps/yaml/src/api.c.i
@@ -1974,9 +1961,9 @@ deps/yaml/src/api.i: deps/yaml/src/api.c.i
 
 # target to preprocess a source file
 deps/yaml/src/api.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/api.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/api.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/api.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/api.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/api.c.i
 .PHONY : deps/yaml/src/api.c.i
 
 deps/yaml/src/api.s: deps/yaml/src/api.c.s
@@ -1985,9 +1972,9 @@ deps/yaml/src/api.s: deps/yaml/src/api.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/api.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/api.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/api.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/api.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/api.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/api.c.s
 .PHONY : deps/yaml/src/api.c.s
 
 deps/yaml/src/dumper.o: deps/yaml/src/dumper.c.o
@@ -1996,9 +1983,9 @@ deps/yaml/src/dumper.o: deps/yaml/src/dumper.c.o
 
 # target to build an object file
 deps/yaml/src/dumper.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/dumper.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/dumper.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/dumper.c.o
 .PHONY : deps/yaml/src/dumper.c.o
 
 deps/yaml/src/dumper.i: deps/yaml/src/dumper.c.i
@@ -2007,9 +1994,9 @@ deps/yaml/src/dumper.i: deps/yaml/src/dumper.c.i
 
 # target to preprocess a source file
 deps/yaml/src/dumper.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/dumper.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/dumper.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/dumper.c.i
 .PHONY : deps/yaml/src/dumper.c.i
 
 deps/yaml/src/dumper.s: deps/yaml/src/dumper.c.s
@@ -2018,9 +2005,9 @@ deps/yaml/src/dumper.s: deps/yaml/src/dumper.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/dumper.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/dumper.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/dumper.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/dumper.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/dumper.c.s
 .PHONY : deps/yaml/src/dumper.c.s
 
 deps/yaml/src/emitter.o: deps/yaml/src/emitter.c.o
@@ -2029,9 +2016,9 @@ deps/yaml/src/emitter.o: deps/yaml/src/emitter.c.o
 
 # target to build an object file
 deps/yaml/src/emitter.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/emitter.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/emitter.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/emitter.c.o
 .PHONY : deps/yaml/src/emitter.c.o
 
 deps/yaml/src/emitter.i: deps/yaml/src/emitter.c.i
@@ -2040,9 +2027,9 @@ deps/yaml/src/emitter.i: deps/yaml/src/emitter.c.i
 
 # target to preprocess a source file
 deps/yaml/src/emitter.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/emitter.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/emitter.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/emitter.c.i
 .PHONY : deps/yaml/src/emitter.c.i
 
 deps/yaml/src/emitter.s: deps/yaml/src/emitter.c.s
@@ -2051,9 +2038,9 @@ deps/yaml/src/emitter.s: deps/yaml/src/emitter.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/emitter.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/emitter.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/emitter.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/emitter.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/emitter.c.s
 .PHONY : deps/yaml/src/emitter.c.s
 
 deps/yaml/src/loader.o: deps/yaml/src/loader.c.o
@@ -2062,9 +2049,9 @@ deps/yaml/src/loader.o: deps/yaml/src/loader.c.o
 
 # target to build an object file
 deps/yaml/src/loader.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/loader.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/loader.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/loader.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/loader.c.o
 .PHONY : deps/yaml/src/loader.c.o
 
 deps/yaml/src/loader.i: deps/yaml/src/loader.c.i
@@ -2073,9 +2060,9 @@ deps/yaml/src/loader.i: deps/yaml/src/loader.c.i
 
 # target to preprocess a source file
 deps/yaml/src/loader.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/loader.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/loader.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/loader.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/loader.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/loader.c.i
 .PHONY : deps/yaml/src/loader.c.i
 
 deps/yaml/src/loader.s: deps/yaml/src/loader.c.s
@@ -2084,9 +2071,9 @@ deps/yaml/src/loader.s: deps/yaml/src/loader.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/loader.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/loader.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/loader.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/loader.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/loader.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/loader.c.s
 .PHONY : deps/yaml/src/loader.c.s
 
 deps/yaml/src/parser.o: deps/yaml/src/parser.c.o
@@ -2095,9 +2082,9 @@ deps/yaml/src/parser.o: deps/yaml/src/parser.c.o
 
 # target to build an object file
 deps/yaml/src/parser.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/parser.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/parser.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/parser.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/parser.c.o
 .PHONY : deps/yaml/src/parser.c.o
 
 deps/yaml/src/parser.i: deps/yaml/src/parser.c.i
@@ -2106,9 +2093,9 @@ deps/yaml/src/parser.i: deps/yaml/src/parser.c.i
 
 # target to preprocess a source file
 deps/yaml/src/parser.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/parser.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/parser.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/parser.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/parser.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/parser.c.i
 .PHONY : deps/yaml/src/parser.c.i
 
 deps/yaml/src/parser.s: deps/yaml/src/parser.c.s
@@ -2117,9 +2104,9 @@ deps/yaml/src/parser.s: deps/yaml/src/parser.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/parser.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/parser.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/parser.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/parser.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/parser.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/parser.c.s
 .PHONY : deps/yaml/src/parser.c.s
 
 deps/yaml/src/reader.o: deps/yaml/src/reader.c.o
@@ -2128,9 +2115,9 @@ deps/yaml/src/reader.o: deps/yaml/src/reader.c.o
 
 # target to build an object file
 deps/yaml/src/reader.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/reader.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/reader.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/reader.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/reader.c.o
 .PHONY : deps/yaml/src/reader.c.o
 
 deps/yaml/src/reader.i: deps/yaml/src/reader.c.i
@@ -2139,9 +2126,9 @@ deps/yaml/src/reader.i: deps/yaml/src/reader.c.i
 
 # target to preprocess a source file
 deps/yaml/src/reader.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/reader.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/reader.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/reader.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/reader.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/reader.c.i
 .PHONY : deps/yaml/src/reader.c.i
 
 deps/yaml/src/reader.s: deps/yaml/src/reader.c.s
@@ -2150,9 +2137,9 @@ deps/yaml/src/reader.s: deps/yaml/src/reader.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/reader.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/reader.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/reader.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/reader.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/reader.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/reader.c.s
 .PHONY : deps/yaml/src/reader.c.s
 
 deps/yaml/src/scanner.o: deps/yaml/src/scanner.c.o
@@ -2161,9 +2148,9 @@ deps/yaml/src/scanner.o: deps/yaml/src/scanner.c.o
 
 # target to build an object file
 deps/yaml/src/scanner.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/scanner.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/scanner.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/scanner.c.o
 .PHONY : deps/yaml/src/scanner.c.o
 
 deps/yaml/src/scanner.i: deps/yaml/src/scanner.c.i
@@ -2172,9 +2159,9 @@ deps/yaml/src/scanner.i: deps/yaml/src/scanner.c.i
 
 # target to preprocess a source file
 deps/yaml/src/scanner.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/scanner.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/scanner.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/scanner.c.i
 .PHONY : deps/yaml/src/scanner.c.i
 
 deps/yaml/src/scanner.s: deps/yaml/src/scanner.c.s
@@ -2183,9 +2170,9 @@ deps/yaml/src/scanner.s: deps/yaml/src/scanner.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/scanner.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/scanner.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/scanner.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/scanner.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/scanner.c.s
 .PHONY : deps/yaml/src/scanner.c.s
 
 deps/yaml/src/writer.o: deps/yaml/src/writer.c.o
@@ -2194,9 +2181,9 @@ deps/yaml/src/writer.o: deps/yaml/src/writer.c.o
 
 # target to build an object file
 deps/yaml/src/writer.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/writer.c.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/writer.c.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/writer.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/writer.c.o
 .PHONY : deps/yaml/src/writer.c.o
 
 deps/yaml/src/writer.i: deps/yaml/src/writer.c.i
@@ -2205,9 +2192,9 @@ deps/yaml/src/writer.i: deps/yaml/src/writer.c.i
 
 # target to preprocess a source file
 deps/yaml/src/writer.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/writer.c.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/writer.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/writer.c.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/writer.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/writer.c.i
 .PHONY : deps/yaml/src/writer.c.i
 
 deps/yaml/src/writer.s: deps/yaml/src/writer.c.s
@@ -2216,9 +2203,9 @@ deps/yaml/src/writer.s: deps/yaml/src/writer.c.s
 
 # target to generate assembly for a file
 deps/yaml/src/writer.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/writer.c.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/writer.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/deps/yaml/src/writer.c.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/deps/yaml/src/writer.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/deps/yaml/src/writer.c.s
 .PHONY : deps/yaml/src/writer.c.s
 
 examples/libh2o/http1client.o: examples/libh2o/http1client.c.o
@@ -2395,11 +2382,11 @@ lib/common/file.o: lib/common/file.c.o
 
 # target to build an object file
 lib/common/file.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/file.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/file.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/file.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/file.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/file.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/file.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/file.c.o
 .PHONY : lib/common/file.c.o
 
 lib/common/file.i: lib/common/file.c.i
@@ -2408,11 +2395,11 @@ lib/common/file.i: lib/common/file.c.i
 
 # target to preprocess a source file
 lib/common/file.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/file.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/file.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/file.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/file.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/file.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/file.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/file.c.i
 .PHONY : lib/common/file.c.i
 
 lib/common/file.s: lib/common/file.c.s
@@ -2421,11 +2408,11 @@ lib/common/file.s: lib/common/file.c.s
 
 # target to generate assembly for a file
 lib/common/file.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/file.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/file.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/file.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/file.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/file.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/file.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/file.c.s
 .PHONY : lib/common/file.c.s
 
 lib/common/filecache.o: lib/common/filecache.c.o
@@ -2434,11 +2421,11 @@ lib/common/filecache.o: lib/common/filecache.c.o
 
 # target to build an object file
 lib/common/filecache.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/filecache.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/filecache.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/filecache.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/filecache.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/filecache.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/filecache.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/filecache.c.o
 .PHONY : lib/common/filecache.c.o
 
 lib/common/filecache.i: lib/common/filecache.c.i
@@ -2447,11 +2434,11 @@ lib/common/filecache.i: lib/common/filecache.c.i
 
 # target to preprocess a source file
 lib/common/filecache.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/filecache.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/filecache.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/filecache.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/filecache.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/filecache.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/filecache.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/filecache.c.i
 .PHONY : lib/common/filecache.c.i
 
 lib/common/filecache.s: lib/common/filecache.c.s
@@ -2460,11 +2447,11 @@ lib/common/filecache.s: lib/common/filecache.c.s
 
 # target to generate assembly for a file
 lib/common/filecache.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/filecache.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/filecache.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/filecache.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/filecache.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/filecache.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/filecache.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/filecache.c.s
 .PHONY : lib/common/filecache.c.s
 
 lib/common/hostinfo.o: lib/common/hostinfo.c.o
@@ -2506,11 +2493,11 @@ lib/common/http1client.o: lib/common/http1client.c.o
 
 # target to build an object file
 lib/common/http1client.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/http1client.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/http1client.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/http1client.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/http1client.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/http1client.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/http1client.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/http1client.c.o
 .PHONY : lib/common/http1client.c.o
 
 lib/common/http1client.i: lib/common/http1client.c.i
@@ -2519,11 +2506,11 @@ lib/common/http1client.i: lib/common/http1client.c.i
 
 # target to preprocess a source file
 lib/common/http1client.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/http1client.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/http1client.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/http1client.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/http1client.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/http1client.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/http1client.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/http1client.c.i
 .PHONY : lib/common/http1client.c.i
 
 lib/common/http1client.s: lib/common/http1client.c.s
@@ -2532,11 +2519,11 @@ lib/common/http1client.s: lib/common/http1client.c.s
 
 # target to generate assembly for a file
 lib/common/http1client.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/http1client.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/http1client.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/http1client.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/http1client.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/http1client.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/http1client.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/http1client.c.s
 .PHONY : lib/common/http1client.c.s
 
 lib/common/memcached.o: lib/common/memcached.c.o
@@ -2545,11 +2532,11 @@ lib/common/memcached.o: lib/common/memcached.c.o
 
 # target to build an object file
 lib/common/memcached.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memcached.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memcached.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/memcached.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/memcached.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/memcached.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memcached.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memcached.c.o
 .PHONY : lib/common/memcached.c.o
 
 lib/common/memcached.i: lib/common/memcached.c.i
@@ -2558,11 +2545,11 @@ lib/common/memcached.i: lib/common/memcached.c.i
 
 # target to preprocess a source file
 lib/common/memcached.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memcached.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memcached.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/memcached.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/memcached.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/memcached.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memcached.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memcached.c.i
 .PHONY : lib/common/memcached.c.i
 
 lib/common/memcached.s: lib/common/memcached.c.s
@@ -2571,11 +2558,11 @@ lib/common/memcached.s: lib/common/memcached.c.s
 
 # target to generate assembly for a file
 lib/common/memcached.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memcached.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memcached.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/memcached.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/memcached.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/memcached.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memcached.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memcached.c.s
 .PHONY : lib/common/memcached.c.s
 
 lib/common/memory.o: lib/common/memory.c.o
@@ -2584,11 +2571,11 @@ lib/common/memory.o: lib/common/memory.c.o
 
 # target to build an object file
 lib/common/memory.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memory.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memory.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/memory.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/memory.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/memory.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memory.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memory.c.o
 .PHONY : lib/common/memory.c.o
 
 lib/common/memory.i: lib/common/memory.c.i
@@ -2597,11 +2584,11 @@ lib/common/memory.i: lib/common/memory.c.i
 
 # target to preprocess a source file
 lib/common/memory.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memory.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memory.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/memory.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/memory.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/memory.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memory.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memory.c.i
 .PHONY : lib/common/memory.c.i
 
 lib/common/memory.s: lib/common/memory.c.s
@@ -2610,11 +2597,11 @@ lib/common/memory.s: lib/common/memory.c.s
 
 # target to generate assembly for a file
 lib/common/memory.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memory.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memory.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/memory.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/memory.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/memory.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/memory.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/memory.c.s
 .PHONY : lib/common/memory.c.s
 
 lib/common/multithread.o: lib/common/multithread.c.o
@@ -2656,11 +2643,11 @@ lib/common/redis.o: lib/common/redis.c.o
 
 # target to build an object file
 lib/common/redis.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/redis.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/redis.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/redis.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/redis.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/redis.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/redis.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/redis.c.o
 .PHONY : lib/common/redis.c.o
 
 lib/common/redis.i: lib/common/redis.c.i
@@ -2669,11 +2656,11 @@ lib/common/redis.i: lib/common/redis.c.i
 
 # target to preprocess a source file
 lib/common/redis.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/redis.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/redis.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/redis.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/redis.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/redis.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/redis.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/redis.c.i
 .PHONY : lib/common/redis.c.i
 
 lib/common/redis.s: lib/common/redis.c.s
@@ -2682,11 +2669,11 @@ lib/common/redis.s: lib/common/redis.c.s
 
 # target to generate assembly for a file
 lib/common/redis.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/redis.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/redis.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/redis.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/redis.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/redis.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/redis.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/redis.c.s
 .PHONY : lib/common/redis.c.s
 
 lib/common/serverutil.o: lib/common/serverutil.c.o
@@ -2761,11 +2748,11 @@ lib/common/socketpool.o: lib/common/socketpool.c.o
 
 # target to build an object file
 lib/common/socketpool.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/socketpool.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/socketpool.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/socketpool.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/socketpool.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/socketpool.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/socketpool.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/socketpool.c.o
 .PHONY : lib/common/socketpool.c.o
 
 lib/common/socketpool.i: lib/common/socketpool.c.i
@@ -2774,11 +2761,11 @@ lib/common/socketpool.i: lib/common/socketpool.c.i
 
 # target to preprocess a source file
 lib/common/socketpool.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/socketpool.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/socketpool.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/socketpool.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/socketpool.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/socketpool.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/socketpool.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/socketpool.c.i
 .PHONY : lib/common/socketpool.c.i
 
 lib/common/socketpool.s: lib/common/socketpool.c.s
@@ -2787,11 +2774,11 @@ lib/common/socketpool.s: lib/common/socketpool.c.s
 
 # target to generate assembly for a file
 lib/common/socketpool.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/socketpool.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/socketpool.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/socketpool.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/socketpool.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/socketpool.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/socketpool.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/socketpool.c.s
 .PHONY : lib/common/socketpool.c.s
 
 lib/common/string.o: lib/common/string.c.o
@@ -2866,11 +2853,11 @@ lib/common/timeout.o: lib/common/timeout.c.o
 
 # target to build an object file
 lib/common/timeout.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/timeout.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/timeout.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/timeout.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/timeout.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/timeout.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/timeout.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/timeout.c.o
 .PHONY : lib/common/timeout.c.o
 
 lib/common/timeout.i: lib/common/timeout.c.i
@@ -2879,11 +2866,11 @@ lib/common/timeout.i: lib/common/timeout.c.i
 
 # target to preprocess a source file
 lib/common/timeout.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/timeout.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/timeout.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/timeout.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/timeout.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/timeout.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/timeout.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/timeout.c.i
 .PHONY : lib/common/timeout.c.i
 
 lib/common/timeout.s: lib/common/timeout.c.s
@@ -2892,11 +2879,11 @@ lib/common/timeout.s: lib/common/timeout.c.s
 
 # target to generate assembly for a file
 lib/common/timeout.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/timeout.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/timeout.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/common/timeout.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/common/timeout.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/common/timeout.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/common/timeout.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/common/timeout.c.s
 .PHONY : lib/common/timeout.c.s
 
 lib/common/url.o: lib/common/url.c.o
@@ -2938,11 +2925,11 @@ lib/core/config.o: lib/core/config.c.o
 
 # target to build an object file
 lib/core/config.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/config.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/config.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/config.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/config.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/config.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/config.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/config.c.o
 .PHONY : lib/core/config.c.o
 
 lib/core/config.i: lib/core/config.c.i
@@ -2951,11 +2938,11 @@ lib/core/config.i: lib/core/config.c.i
 
 # target to preprocess a source file
 lib/core/config.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/config.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/config.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/config.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/config.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/config.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/config.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/config.c.i
 .PHONY : lib/core/config.c.i
 
 lib/core/config.s: lib/core/config.c.s
@@ -2964,11 +2951,11 @@ lib/core/config.s: lib/core/config.c.s
 
 # target to generate assembly for a file
 lib/core/config.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/config.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/config.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/config.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/config.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/config.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/config.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/config.c.s
 .PHONY : lib/core/config.c.s
 
 lib/core/configurator.o: lib/core/configurator.c.o
@@ -2977,11 +2964,11 @@ lib/core/configurator.o: lib/core/configurator.c.o
 
 # target to build an object file
 lib/core/configurator.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/configurator.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/configurator.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/configurator.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/configurator.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/configurator.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/configurator.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/configurator.c.o
 .PHONY : lib/core/configurator.c.o
 
 lib/core/configurator.i: lib/core/configurator.c.i
@@ -2990,11 +2977,11 @@ lib/core/configurator.i: lib/core/configurator.c.i
 
 # target to preprocess a source file
 lib/core/configurator.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/configurator.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/configurator.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/configurator.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/configurator.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/configurator.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/configurator.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/configurator.c.i
 .PHONY : lib/core/configurator.c.i
 
 lib/core/configurator.s: lib/core/configurator.c.s
@@ -3003,11 +2990,11 @@ lib/core/configurator.s: lib/core/configurator.c.s
 
 # target to generate assembly for a file
 lib/core/configurator.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/configurator.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/configurator.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/configurator.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/configurator.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/configurator.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/configurator.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/configurator.c.s
 .PHONY : lib/core/configurator.c.s
 
 lib/core/context.o: lib/core/context.c.o
@@ -3016,11 +3003,11 @@ lib/core/context.o: lib/core/context.c.o
 
 # target to build an object file
 lib/core/context.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/context.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/context.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/context.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/context.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/context.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/context.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/context.c.o
 .PHONY : lib/core/context.c.o
 
 lib/core/context.i: lib/core/context.c.i
@@ -3029,11 +3016,11 @@ lib/core/context.i: lib/core/context.c.i
 
 # target to preprocess a source file
 lib/core/context.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/context.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/context.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/context.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/context.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/context.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/context.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/context.c.i
 .PHONY : lib/core/context.c.i
 
 lib/core/context.s: lib/core/context.c.s
@@ -3042,11 +3029,11 @@ lib/core/context.s: lib/core/context.c.s
 
 # target to generate assembly for a file
 lib/core/context.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/context.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/context.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/context.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/context.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/context.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/context.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/context.c.s
 .PHONY : lib/core/context.c.s
 
 lib/core/headers.o: lib/core/headers.c.o
@@ -3088,11 +3075,11 @@ lib/core/logconf.o: lib/core/logconf.c.o
 
 # target to build an object file
 lib/core/logconf.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/logconf.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/logconf.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/logconf.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/logconf.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/logconf.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/logconf.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/logconf.c.o
 .PHONY : lib/core/logconf.c.o
 
 lib/core/logconf.i: lib/core/logconf.c.i
@@ -3101,11 +3088,11 @@ lib/core/logconf.i: lib/core/logconf.c.i
 
 # target to preprocess a source file
 lib/core/logconf.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/logconf.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/logconf.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/logconf.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/logconf.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/logconf.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/logconf.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/logconf.c.i
 .PHONY : lib/core/logconf.c.i
 
 lib/core/logconf.s: lib/core/logconf.c.s
@@ -3114,11 +3101,11 @@ lib/core/logconf.s: lib/core/logconf.c.s
 
 # target to generate assembly for a file
 lib/core/logconf.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/logconf.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/logconf.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/logconf.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/logconf.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/logconf.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/logconf.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/logconf.c.s
 .PHONY : lib/core/logconf.c.s
 
 lib/core/proxy.o: lib/core/proxy.c.o
@@ -3160,11 +3147,11 @@ lib/core/request.o: lib/core/request.c.o
 
 # target to build an object file
 lib/core/request.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/request.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/request.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/request.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/request.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/request.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/request.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/request.c.o
 .PHONY : lib/core/request.c.o
 
 lib/core/request.i: lib/core/request.c.i
@@ -3173,11 +3160,11 @@ lib/core/request.i: lib/core/request.c.i
 
 # target to preprocess a source file
 lib/core/request.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/request.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/request.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/request.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/request.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/request.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/request.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/request.c.i
 .PHONY : lib/core/request.c.i
 
 lib/core/request.s: lib/core/request.c.s
@@ -3186,11 +3173,11 @@ lib/core/request.s: lib/core/request.c.s
 
 # target to generate assembly for a file
 lib/core/request.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/request.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/request.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/request.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/request.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/request.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/request.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/request.c.s
 .PHONY : lib/core/request.c.s
 
 lib/core/token.o: lib/core/token.c.o
@@ -3199,11 +3186,11 @@ lib/core/token.o: lib/core/token.c.o
 
 # target to build an object file
 lib/core/token.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/token.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/token.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/token.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/token.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/token.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/token.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/token.c.o
 .PHONY : lib/core/token.c.o
 
 lib/core/token.i: lib/core/token.c.i
@@ -3212,11 +3199,11 @@ lib/core/token.i: lib/core/token.c.i
 
 # target to preprocess a source file
 lib/core/token.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/token.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/token.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/token.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/token.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/token.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/token.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/token.c.i
 .PHONY : lib/core/token.c.i
 
 lib/core/token.s: lib/core/token.c.s
@@ -3225,11 +3212,11 @@ lib/core/token.s: lib/core/token.c.s
 
 # target to generate assembly for a file
 lib/core/token.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/token.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/token.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/core/token.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/core/token.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/core/token.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/core/token.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/core/token.c.s
 .PHONY : lib/core/token.c.s
 
 lib/core/util.o: lib/core/util.c.o
@@ -3271,11 +3258,11 @@ lib/handler/access_log.o: lib/handler/access_log.c.o
 
 # target to build an object file
 lib/handler/access_log.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/access_log.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/access_log.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/access_log.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/access_log.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/access_log.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/access_log.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/access_log.c.o
 .PHONY : lib/handler/access_log.c.o
 
 lib/handler/access_log.i: lib/handler/access_log.c.i
@@ -3284,11 +3271,11 @@ lib/handler/access_log.i: lib/handler/access_log.c.i
 
 # target to preprocess a source file
 lib/handler/access_log.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/access_log.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/access_log.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/access_log.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/access_log.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/access_log.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/access_log.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/access_log.c.i
 .PHONY : lib/handler/access_log.c.i
 
 lib/handler/access_log.s: lib/handler/access_log.c.s
@@ -3297,11 +3284,11 @@ lib/handler/access_log.s: lib/handler/access_log.c.s
 
 # target to generate assembly for a file
 lib/handler/access_log.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/access_log.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/access_log.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/access_log.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/access_log.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/access_log.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/access_log.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/access_log.c.s
 .PHONY : lib/handler/access_log.c.s
 
 lib/handler/chunked.o: lib/handler/chunked.c.o
@@ -3310,11 +3297,11 @@ lib/handler/chunked.o: lib/handler/chunked.c.o
 
 # target to build an object file
 lib/handler/chunked.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/chunked.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/chunked.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/chunked.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/chunked.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/chunked.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/chunked.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/chunked.c.o
 .PHONY : lib/handler/chunked.c.o
 
 lib/handler/chunked.i: lib/handler/chunked.c.i
@@ -3323,11 +3310,11 @@ lib/handler/chunked.i: lib/handler/chunked.c.i
 
 # target to preprocess a source file
 lib/handler/chunked.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/chunked.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/chunked.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/chunked.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/chunked.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/chunked.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/chunked.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/chunked.c.i
 .PHONY : lib/handler/chunked.c.i
 
 lib/handler/chunked.s: lib/handler/chunked.c.s
@@ -3336,11 +3323,11 @@ lib/handler/chunked.s: lib/handler/chunked.c.s
 
 # target to generate assembly for a file
 lib/handler/chunked.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/chunked.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/chunked.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/chunked.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/chunked.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/chunked.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/chunked.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/chunked.c.s
 .PHONY : lib/handler/chunked.c.s
 
 lib/handler/compress.o: lib/handler/compress.c.o
@@ -3382,9 +3369,9 @@ lib/handler/compress/brotli.o: lib/handler/compress/brotli.cc.o
 
 # target to build an object file
 lib/handler/compress/brotli.cc.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/compress/brotli.cc.o
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/compress/brotli.cc.o
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/compress/brotli.cc.o
 .PHONY : lib/handler/compress/brotli.cc.o
 
 lib/handler/compress/brotli.i: lib/handler/compress/brotli.cc.i
@@ -3393,9 +3380,9 @@ lib/handler/compress/brotli.i: lib/handler/compress/brotli.cc.i
 
 # target to preprocess a source file
 lib/handler/compress/brotli.cc.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/compress/brotli.cc.i
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/compress/brotli.cc.i
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/compress/brotli.cc.i
 .PHONY : lib/handler/compress/brotli.cc.i
 
 lib/handler/compress/brotli.s: lib/handler/compress/brotli.cc.s
@@ -3404,9 +3391,9 @@ lib/handler/compress/brotli.s: lib/handler/compress/brotli.cc.s
 
 # target to generate assembly for a file
 lib/handler/compress/brotli.cc.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/compress/brotli.cc.s
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/compress/brotli.cc.s
+	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/compress/brotli.cc.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/compress/brotli.cc.s
 .PHONY : lib/handler/compress/brotli.cc.s
 
 lib/handler/compress/gzip.o: lib/handler/compress/gzip.c.o
@@ -3448,11 +3435,11 @@ lib/handler/configurator/access_log.o: lib/handler/configurator/access_log.c.o
 
 # target to build an object file
 lib/handler/configurator/access_log.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/access_log.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/access_log.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/access_log.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/access_log.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/access_log.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/access_log.c.o
 .PHONY : lib/handler/configurator/access_log.c.o
 
 lib/handler/configurator/access_log.i: lib/handler/configurator/access_log.c.i
@@ -3461,11 +3448,11 @@ lib/handler/configurator/access_log.i: lib/handler/configurator/access_log.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/access_log.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/access_log.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/access_log.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/access_log.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/access_log.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/access_log.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/access_log.c.i
 .PHONY : lib/handler/configurator/access_log.c.i
 
 lib/handler/configurator/access_log.s: lib/handler/configurator/access_log.c.s
@@ -3474,11 +3461,11 @@ lib/handler/configurator/access_log.s: lib/handler/configurator/access_log.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/access_log.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/access_log.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/access_log.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/access_log.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/access_log.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/access_log.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/access_log.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/access_log.c.s
 .PHONY : lib/handler/configurator/access_log.c.s
 
 lib/handler/configurator/compress.o: lib/handler/configurator/compress.c.o
@@ -3487,11 +3474,11 @@ lib/handler/configurator/compress.o: lib/handler/configurator/compress.c.o
 
 # target to build an object file
 lib/handler/configurator/compress.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/compress.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/compress.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/compress.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/compress.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/compress.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/compress.c.o
 .PHONY : lib/handler/configurator/compress.c.o
 
 lib/handler/configurator/compress.i: lib/handler/configurator/compress.c.i
@@ -3500,11 +3487,11 @@ lib/handler/configurator/compress.i: lib/handler/configurator/compress.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/compress.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/compress.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/compress.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/compress.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/compress.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/compress.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/compress.c.i
 .PHONY : lib/handler/configurator/compress.c.i
 
 lib/handler/configurator/compress.s: lib/handler/configurator/compress.c.s
@@ -3513,11 +3500,11 @@ lib/handler/configurator/compress.s: lib/handler/configurator/compress.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/compress.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/compress.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/compress.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/compress.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/compress.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/compress.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/compress.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/compress.c.s
 .PHONY : lib/handler/configurator/compress.c.s
 
 lib/handler/configurator/errordoc.o: lib/handler/configurator/errordoc.c.o
@@ -3526,11 +3513,11 @@ lib/handler/configurator/errordoc.o: lib/handler/configurator/errordoc.c.o
 
 # target to build an object file
 lib/handler/configurator/errordoc.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/errordoc.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/errordoc.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/errordoc.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/errordoc.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/errordoc.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/errordoc.c.o
 .PHONY : lib/handler/configurator/errordoc.c.o
 
 lib/handler/configurator/errordoc.i: lib/handler/configurator/errordoc.c.i
@@ -3539,11 +3526,11 @@ lib/handler/configurator/errordoc.i: lib/handler/configurator/errordoc.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/errordoc.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/errordoc.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/errordoc.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/errordoc.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/errordoc.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/errordoc.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/errordoc.c.i
 .PHONY : lib/handler/configurator/errordoc.c.i
 
 lib/handler/configurator/errordoc.s: lib/handler/configurator/errordoc.c.s
@@ -3552,11 +3539,11 @@ lib/handler/configurator/errordoc.s: lib/handler/configurator/errordoc.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/errordoc.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/errordoc.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/errordoc.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/errordoc.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/errordoc.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/errordoc.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/errordoc.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/errordoc.c.s
 .PHONY : lib/handler/configurator/errordoc.c.s
 
 lib/handler/configurator/expires.o: lib/handler/configurator/expires.c.o
@@ -3565,11 +3552,11 @@ lib/handler/configurator/expires.o: lib/handler/configurator/expires.c.o
 
 # target to build an object file
 lib/handler/configurator/expires.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/expires.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/expires.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/expires.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/expires.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/expires.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/expires.c.o
 .PHONY : lib/handler/configurator/expires.c.o
 
 lib/handler/configurator/expires.i: lib/handler/configurator/expires.c.i
@@ -3578,11 +3565,11 @@ lib/handler/configurator/expires.i: lib/handler/configurator/expires.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/expires.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/expires.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/expires.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/expires.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/expires.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/expires.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/expires.c.i
 .PHONY : lib/handler/configurator/expires.c.i
 
 lib/handler/configurator/expires.s: lib/handler/configurator/expires.c.s
@@ -3591,11 +3578,11 @@ lib/handler/configurator/expires.s: lib/handler/configurator/expires.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/expires.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/expires.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/expires.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/expires.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/expires.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/expires.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/expires.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/expires.c.s
 .PHONY : lib/handler/configurator/expires.c.s
 
 lib/handler/configurator/fastcgi.o: lib/handler/configurator/fastcgi.c.o
@@ -3604,11 +3591,11 @@ lib/handler/configurator/fastcgi.o: lib/handler/configurator/fastcgi.c.o
 
 # target to build an object file
 lib/handler/configurator/fastcgi.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/fastcgi.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/fastcgi.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/fastcgi.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/fastcgi.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/fastcgi.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/fastcgi.c.o
 .PHONY : lib/handler/configurator/fastcgi.c.o
 
 lib/handler/configurator/fastcgi.i: lib/handler/configurator/fastcgi.c.i
@@ -3617,11 +3604,11 @@ lib/handler/configurator/fastcgi.i: lib/handler/configurator/fastcgi.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/fastcgi.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/fastcgi.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/fastcgi.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/fastcgi.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/fastcgi.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/fastcgi.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/fastcgi.c.i
 .PHONY : lib/handler/configurator/fastcgi.c.i
 
 lib/handler/configurator/fastcgi.s: lib/handler/configurator/fastcgi.c.s
@@ -3630,11 +3617,11 @@ lib/handler/configurator/fastcgi.s: lib/handler/configurator/fastcgi.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/fastcgi.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/fastcgi.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/fastcgi.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/fastcgi.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/fastcgi.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/fastcgi.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/fastcgi.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/fastcgi.c.s
 .PHONY : lib/handler/configurator/fastcgi.c.s
 
 lib/handler/configurator/file.o: lib/handler/configurator/file.c.o
@@ -3643,11 +3630,11 @@ lib/handler/configurator/file.o: lib/handler/configurator/file.c.o
 
 # target to build an object file
 lib/handler/configurator/file.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/file.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/file.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/file.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/file.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/file.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/file.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/file.c.o
 .PHONY : lib/handler/configurator/file.c.o
 
 lib/handler/configurator/file.i: lib/handler/configurator/file.c.i
@@ -3656,11 +3643,11 @@ lib/handler/configurator/file.i: lib/handler/configurator/file.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/file.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/file.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/file.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/file.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/file.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/file.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/file.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/file.c.i
 .PHONY : lib/handler/configurator/file.c.i
 
 lib/handler/configurator/file.s: lib/handler/configurator/file.c.s
@@ -3669,11 +3656,11 @@ lib/handler/configurator/file.s: lib/handler/configurator/file.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/file.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/file.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/file.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/file.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/file.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/file.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/file.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/file.c.s
 .PHONY : lib/handler/configurator/file.c.s
 
 lib/handler/configurator/headers.o: lib/handler/configurator/headers.c.o
@@ -3682,11 +3669,11 @@ lib/handler/configurator/headers.o: lib/handler/configurator/headers.c.o
 
 # target to build an object file
 lib/handler/configurator/headers.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/headers.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/headers.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers.c.o
 .PHONY : lib/handler/configurator/headers.c.o
 
 lib/handler/configurator/headers.i: lib/handler/configurator/headers.c.i
@@ -3695,11 +3682,11 @@ lib/handler/configurator/headers.i: lib/handler/configurator/headers.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/headers.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/headers.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/headers.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers.c.i
 .PHONY : lib/handler/configurator/headers.c.i
 
 lib/handler/configurator/headers.s: lib/handler/configurator/headers.c.s
@@ -3708,11 +3695,11 @@ lib/handler/configurator/headers.s: lib/handler/configurator/headers.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/headers.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/headers.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/headers.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/headers.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers.c.s
 .PHONY : lib/handler/configurator/headers.c.s
 
 lib/handler/configurator/headers_util.o: lib/handler/configurator/headers_util.c.o
@@ -3721,11 +3708,11 @@ lib/handler/configurator/headers_util.o: lib/handler/configurator/headers_util.c
 
 # target to build an object file
 lib/handler/configurator/headers_util.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers_util.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers_util.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/headers_util.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/headers_util.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers_util.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers_util.c.o
 .PHONY : lib/handler/configurator/headers_util.c.o
 
 lib/handler/configurator/headers_util.i: lib/handler/configurator/headers_util.c.i
@@ -3734,11 +3721,11 @@ lib/handler/configurator/headers_util.i: lib/handler/configurator/headers_util.c
 
 # target to preprocess a source file
 lib/handler/configurator/headers_util.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers_util.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers_util.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/headers_util.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/headers_util.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers_util.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers_util.c.i
 .PHONY : lib/handler/configurator/headers_util.c.i
 
 lib/handler/configurator/headers_util.s: lib/handler/configurator/headers_util.c.s
@@ -3747,11 +3734,11 @@ lib/handler/configurator/headers_util.s: lib/handler/configurator/headers_util.c
 
 # target to generate assembly for a file
 lib/handler/configurator/headers_util.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers_util.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers_util.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/headers_util.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/headers_util.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/headers_util.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/headers_util.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/headers_util.c.s
 .PHONY : lib/handler/configurator/headers_util.c.s
 
 lib/handler/configurator/http2_debug_state.o: lib/handler/configurator/http2_debug_state.c.o
@@ -3760,11 +3747,11 @@ lib/handler/configurator/http2_debug_state.o: lib/handler/configurator/http2_deb
 
 # target to build an object file
 lib/handler/configurator/http2_debug_state.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/http2_debug_state.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/http2_debug_state.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/http2_debug_state.c.o
 .PHONY : lib/handler/configurator/http2_debug_state.c.o
 
 lib/handler/configurator/http2_debug_state.i: lib/handler/configurator/http2_debug_state.c.i
@@ -3773,11 +3760,11 @@ lib/handler/configurator/http2_debug_state.i: lib/handler/configurator/http2_deb
 
 # target to preprocess a source file
 lib/handler/configurator/http2_debug_state.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/http2_debug_state.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/http2_debug_state.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/http2_debug_state.c.i
 .PHONY : lib/handler/configurator/http2_debug_state.c.i
 
 lib/handler/configurator/http2_debug_state.s: lib/handler/configurator/http2_debug_state.c.s
@@ -3786,39 +3773,12 @@ lib/handler/configurator/http2_debug_state.s: lib/handler/configurator/http2_deb
 
 # target to generate assembly for a file
 lib/handler/configurator/http2_debug_state.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/http2_debug_state.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/http2_debug_state.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/http2_debug_state.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/http2_debug_state.c.s
 .PHONY : lib/handler/configurator/http2_debug_state.c.s
-
-lib/handler/configurator/mruby.o: lib/handler/configurator/mruby.c.o
-
-.PHONY : lib/handler/configurator/mruby.o
-
-# target to build an object file
-lib/handler/configurator/mruby.c.o:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.o
-.PHONY : lib/handler/configurator/mruby.c.o
-
-lib/handler/configurator/mruby.i: lib/handler/configurator/mruby.c.i
-
-.PHONY : lib/handler/configurator/mruby.i
-
-# target to preprocess a source file
-lib/handler/configurator/mruby.c.i:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.i
-.PHONY : lib/handler/configurator/mruby.c.i
-
-lib/handler/configurator/mruby.s: lib/handler/configurator/mruby.c.s
-
-.PHONY : lib/handler/configurator/mruby.s
-
-# target to generate assembly for a file
-lib/handler/configurator/mruby.c.s:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/mruby.c.s
-.PHONY : lib/handler/configurator/mruby.c.s
 
 lib/handler/configurator/proxy.o: lib/handler/configurator/proxy.c.o
 
@@ -3826,11 +3786,11 @@ lib/handler/configurator/proxy.o: lib/handler/configurator/proxy.c.o
 
 # target to build an object file
 lib/handler/configurator/proxy.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/proxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/proxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/proxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/proxy.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/proxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/proxy.c.o
 .PHONY : lib/handler/configurator/proxy.c.o
 
 lib/handler/configurator/proxy.i: lib/handler/configurator/proxy.c.i
@@ -3839,11 +3799,11 @@ lib/handler/configurator/proxy.i: lib/handler/configurator/proxy.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/proxy.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/proxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/proxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/proxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/proxy.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/proxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/proxy.c.i
 .PHONY : lib/handler/configurator/proxy.c.i
 
 lib/handler/configurator/proxy.s: lib/handler/configurator/proxy.c.s
@@ -3852,11 +3812,11 @@ lib/handler/configurator/proxy.s: lib/handler/configurator/proxy.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/proxy.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/proxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/proxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/proxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/proxy.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/proxy.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/proxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/proxy.c.s
 .PHONY : lib/handler/configurator/proxy.c.s
 
 lib/handler/configurator/redirect.o: lib/handler/configurator/redirect.c.o
@@ -3865,11 +3825,11 @@ lib/handler/configurator/redirect.o: lib/handler/configurator/redirect.c.o
 
 # target to build an object file
 lib/handler/configurator/redirect.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/redirect.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/redirect.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/redirect.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/redirect.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/redirect.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/redirect.c.o
 .PHONY : lib/handler/configurator/redirect.c.o
 
 lib/handler/configurator/redirect.i: lib/handler/configurator/redirect.c.i
@@ -3878,11 +3838,11 @@ lib/handler/configurator/redirect.i: lib/handler/configurator/redirect.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/redirect.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/redirect.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/redirect.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/redirect.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/redirect.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/redirect.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/redirect.c.i
 .PHONY : lib/handler/configurator/redirect.c.i
 
 lib/handler/configurator/redirect.s: lib/handler/configurator/redirect.c.s
@@ -3891,11 +3851,11 @@ lib/handler/configurator/redirect.s: lib/handler/configurator/redirect.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/redirect.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/redirect.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/redirect.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/redirect.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/redirect.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/redirect.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/redirect.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/redirect.c.s
 .PHONY : lib/handler/configurator/redirect.c.s
 
 lib/handler/configurator/reproxy.o: lib/handler/configurator/reproxy.c.o
@@ -3904,11 +3864,11 @@ lib/handler/configurator/reproxy.o: lib/handler/configurator/reproxy.c.o
 
 # target to build an object file
 lib/handler/configurator/reproxy.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/reproxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/reproxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/reproxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/reproxy.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/reproxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/reproxy.c.o
 .PHONY : lib/handler/configurator/reproxy.c.o
 
 lib/handler/configurator/reproxy.i: lib/handler/configurator/reproxy.c.i
@@ -3917,11 +3877,11 @@ lib/handler/configurator/reproxy.i: lib/handler/configurator/reproxy.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/reproxy.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/reproxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/reproxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/reproxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/reproxy.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/reproxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/reproxy.c.i
 .PHONY : lib/handler/configurator/reproxy.c.i
 
 lib/handler/configurator/reproxy.s: lib/handler/configurator/reproxy.c.s
@@ -3930,11 +3890,11 @@ lib/handler/configurator/reproxy.s: lib/handler/configurator/reproxy.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/reproxy.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/reproxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/reproxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/reproxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/reproxy.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/reproxy.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/reproxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/reproxy.c.s
 .PHONY : lib/handler/configurator/reproxy.c.s
 
 lib/handler/configurator/status.o: lib/handler/configurator/status.c.o
@@ -3943,11 +3903,11 @@ lib/handler/configurator/status.o: lib/handler/configurator/status.c.o
 
 # target to build an object file
 lib/handler/configurator/status.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/status.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/status.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/status.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/status.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/status.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/status.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/status.c.o
 .PHONY : lib/handler/configurator/status.c.o
 
 lib/handler/configurator/status.i: lib/handler/configurator/status.c.i
@@ -3956,11 +3916,11 @@ lib/handler/configurator/status.i: lib/handler/configurator/status.c.i
 
 # target to preprocess a source file
 lib/handler/configurator/status.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/status.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/status.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/status.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/status.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/status.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/status.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/status.c.i
 .PHONY : lib/handler/configurator/status.c.i
 
 lib/handler/configurator/status.s: lib/handler/configurator/status.c.s
@@ -3969,11 +3929,11 @@ lib/handler/configurator/status.s: lib/handler/configurator/status.c.s
 
 # target to generate assembly for a file
 lib/handler/configurator/status.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/status.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/status.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/status.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/status.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/status.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/status.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/status.c.s
 .PHONY : lib/handler/configurator/status.c.s
 
 lib/handler/configurator/throttle_resp.o: lib/handler/configurator/throttle_resp.c.o
@@ -3982,11 +3942,11 @@ lib/handler/configurator/throttle_resp.o: lib/handler/configurator/throttle_resp
 
 # target to build an object file
 lib/handler/configurator/throttle_resp.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/throttle_resp.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/throttle_resp.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/throttle_resp.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/throttle_resp.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/throttle_resp.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/throttle_resp.c.o
 .PHONY : lib/handler/configurator/throttle_resp.c.o
 
 lib/handler/configurator/throttle_resp.i: lib/handler/configurator/throttle_resp.c.i
@@ -3995,11 +3955,11 @@ lib/handler/configurator/throttle_resp.i: lib/handler/configurator/throttle_resp
 
 # target to preprocess a source file
 lib/handler/configurator/throttle_resp.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/throttle_resp.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/throttle_resp.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/throttle_resp.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/throttle_resp.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/throttle_resp.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/throttle_resp.c.i
 .PHONY : lib/handler/configurator/throttle_resp.c.i
 
 lib/handler/configurator/throttle_resp.s: lib/handler/configurator/throttle_resp.c.s
@@ -4008,11 +3968,11 @@ lib/handler/configurator/throttle_resp.s: lib/handler/configurator/throttle_resp
 
 # target to generate assembly for a file
 lib/handler/configurator/throttle_resp.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/throttle_resp.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/throttle_resp.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/configurator/throttle_resp.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/configurator/throttle_resp.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/configurator/throttle_resp.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/configurator/throttle_resp.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/configurator/throttle_resp.c.s
 .PHONY : lib/handler/configurator/throttle_resp.c.s
 
 lib/handler/errordoc.o: lib/handler/errordoc.c.o
@@ -4021,11 +3981,11 @@ lib/handler/errordoc.o: lib/handler/errordoc.c.o
 
 # target to build an object file
 lib/handler/errordoc.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/errordoc.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/errordoc.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/errordoc.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/errordoc.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/errordoc.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/errordoc.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/errordoc.c.o
 .PHONY : lib/handler/errordoc.c.o
 
 lib/handler/errordoc.i: lib/handler/errordoc.c.i
@@ -4034,11 +3994,11 @@ lib/handler/errordoc.i: lib/handler/errordoc.c.i
 
 # target to preprocess a source file
 lib/handler/errordoc.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/errordoc.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/errordoc.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/errordoc.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/errordoc.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/errordoc.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/errordoc.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/errordoc.c.i
 .PHONY : lib/handler/errordoc.c.i
 
 lib/handler/errordoc.s: lib/handler/errordoc.c.s
@@ -4047,11 +4007,11 @@ lib/handler/errordoc.s: lib/handler/errordoc.c.s
 
 # target to generate assembly for a file
 lib/handler/errordoc.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/errordoc.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/errordoc.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/errordoc.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/errordoc.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/errordoc.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/errordoc.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/errordoc.c.s
 .PHONY : lib/handler/errordoc.c.s
 
 lib/handler/expires.o: lib/handler/expires.c.o
@@ -4060,11 +4020,11 @@ lib/handler/expires.o: lib/handler/expires.c.o
 
 # target to build an object file
 lib/handler/expires.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/expires.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/expires.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/expires.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/expires.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/expires.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/expires.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/expires.c.o
 .PHONY : lib/handler/expires.c.o
 
 lib/handler/expires.i: lib/handler/expires.c.i
@@ -4073,11 +4033,11 @@ lib/handler/expires.i: lib/handler/expires.c.i
 
 # target to preprocess a source file
 lib/handler/expires.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/expires.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/expires.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/expires.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/expires.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/expires.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/expires.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/expires.c.i
 .PHONY : lib/handler/expires.c.i
 
 lib/handler/expires.s: lib/handler/expires.c.s
@@ -4086,11 +4046,11 @@ lib/handler/expires.s: lib/handler/expires.c.s
 
 # target to generate assembly for a file
 lib/handler/expires.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/expires.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/expires.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/expires.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/expires.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/expires.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/expires.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/expires.c.s
 .PHONY : lib/handler/expires.c.s
 
 lib/handler/fastcgi.o: lib/handler/fastcgi.c.o
@@ -4198,11 +4158,11 @@ lib/handler/headers_util.o: lib/handler/headers_util.c.o
 
 # target to build an object file
 lib/handler/headers_util.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/headers_util.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/headers_util.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/headers_util.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/headers_util.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/headers_util.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/headers_util.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/headers_util.c.o
 .PHONY : lib/handler/headers_util.c.o
 
 lib/handler/headers_util.i: lib/handler/headers_util.c.i
@@ -4211,11 +4171,11 @@ lib/handler/headers_util.i: lib/handler/headers_util.c.i
 
 # target to preprocess a source file
 lib/handler/headers_util.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/headers_util.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/headers_util.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/headers_util.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/headers_util.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/headers_util.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/headers_util.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/headers_util.c.i
 .PHONY : lib/handler/headers_util.c.i
 
 lib/handler/headers_util.s: lib/handler/headers_util.c.s
@@ -4224,11 +4184,11 @@ lib/handler/headers_util.s: lib/handler/headers_util.c.s
 
 # target to generate assembly for a file
 lib/handler/headers_util.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/headers_util.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/headers_util.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/headers_util.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/headers_util.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/headers_util.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/headers_util.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/headers_util.c.s
 .PHONY : lib/handler/headers_util.c.s
 
 lib/handler/http2_debug_state.o: lib/handler/http2_debug_state.c.o
@@ -4237,11 +4197,11 @@ lib/handler/http2_debug_state.o: lib/handler/http2_debug_state.c.o
 
 # target to build an object file
 lib/handler/http2_debug_state.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/http2_debug_state.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/http2_debug_state.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/http2_debug_state.c.o
 .PHONY : lib/handler/http2_debug_state.c.o
 
 lib/handler/http2_debug_state.i: lib/handler/http2_debug_state.c.i
@@ -4250,11 +4210,11 @@ lib/handler/http2_debug_state.i: lib/handler/http2_debug_state.c.i
 
 # target to preprocess a source file
 lib/handler/http2_debug_state.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/http2_debug_state.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/http2_debug_state.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/http2_debug_state.c.i
 .PHONY : lib/handler/http2_debug_state.c.i
 
 lib/handler/http2_debug_state.s: lib/handler/http2_debug_state.c.s
@@ -4263,11 +4223,11 @@ lib/handler/http2_debug_state.s: lib/handler/http2_debug_state.c.s
 
 # target to generate assembly for a file
 lib/handler/http2_debug_state.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/http2_debug_state.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/http2_debug_state.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/http2_debug_state.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/http2_debug_state.c.s
 .PHONY : lib/handler/http2_debug_state.c.s
 
 lib/handler/mimemap.o: lib/handler/mimemap.c.o
@@ -4303,98 +4263,17 @@ lib/handler/mimemap.c.s:
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mimemap.c.s
 .PHONY : lib/handler/mimemap.c.s
 
-lib/handler/mruby.o: lib/handler/mruby.c.o
-
-.PHONY : lib/handler/mruby.o
-
-# target to build an object file
-lib/handler/mruby.c.o:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby.c.o
-.PHONY : lib/handler/mruby.c.o
-
-lib/handler/mruby.i: lib/handler/mruby.c.i
-
-.PHONY : lib/handler/mruby.i
-
-# target to preprocess a source file
-lib/handler/mruby.c.i:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby.c.i
-.PHONY : lib/handler/mruby.c.i
-
-lib/handler/mruby.s: lib/handler/mruby.c.s
-
-.PHONY : lib/handler/mruby.s
-
-# target to generate assembly for a file
-lib/handler/mruby.c.s:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby.c.s
-.PHONY : lib/handler/mruby.c.s
-
-lib/handler/mruby/chunked.o: lib/handler/mruby/chunked.c.o
-
-.PHONY : lib/handler/mruby/chunked.o
-
-# target to build an object file
-lib/handler/mruby/chunked.c.o:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.o
-.PHONY : lib/handler/mruby/chunked.c.o
-
-lib/handler/mruby/chunked.i: lib/handler/mruby/chunked.c.i
-
-.PHONY : lib/handler/mruby/chunked.i
-
-# target to preprocess a source file
-lib/handler/mruby/chunked.c.i:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.i
-.PHONY : lib/handler/mruby/chunked.c.i
-
-lib/handler/mruby/chunked.s: lib/handler/mruby/chunked.c.s
-
-.PHONY : lib/handler/mruby/chunked.s
-
-# target to generate assembly for a file
-lib/handler/mruby/chunked.c.s:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby/chunked.c.s
-.PHONY : lib/handler/mruby/chunked.c.s
-
-lib/handler/mruby/http_request.o: lib/handler/mruby/http_request.c.o
-
-.PHONY : lib/handler/mruby/http_request.o
-
-# target to build an object file
-lib/handler/mruby/http_request.c.o:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.o
-.PHONY : lib/handler/mruby/http_request.c.o
-
-lib/handler/mruby/http_request.i: lib/handler/mruby/http_request.c.i
-
-.PHONY : lib/handler/mruby/http_request.i
-
-# target to preprocess a source file
-lib/handler/mruby/http_request.c.i:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.i
-.PHONY : lib/handler/mruby/http_request.c.i
-
-lib/handler/mruby/http_request.s: lib/handler/mruby/http_request.c.s
-
-.PHONY : lib/handler/mruby/http_request.s
-
-# target to generate assembly for a file
-lib/handler/mruby/http_request.c.s:
-	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/mruby/http_request.c.s
-.PHONY : lib/handler/mruby/http_request.c.s
-
 lib/handler/proxy.o: lib/handler/proxy.c.o
 
 .PHONY : lib/handler/proxy.o
 
 # target to build an object file
 lib/handler/proxy.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/proxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/proxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/proxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/proxy.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/proxy.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/proxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/proxy.c.o
 .PHONY : lib/handler/proxy.c.o
 
 lib/handler/proxy.i: lib/handler/proxy.c.i
@@ -4403,11 +4282,11 @@ lib/handler/proxy.i: lib/handler/proxy.c.i
 
 # target to preprocess a source file
 lib/handler/proxy.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/proxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/proxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/proxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/proxy.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/proxy.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/proxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/proxy.c.i
 .PHONY : lib/handler/proxy.c.i
 
 lib/handler/proxy.s: lib/handler/proxy.c.s
@@ -4416,11 +4295,11 @@ lib/handler/proxy.s: lib/handler/proxy.c.s
 
 # target to generate assembly for a file
 lib/handler/proxy.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/proxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/proxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/proxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/proxy.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/proxy.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/proxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/proxy.c.s
 .PHONY : lib/handler/proxy.c.s
 
 lib/handler/redirect.o: lib/handler/redirect.c.o
@@ -4462,11 +4341,11 @@ lib/handler/reproxy.o: lib/handler/reproxy.c.o
 
 # target to build an object file
 lib/handler/reproxy.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/reproxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/reproxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/reproxy.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/reproxy.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/reproxy.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/reproxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/reproxy.c.o
 .PHONY : lib/handler/reproxy.c.o
 
 lib/handler/reproxy.i: lib/handler/reproxy.c.i
@@ -4475,11 +4354,11 @@ lib/handler/reproxy.i: lib/handler/reproxy.c.i
 
 # target to preprocess a source file
 lib/handler/reproxy.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/reproxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/reproxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/reproxy.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/reproxy.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/reproxy.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/reproxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/reproxy.c.i
 .PHONY : lib/handler/reproxy.c.i
 
 lib/handler/reproxy.s: lib/handler/reproxy.c.s
@@ -4488,11 +4367,11 @@ lib/handler/reproxy.s: lib/handler/reproxy.c.s
 
 # target to generate assembly for a file
 lib/handler/reproxy.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/reproxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/reproxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/reproxy.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/reproxy.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/reproxy.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/reproxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/reproxy.c.s
 .PHONY : lib/handler/reproxy.c.s
 
 lib/handler/status.o: lib/handler/status.c.o
@@ -4501,11 +4380,11 @@ lib/handler/status.o: lib/handler/status.c.o
 
 # target to build an object file
 lib/handler/status.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status.c.o
 .PHONY : lib/handler/status.c.o
 
 lib/handler/status.i: lib/handler/status.c.i
@@ -4514,11 +4393,11 @@ lib/handler/status.i: lib/handler/status.c.i
 
 # target to preprocess a source file
 lib/handler/status.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status.c.i
 .PHONY : lib/handler/status.c.i
 
 lib/handler/status.s: lib/handler/status.c.s
@@ -4527,11 +4406,11 @@ lib/handler/status.s: lib/handler/status.c.s
 
 # target to generate assembly for a file
 lib/handler/status.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status.c.s
 .PHONY : lib/handler/status.c.s
 
 lib/handler/status/durations.o: lib/handler/status/durations.c.o
@@ -4540,11 +4419,11 @@ lib/handler/status/durations.o: lib/handler/status/durations.c.o
 
 # target to build an object file
 lib/handler/status/durations.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/durations.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/durations.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/durations.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/durations.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/durations.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/durations.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/durations.c.o
 .PHONY : lib/handler/status/durations.c.o
 
 lib/handler/status/durations.i: lib/handler/status/durations.c.i
@@ -4553,11 +4432,11 @@ lib/handler/status/durations.i: lib/handler/status/durations.c.i
 
 # target to preprocess a source file
 lib/handler/status/durations.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/durations.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/durations.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/durations.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/durations.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/durations.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/durations.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/durations.c.i
 .PHONY : lib/handler/status/durations.c.i
 
 lib/handler/status/durations.s: lib/handler/status/durations.c.s
@@ -4566,11 +4445,11 @@ lib/handler/status/durations.s: lib/handler/status/durations.c.s
 
 # target to generate assembly for a file
 lib/handler/status/durations.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/durations.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/durations.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/durations.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/durations.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/durations.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/durations.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/durations.c.s
 .PHONY : lib/handler/status/durations.c.s
 
 lib/handler/status/events.o: lib/handler/status/events.c.o
@@ -4579,11 +4458,11 @@ lib/handler/status/events.o: lib/handler/status/events.c.o
 
 # target to build an object file
 lib/handler/status/events.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/events.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/events.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/events.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/events.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/events.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/events.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/events.c.o
 .PHONY : lib/handler/status/events.c.o
 
 lib/handler/status/events.i: lib/handler/status/events.c.i
@@ -4592,11 +4471,11 @@ lib/handler/status/events.i: lib/handler/status/events.c.i
 
 # target to preprocess a source file
 lib/handler/status/events.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/events.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/events.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/events.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/events.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/events.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/events.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/events.c.i
 .PHONY : lib/handler/status/events.c.i
 
 lib/handler/status/events.s: lib/handler/status/events.c.s
@@ -4605,11 +4484,11 @@ lib/handler/status/events.s: lib/handler/status/events.c.s
 
 # target to generate assembly for a file
 lib/handler/status/events.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/events.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/events.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/events.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/events.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/events.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/events.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/events.c.s
 .PHONY : lib/handler/status/events.c.s
 
 lib/handler/status/requests.o: lib/handler/status/requests.c.o
@@ -4618,11 +4497,11 @@ lib/handler/status/requests.o: lib/handler/status/requests.c.o
 
 # target to build an object file
 lib/handler/status/requests.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/requests.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/requests.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/requests.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/requests.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/requests.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/requests.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/requests.c.o
 .PHONY : lib/handler/status/requests.c.o
 
 lib/handler/status/requests.i: lib/handler/status/requests.c.i
@@ -4631,11 +4510,11 @@ lib/handler/status/requests.i: lib/handler/status/requests.c.i
 
 # target to preprocess a source file
 lib/handler/status/requests.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/requests.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/requests.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/requests.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/requests.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/requests.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/requests.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/requests.c.i
 .PHONY : lib/handler/status/requests.c.i
 
 lib/handler/status/requests.s: lib/handler/status/requests.c.s
@@ -4644,11 +4523,11 @@ lib/handler/status/requests.s: lib/handler/status/requests.c.s
 
 # target to generate assembly for a file
 lib/handler/status/requests.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/requests.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/requests.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/status/requests.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/status/requests.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/status/requests.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/status/requests.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/status/requests.c.s
 .PHONY : lib/handler/status/requests.c.s
 
 lib/handler/throttle_resp.o: lib/handler/throttle_resp.c.o
@@ -4657,11 +4536,11 @@ lib/handler/throttle_resp.o: lib/handler/throttle_resp.c.o
 
 # target to build an object file
 lib/handler/throttle_resp.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/throttle_resp.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/throttle_resp.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/throttle_resp.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/throttle_resp.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/throttle_resp.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/throttle_resp.c.o
 .PHONY : lib/handler/throttle_resp.c.o
 
 lib/handler/throttle_resp.i: lib/handler/throttle_resp.c.i
@@ -4670,11 +4549,11 @@ lib/handler/throttle_resp.i: lib/handler/throttle_resp.c.i
 
 # target to preprocess a source file
 lib/handler/throttle_resp.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/throttle_resp.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/throttle_resp.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/throttle_resp.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/throttle_resp.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/throttle_resp.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/throttle_resp.c.i
 .PHONY : lib/handler/throttle_resp.c.i
 
 lib/handler/throttle_resp.s: lib/handler/throttle_resp.c.s
@@ -4683,11 +4562,11 @@ lib/handler/throttle_resp.s: lib/handler/throttle_resp.c.s
 
 # target to generate assembly for a file
 lib/handler/throttle_resp.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/throttle_resp.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/throttle_resp.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/handler/throttle_resp.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/handler/throttle_resp.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/handler/throttle_resp.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/handler/throttle_resp.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/handler/throttle_resp.c.s
 .PHONY : lib/handler/throttle_resp.c.s
 
 lib/http1.o: lib/http1.c.o
@@ -4696,11 +4575,11 @@ lib/http1.o: lib/http1.c.o
 
 # target to build an object file
 lib/http1.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http1.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http1.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http1.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http1.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http1.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http1.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http1.c.o
 .PHONY : lib/http1.c.o
 
 lib/http1.i: lib/http1.c.i
@@ -4709,11 +4588,11 @@ lib/http1.i: lib/http1.c.i
 
 # target to preprocess a source file
 lib/http1.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http1.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http1.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http1.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http1.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http1.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http1.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http1.c.i
 .PHONY : lib/http1.c.i
 
 lib/http1.s: lib/http1.c.s
@@ -4722,11 +4601,11 @@ lib/http1.s: lib/http1.c.s
 
 # target to generate assembly for a file
 lib/http1.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http1.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http1.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http1.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http1.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http1.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http1.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http1.c.s
 .PHONY : lib/http1.c.s
 
 lib/http2/cache_digests.o: lib/http2/cache_digests.c.o
@@ -4801,11 +4680,11 @@ lib/http2/connection.o: lib/http2/connection.c.o
 
 # target to build an object file
 lib/http2/connection.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/connection.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/connection.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/connection.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/connection.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/connection.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/connection.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/connection.c.o
 .PHONY : lib/http2/connection.c.o
 
 lib/http2/connection.i: lib/http2/connection.c.i
@@ -4814,11 +4693,11 @@ lib/http2/connection.i: lib/http2/connection.c.i
 
 # target to preprocess a source file
 lib/http2/connection.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/connection.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/connection.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/connection.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/connection.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/connection.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/connection.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/connection.c.i
 .PHONY : lib/http2/connection.c.i
 
 lib/http2/connection.s: lib/http2/connection.c.s
@@ -4827,11 +4706,11 @@ lib/http2/connection.s: lib/http2/connection.c.s
 
 # target to generate assembly for a file
 lib/http2/connection.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/connection.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/connection.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/connection.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/connection.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/connection.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/connection.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/connection.c.s
 .PHONY : lib/http2/connection.c.s
 
 lib/http2/frame.o: lib/http2/frame.c.o
@@ -4840,11 +4719,11 @@ lib/http2/frame.o: lib/http2/frame.c.o
 
 # target to build an object file
 lib/http2/frame.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/frame.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/frame.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/frame.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/frame.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/frame.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/frame.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/frame.c.o
 .PHONY : lib/http2/frame.c.o
 
 lib/http2/frame.i: lib/http2/frame.c.i
@@ -4853,11 +4732,11 @@ lib/http2/frame.i: lib/http2/frame.c.i
 
 # target to preprocess a source file
 lib/http2/frame.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/frame.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/frame.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/frame.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/frame.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/frame.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/frame.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/frame.c.i
 .PHONY : lib/http2/frame.c.i
 
 lib/http2/frame.s: lib/http2/frame.c.s
@@ -4866,11 +4745,11 @@ lib/http2/frame.s: lib/http2/frame.c.s
 
 # target to generate assembly for a file
 lib/http2/frame.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/frame.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/frame.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/frame.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/frame.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/frame.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/frame.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/frame.c.s
 .PHONY : lib/http2/frame.c.s
 
 lib/http2/hpack.o: lib/http2/hpack.c.o
@@ -4912,11 +4791,11 @@ lib/http2/http2_debug_state.o: lib/http2/http2_debug_state.c.o
 
 # target to build an object file
 lib/http2/http2_debug_state.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/http2_debug_state.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/http2_debug_state.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/http2_debug_state.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/http2_debug_state.c.o
 .PHONY : lib/http2/http2_debug_state.c.o
 
 lib/http2/http2_debug_state.i: lib/http2/http2_debug_state.c.i
@@ -4925,11 +4804,11 @@ lib/http2/http2_debug_state.i: lib/http2/http2_debug_state.c.i
 
 # target to preprocess a source file
 lib/http2/http2_debug_state.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/http2_debug_state.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/http2_debug_state.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/http2_debug_state.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/http2_debug_state.c.i
 .PHONY : lib/http2/http2_debug_state.c.i
 
 lib/http2/http2_debug_state.s: lib/http2/http2_debug_state.c.s
@@ -4938,11 +4817,11 @@ lib/http2/http2_debug_state.s: lib/http2/http2_debug_state.c.s
 
 # target to generate assembly for a file
 lib/http2/http2_debug_state.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/http2_debug_state.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/http2_debug_state.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/http2_debug_state.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/http2_debug_state.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/http2_debug_state.c.s
 .PHONY : lib/http2/http2_debug_state.c.s
 
 lib/http2/scheduler.o: lib/http2/scheduler.c.o
@@ -4984,11 +4863,11 @@ lib/http2/stream.o: lib/http2/stream.c.o
 
 # target to build an object file
 lib/http2/stream.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/stream.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/stream.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/stream.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/stream.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/stream.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/stream.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/stream.c.o
 .PHONY : lib/http2/stream.c.o
 
 lib/http2/stream.i: lib/http2/stream.c.i
@@ -4997,11 +4876,11 @@ lib/http2/stream.i: lib/http2/stream.c.i
 
 # target to preprocess a source file
 lib/http2/stream.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/stream.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/stream.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/stream.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/stream.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/stream.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/stream.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/stream.c.i
 .PHONY : lib/http2/stream.c.i
 
 lib/http2/stream.s: lib/http2/stream.c.s
@@ -5010,11 +4889,11 @@ lib/http2/stream.s: lib/http2/stream.c.s
 
 # target to generate assembly for a file
 lib/http2/stream.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/stream.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/stream.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/http2/stream.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/http2/stream.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/http2/stream.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/http2/stream.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/http2/stream.c.s
 .PHONY : lib/http2/stream.c.s
 
 lib/tunnel.o: lib/tunnel.c.o
@@ -5023,11 +4902,11 @@ lib/tunnel.o: lib/tunnel.c.o
 
 # target to build an object file
 lib/tunnel.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/tunnel.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/tunnel.c.o
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/tunnel.c.o
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/tunnel.c.o
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/tunnel.c.o
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/tunnel.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/tunnel.c.o
 .PHONY : lib/tunnel.c.o
 
 lib/tunnel.i: lib/tunnel.c.i
@@ -5036,11 +4915,11 @@ lib/tunnel.i: lib/tunnel.c.i
 
 # target to preprocess a source file
 lib/tunnel.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/tunnel.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/tunnel.c.i
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/tunnel.c.i
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/tunnel.c.i
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/tunnel.c.i
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/tunnel.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/tunnel.c.i
 .PHONY : lib/tunnel.c.i
 
 lib/tunnel.s: lib/tunnel.c.s
@@ -5049,11 +4928,11 @@ lib/tunnel.s: lib/tunnel.c.s
 
 # target to generate assembly for a file
 lib/tunnel.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/tunnel.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/tunnel.c.s
 	$(MAKE) -f CMakeFiles/libh2o-evloop.dir/build.make CMakeFiles/libh2o-evloop.dir/lib/tunnel.c.s
 	$(MAKE) -f CMakeFiles/libh2o.dir/build.make CMakeFiles/libh2o.dir/lib/tunnel.c.s
 	$(MAKE) -f CMakeFiles/h2o.dir/build.make CMakeFiles/h2o.dir/lib/tunnel.c.s
-	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/lib/tunnel.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/lib/tunnel.c.s
 .PHONY : lib/tunnel.c.s
 
 lib/websocket.o: lib/websocket.c.o
@@ -5143,8 +5022,8 @@ t/00unit/issues/293.o: t/00unit/issues/293.c.o
 
 # target to build an object file
 t/00unit/issues/293.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/293.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/issues/293.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/293.c.o
 .PHONY : t/00unit/issues/293.c.o
 
 t/00unit/issues/293.i: t/00unit/issues/293.c.i
@@ -5153,8 +5032,8 @@ t/00unit/issues/293.i: t/00unit/issues/293.c.i
 
 # target to preprocess a source file
 t/00unit/issues/293.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/293.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/issues/293.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/293.c.i
 .PHONY : t/00unit/issues/293.c.i
 
 t/00unit/issues/293.s: t/00unit/issues/293.c.s
@@ -5163,8 +5042,8 @@ t/00unit/issues/293.s: t/00unit/issues/293.c.s
 
 # target to generate assembly for a file
 t/00unit/issues/293.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/293.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/issues/293.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/293.c.s
 .PHONY : t/00unit/issues/293.c.s
 
 t/00unit/issues/percent-encode-zero-byte.o: t/00unit/issues/percent-encode-zero-byte.c.o
@@ -5173,8 +5052,8 @@ t/00unit/issues/percent-encode-zero-byte.o: t/00unit/issues/percent-encode-zero-
 
 # target to build an object file
 t/00unit/issues/percent-encode-zero-byte.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/percent-encode-zero-byte.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/issues/percent-encode-zero-byte.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/percent-encode-zero-byte.c.o
 .PHONY : t/00unit/issues/percent-encode-zero-byte.c.o
 
 t/00unit/issues/percent-encode-zero-byte.i: t/00unit/issues/percent-encode-zero-byte.c.i
@@ -5183,8 +5062,8 @@ t/00unit/issues/percent-encode-zero-byte.i: t/00unit/issues/percent-encode-zero-
 
 # target to preprocess a source file
 t/00unit/issues/percent-encode-zero-byte.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/percent-encode-zero-byte.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/issues/percent-encode-zero-byte.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/percent-encode-zero-byte.c.i
 .PHONY : t/00unit/issues/percent-encode-zero-byte.c.i
 
 t/00unit/issues/percent-encode-zero-byte.s: t/00unit/issues/percent-encode-zero-byte.c.s
@@ -5193,8 +5072,8 @@ t/00unit/issues/percent-encode-zero-byte.s: t/00unit/issues/percent-encode-zero-
 
 # target to generate assembly for a file
 t/00unit/issues/percent-encode-zero-byte.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/percent-encode-zero-byte.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/issues/percent-encode-zero-byte.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/issues/percent-encode-zero-byte.c.s
 .PHONY : t/00unit/issues/percent-encode-zero-byte.c.s
 
 t/00unit/lib/common/cache.o: t/00unit/lib/common/cache.c.o
@@ -5203,8 +5082,8 @@ t/00unit/lib/common/cache.o: t/00unit/lib/common/cache.c.o
 
 # target to build an object file
 t/00unit/lib/common/cache.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/cache.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/cache.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/cache.c.o
 .PHONY : t/00unit/lib/common/cache.c.o
 
 t/00unit/lib/common/cache.i: t/00unit/lib/common/cache.c.i
@@ -5213,8 +5092,8 @@ t/00unit/lib/common/cache.i: t/00unit/lib/common/cache.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/cache.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/cache.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/cache.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/cache.c.i
 .PHONY : t/00unit/lib/common/cache.c.i
 
 t/00unit/lib/common/cache.s: t/00unit/lib/common/cache.c.s
@@ -5223,8 +5102,8 @@ t/00unit/lib/common/cache.s: t/00unit/lib/common/cache.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/cache.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/cache.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/cache.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/cache.c.s
 .PHONY : t/00unit/lib/common/cache.c.s
 
 t/00unit/lib/common/hostinfo.o: t/00unit/lib/common/hostinfo.c.o
@@ -5233,8 +5112,8 @@ t/00unit/lib/common/hostinfo.o: t/00unit/lib/common/hostinfo.c.o
 
 # target to build an object file
 t/00unit/lib/common/hostinfo.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/hostinfo.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/hostinfo.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/hostinfo.c.o
 .PHONY : t/00unit/lib/common/hostinfo.c.o
 
 t/00unit/lib/common/hostinfo.i: t/00unit/lib/common/hostinfo.c.i
@@ -5243,8 +5122,8 @@ t/00unit/lib/common/hostinfo.i: t/00unit/lib/common/hostinfo.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/hostinfo.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/hostinfo.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/hostinfo.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/hostinfo.c.i
 .PHONY : t/00unit/lib/common/hostinfo.c.i
 
 t/00unit/lib/common/hostinfo.s: t/00unit/lib/common/hostinfo.c.s
@@ -5253,8 +5132,8 @@ t/00unit/lib/common/hostinfo.s: t/00unit/lib/common/hostinfo.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/hostinfo.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/hostinfo.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/hostinfo.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/hostinfo.c.s
 .PHONY : t/00unit/lib/common/hostinfo.c.s
 
 t/00unit/lib/common/multithread.o: t/00unit/lib/common/multithread.c.o
@@ -5263,8 +5142,8 @@ t/00unit/lib/common/multithread.o: t/00unit/lib/common/multithread.c.o
 
 # target to build an object file
 t/00unit/lib/common/multithread.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/multithread.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/multithread.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/multithread.c.o
 .PHONY : t/00unit/lib/common/multithread.c.o
 
 t/00unit/lib/common/multithread.i: t/00unit/lib/common/multithread.c.i
@@ -5273,8 +5152,8 @@ t/00unit/lib/common/multithread.i: t/00unit/lib/common/multithread.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/multithread.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/multithread.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/multithread.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/multithread.c.i
 .PHONY : t/00unit/lib/common/multithread.c.i
 
 t/00unit/lib/common/multithread.s: t/00unit/lib/common/multithread.c.s
@@ -5283,8 +5162,8 @@ t/00unit/lib/common/multithread.s: t/00unit/lib/common/multithread.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/multithread.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/multithread.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/multithread.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/multithread.c.s
 .PHONY : t/00unit/lib/common/multithread.c.s
 
 t/00unit/lib/common/serverutil.o: t/00unit/lib/common/serverutil.c.o
@@ -5293,8 +5172,8 @@ t/00unit/lib/common/serverutil.o: t/00unit/lib/common/serverutil.c.o
 
 # target to build an object file
 t/00unit/lib/common/serverutil.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/serverutil.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/serverutil.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/serverutil.c.o
 .PHONY : t/00unit/lib/common/serverutil.c.o
 
 t/00unit/lib/common/serverutil.i: t/00unit/lib/common/serverutil.c.i
@@ -5303,8 +5182,8 @@ t/00unit/lib/common/serverutil.i: t/00unit/lib/common/serverutil.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/serverutil.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/serverutil.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/serverutil.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/serverutil.c.i
 .PHONY : t/00unit/lib/common/serverutil.c.i
 
 t/00unit/lib/common/serverutil.s: t/00unit/lib/common/serverutil.c.s
@@ -5313,8 +5192,8 @@ t/00unit/lib/common/serverutil.s: t/00unit/lib/common/serverutil.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/serverutil.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/serverutil.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/serverutil.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/serverutil.c.s
 .PHONY : t/00unit/lib/common/serverutil.c.s
 
 t/00unit/lib/common/socket.o: t/00unit/lib/common/socket.c.o
@@ -5323,8 +5202,8 @@ t/00unit/lib/common/socket.o: t/00unit/lib/common/socket.c.o
 
 # target to build an object file
 t/00unit/lib/common/socket.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/socket.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/socket.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/socket.c.o
 .PHONY : t/00unit/lib/common/socket.c.o
 
 t/00unit/lib/common/socket.i: t/00unit/lib/common/socket.c.i
@@ -5333,8 +5212,8 @@ t/00unit/lib/common/socket.i: t/00unit/lib/common/socket.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/socket.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/socket.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/socket.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/socket.c.i
 .PHONY : t/00unit/lib/common/socket.c.i
 
 t/00unit/lib/common/socket.s: t/00unit/lib/common/socket.c.s
@@ -5343,8 +5222,8 @@ t/00unit/lib/common/socket.s: t/00unit/lib/common/socket.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/socket.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/socket.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/socket.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/socket.c.s
 .PHONY : t/00unit/lib/common/socket.c.s
 
 t/00unit/lib/common/string.o: t/00unit/lib/common/string.c.o
@@ -5353,8 +5232,8 @@ t/00unit/lib/common/string.o: t/00unit/lib/common/string.c.o
 
 # target to build an object file
 t/00unit/lib/common/string.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/string.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/string.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/string.c.o
 .PHONY : t/00unit/lib/common/string.c.o
 
 t/00unit/lib/common/string.i: t/00unit/lib/common/string.c.i
@@ -5363,8 +5242,8 @@ t/00unit/lib/common/string.i: t/00unit/lib/common/string.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/string.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/string.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/string.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/string.c.i
 .PHONY : t/00unit/lib/common/string.c.i
 
 t/00unit/lib/common/string.s: t/00unit/lib/common/string.c.s
@@ -5373,8 +5252,8 @@ t/00unit/lib/common/string.s: t/00unit/lib/common/string.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/string.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/string.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/string.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/string.c.s
 .PHONY : t/00unit/lib/common/string.c.s
 
 t/00unit/lib/common/time.o: t/00unit/lib/common/time.c.o
@@ -5383,8 +5262,8 @@ t/00unit/lib/common/time.o: t/00unit/lib/common/time.c.o
 
 # target to build an object file
 t/00unit/lib/common/time.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/time.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/time.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/time.c.o
 .PHONY : t/00unit/lib/common/time.c.o
 
 t/00unit/lib/common/time.i: t/00unit/lib/common/time.c.i
@@ -5393,8 +5272,8 @@ t/00unit/lib/common/time.i: t/00unit/lib/common/time.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/time.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/time.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/time.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/time.c.i
 .PHONY : t/00unit/lib/common/time.c.i
 
 t/00unit/lib/common/time.s: t/00unit/lib/common/time.c.s
@@ -5403,8 +5282,8 @@ t/00unit/lib/common/time.s: t/00unit/lib/common/time.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/time.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/time.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/time.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/time.c.s
 .PHONY : t/00unit/lib/common/time.c.s
 
 t/00unit/lib/common/url.o: t/00unit/lib/common/url.c.o
@@ -5413,8 +5292,8 @@ t/00unit/lib/common/url.o: t/00unit/lib/common/url.c.o
 
 # target to build an object file
 t/00unit/lib/common/url.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/url.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/url.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/url.c.o
 .PHONY : t/00unit/lib/common/url.c.o
 
 t/00unit/lib/common/url.i: t/00unit/lib/common/url.c.i
@@ -5423,8 +5302,8 @@ t/00unit/lib/common/url.i: t/00unit/lib/common/url.c.i
 
 # target to preprocess a source file
 t/00unit/lib/common/url.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/url.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/url.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/url.c.i
 .PHONY : t/00unit/lib/common/url.c.i
 
 t/00unit/lib/common/url.s: t/00unit/lib/common/url.c.s
@@ -5433,8 +5312,8 @@ t/00unit/lib/common/url.s: t/00unit/lib/common/url.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/common/url.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/url.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/common/url.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/common/url.c.s
 .PHONY : t/00unit/lib/common/url.c.s
 
 t/00unit/lib/core/headers.o: t/00unit/lib/core/headers.c.o
@@ -5443,8 +5322,8 @@ t/00unit/lib/core/headers.o: t/00unit/lib/core/headers.c.o
 
 # target to build an object file
 t/00unit/lib/core/headers.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/headers.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/headers.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/headers.c.o
 .PHONY : t/00unit/lib/core/headers.c.o
 
 t/00unit/lib/core/headers.i: t/00unit/lib/core/headers.c.i
@@ -5453,8 +5332,8 @@ t/00unit/lib/core/headers.i: t/00unit/lib/core/headers.c.i
 
 # target to preprocess a source file
 t/00unit/lib/core/headers.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/headers.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/headers.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/headers.c.i
 .PHONY : t/00unit/lib/core/headers.c.i
 
 t/00unit/lib/core/headers.s: t/00unit/lib/core/headers.c.s
@@ -5463,8 +5342,8 @@ t/00unit/lib/core/headers.s: t/00unit/lib/core/headers.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/core/headers.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/headers.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/headers.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/headers.c.s
 .PHONY : t/00unit/lib/core/headers.c.s
 
 t/00unit/lib/core/proxy.o: t/00unit/lib/core/proxy.c.o
@@ -5473,8 +5352,8 @@ t/00unit/lib/core/proxy.o: t/00unit/lib/core/proxy.c.o
 
 # target to build an object file
 t/00unit/lib/core/proxy.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/proxy.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/proxy.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/proxy.c.o
 .PHONY : t/00unit/lib/core/proxy.c.o
 
 t/00unit/lib/core/proxy.i: t/00unit/lib/core/proxy.c.i
@@ -5483,8 +5362,8 @@ t/00unit/lib/core/proxy.i: t/00unit/lib/core/proxy.c.i
 
 # target to preprocess a source file
 t/00unit/lib/core/proxy.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/proxy.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/proxy.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/proxy.c.i
 .PHONY : t/00unit/lib/core/proxy.c.i
 
 t/00unit/lib/core/proxy.s: t/00unit/lib/core/proxy.c.s
@@ -5493,8 +5372,8 @@ t/00unit/lib/core/proxy.s: t/00unit/lib/core/proxy.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/core/proxy.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/proxy.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/proxy.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/proxy.c.s
 .PHONY : t/00unit/lib/core/proxy.c.s
 
 t/00unit/lib/core/util.o: t/00unit/lib/core/util.c.o
@@ -5503,8 +5382,8 @@ t/00unit/lib/core/util.o: t/00unit/lib/core/util.c.o
 
 # target to build an object file
 t/00unit/lib/core/util.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/util.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/util.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/util.c.o
 .PHONY : t/00unit/lib/core/util.c.o
 
 t/00unit/lib/core/util.i: t/00unit/lib/core/util.c.i
@@ -5513,8 +5392,8 @@ t/00unit/lib/core/util.i: t/00unit/lib/core/util.c.i
 
 # target to preprocess a source file
 t/00unit/lib/core/util.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/util.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/util.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/util.c.i
 .PHONY : t/00unit/lib/core/util.c.i
 
 t/00unit/lib/core/util.s: t/00unit/lib/core/util.c.s
@@ -5523,8 +5402,8 @@ t/00unit/lib/core/util.s: t/00unit/lib/core/util.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/core/util.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/util.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/core/util.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/core/util.c.s
 .PHONY : t/00unit/lib/core/util.c.s
 
 t/00unit/lib/handler/compress.o: t/00unit/lib/handler/compress.c.o
@@ -5533,8 +5412,8 @@ t/00unit/lib/handler/compress.o: t/00unit/lib/handler/compress.c.o
 
 # target to build an object file
 t/00unit/lib/handler/compress.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/compress.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/compress.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/compress.c.o
 .PHONY : t/00unit/lib/handler/compress.c.o
 
 t/00unit/lib/handler/compress.i: t/00unit/lib/handler/compress.c.i
@@ -5543,8 +5422,8 @@ t/00unit/lib/handler/compress.i: t/00unit/lib/handler/compress.c.i
 
 # target to preprocess a source file
 t/00unit/lib/handler/compress.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/compress.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/compress.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/compress.c.i
 .PHONY : t/00unit/lib/handler/compress.c.i
 
 t/00unit/lib/handler/compress.s: t/00unit/lib/handler/compress.c.s
@@ -5553,8 +5432,8 @@ t/00unit/lib/handler/compress.s: t/00unit/lib/handler/compress.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/handler/compress.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/compress.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/compress.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/compress.c.s
 .PHONY : t/00unit/lib/handler/compress.c.s
 
 t/00unit/lib/handler/fastcgi.o: t/00unit/lib/handler/fastcgi.c.o
@@ -5563,8 +5442,8 @@ t/00unit/lib/handler/fastcgi.o: t/00unit/lib/handler/fastcgi.c.o
 
 # target to build an object file
 t/00unit/lib/handler/fastcgi.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/fastcgi.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/fastcgi.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/fastcgi.c.o
 .PHONY : t/00unit/lib/handler/fastcgi.c.o
 
 t/00unit/lib/handler/fastcgi.i: t/00unit/lib/handler/fastcgi.c.i
@@ -5573,8 +5452,8 @@ t/00unit/lib/handler/fastcgi.i: t/00unit/lib/handler/fastcgi.c.i
 
 # target to preprocess a source file
 t/00unit/lib/handler/fastcgi.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/fastcgi.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/fastcgi.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/fastcgi.c.i
 .PHONY : t/00unit/lib/handler/fastcgi.c.i
 
 t/00unit/lib/handler/fastcgi.s: t/00unit/lib/handler/fastcgi.c.s
@@ -5583,8 +5462,8 @@ t/00unit/lib/handler/fastcgi.s: t/00unit/lib/handler/fastcgi.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/handler/fastcgi.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/fastcgi.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/fastcgi.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/fastcgi.c.s
 .PHONY : t/00unit/lib/handler/fastcgi.c.s
 
 t/00unit/lib/handler/file.o: t/00unit/lib/handler/file.c.o
@@ -5593,8 +5472,8 @@ t/00unit/lib/handler/file.o: t/00unit/lib/handler/file.c.o
 
 # target to build an object file
 t/00unit/lib/handler/file.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/file.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/file.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/file.c.o
 .PHONY : t/00unit/lib/handler/file.c.o
 
 t/00unit/lib/handler/file.i: t/00unit/lib/handler/file.c.i
@@ -5603,8 +5482,8 @@ t/00unit/lib/handler/file.i: t/00unit/lib/handler/file.c.i
 
 # target to preprocess a source file
 t/00unit/lib/handler/file.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/file.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/file.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/file.c.i
 .PHONY : t/00unit/lib/handler/file.c.i
 
 t/00unit/lib/handler/file.s: t/00unit/lib/handler/file.c.s
@@ -5613,8 +5492,8 @@ t/00unit/lib/handler/file.s: t/00unit/lib/handler/file.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/handler/file.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/file.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/file.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/file.c.s
 .PHONY : t/00unit/lib/handler/file.c.s
 
 t/00unit/lib/handler/headers.o: t/00unit/lib/handler/headers.c.o
@@ -5623,8 +5502,8 @@ t/00unit/lib/handler/headers.o: t/00unit/lib/handler/headers.c.o
 
 # target to build an object file
 t/00unit/lib/handler/headers.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/headers.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/headers.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/headers.c.o
 .PHONY : t/00unit/lib/handler/headers.c.o
 
 t/00unit/lib/handler/headers.i: t/00unit/lib/handler/headers.c.i
@@ -5633,8 +5512,8 @@ t/00unit/lib/handler/headers.i: t/00unit/lib/handler/headers.c.i
 
 # target to preprocess a source file
 t/00unit/lib/handler/headers.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/headers.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/headers.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/headers.c.i
 .PHONY : t/00unit/lib/handler/headers.c.i
 
 t/00unit/lib/handler/headers.s: t/00unit/lib/handler/headers.c.s
@@ -5643,8 +5522,8 @@ t/00unit/lib/handler/headers.s: t/00unit/lib/handler/headers.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/handler/headers.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/headers.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/headers.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/headers.c.s
 .PHONY : t/00unit/lib/handler/headers.c.s
 
 t/00unit/lib/handler/mimemap.o: t/00unit/lib/handler/mimemap.c.o
@@ -5653,8 +5532,8 @@ t/00unit/lib/handler/mimemap.o: t/00unit/lib/handler/mimemap.c.o
 
 # target to build an object file
 t/00unit/lib/handler/mimemap.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/mimemap.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/mimemap.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/mimemap.c.o
 .PHONY : t/00unit/lib/handler/mimemap.c.o
 
 t/00unit/lib/handler/mimemap.i: t/00unit/lib/handler/mimemap.c.i
@@ -5663,8 +5542,8 @@ t/00unit/lib/handler/mimemap.i: t/00unit/lib/handler/mimemap.c.i
 
 # target to preprocess a source file
 t/00unit/lib/handler/mimemap.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/mimemap.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/mimemap.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/mimemap.c.i
 .PHONY : t/00unit/lib/handler/mimemap.c.i
 
 t/00unit/lib/handler/mimemap.s: t/00unit/lib/handler/mimemap.c.s
@@ -5673,8 +5552,8 @@ t/00unit/lib/handler/mimemap.s: t/00unit/lib/handler/mimemap.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/handler/mimemap.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/mimemap.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/mimemap.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/mimemap.c.s
 .PHONY : t/00unit/lib/handler/mimemap.c.s
 
 t/00unit/lib/handler/redirect.o: t/00unit/lib/handler/redirect.c.o
@@ -5683,8 +5562,8 @@ t/00unit/lib/handler/redirect.o: t/00unit/lib/handler/redirect.c.o
 
 # target to build an object file
 t/00unit/lib/handler/redirect.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/redirect.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/redirect.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/redirect.c.o
 .PHONY : t/00unit/lib/handler/redirect.c.o
 
 t/00unit/lib/handler/redirect.i: t/00unit/lib/handler/redirect.c.i
@@ -5693,8 +5572,8 @@ t/00unit/lib/handler/redirect.i: t/00unit/lib/handler/redirect.c.i
 
 # target to preprocess a source file
 t/00unit/lib/handler/redirect.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/redirect.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/redirect.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/redirect.c.i
 .PHONY : t/00unit/lib/handler/redirect.c.i
 
 t/00unit/lib/handler/redirect.s: t/00unit/lib/handler/redirect.c.s
@@ -5703,8 +5582,8 @@ t/00unit/lib/handler/redirect.s: t/00unit/lib/handler/redirect.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/handler/redirect.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/redirect.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/handler/redirect.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/handler/redirect.c.s
 .PHONY : t/00unit/lib/handler/redirect.c.s
 
 t/00unit/lib/http2/cache_digests.o: t/00unit/lib/http2/cache_digests.c.o
@@ -5713,8 +5592,8 @@ t/00unit/lib/http2/cache_digests.o: t/00unit/lib/http2/cache_digests.c.o
 
 # target to build an object file
 t/00unit/lib/http2/cache_digests.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/cache_digests.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/cache_digests.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/cache_digests.c.o
 .PHONY : t/00unit/lib/http2/cache_digests.c.o
 
 t/00unit/lib/http2/cache_digests.i: t/00unit/lib/http2/cache_digests.c.i
@@ -5723,8 +5602,8 @@ t/00unit/lib/http2/cache_digests.i: t/00unit/lib/http2/cache_digests.c.i
 
 # target to preprocess a source file
 t/00unit/lib/http2/cache_digests.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/cache_digests.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/cache_digests.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/cache_digests.c.i
 .PHONY : t/00unit/lib/http2/cache_digests.c.i
 
 t/00unit/lib/http2/cache_digests.s: t/00unit/lib/http2/cache_digests.c.s
@@ -5733,8 +5612,8 @@ t/00unit/lib/http2/cache_digests.s: t/00unit/lib/http2/cache_digests.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/http2/cache_digests.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/cache_digests.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/cache_digests.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/cache_digests.c.s
 .PHONY : t/00unit/lib/http2/cache_digests.c.s
 
 t/00unit/lib/http2/casper.o: t/00unit/lib/http2/casper.c.o
@@ -5743,8 +5622,8 @@ t/00unit/lib/http2/casper.o: t/00unit/lib/http2/casper.c.o
 
 # target to build an object file
 t/00unit/lib/http2/casper.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/casper.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/casper.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/casper.c.o
 .PHONY : t/00unit/lib/http2/casper.c.o
 
 t/00unit/lib/http2/casper.i: t/00unit/lib/http2/casper.c.i
@@ -5753,8 +5632,8 @@ t/00unit/lib/http2/casper.i: t/00unit/lib/http2/casper.c.i
 
 # target to preprocess a source file
 t/00unit/lib/http2/casper.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/casper.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/casper.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/casper.c.i
 .PHONY : t/00unit/lib/http2/casper.c.i
 
 t/00unit/lib/http2/casper.s: t/00unit/lib/http2/casper.c.s
@@ -5763,8 +5642,8 @@ t/00unit/lib/http2/casper.s: t/00unit/lib/http2/casper.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/http2/casper.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/casper.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/casper.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/casper.c.s
 .PHONY : t/00unit/lib/http2/casper.c.s
 
 t/00unit/lib/http2/hpack.o: t/00unit/lib/http2/hpack.c.o
@@ -5773,8 +5652,8 @@ t/00unit/lib/http2/hpack.o: t/00unit/lib/http2/hpack.c.o
 
 # target to build an object file
 t/00unit/lib/http2/hpack.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/hpack.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/hpack.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/hpack.c.o
 .PHONY : t/00unit/lib/http2/hpack.c.o
 
 t/00unit/lib/http2/hpack.i: t/00unit/lib/http2/hpack.c.i
@@ -5783,8 +5662,8 @@ t/00unit/lib/http2/hpack.i: t/00unit/lib/http2/hpack.c.i
 
 # target to preprocess a source file
 t/00unit/lib/http2/hpack.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/hpack.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/hpack.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/hpack.c.i
 .PHONY : t/00unit/lib/http2/hpack.c.i
 
 t/00unit/lib/http2/hpack.s: t/00unit/lib/http2/hpack.c.s
@@ -5793,8 +5672,8 @@ t/00unit/lib/http2/hpack.s: t/00unit/lib/http2/hpack.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/http2/hpack.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/hpack.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/hpack.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/hpack.c.s
 .PHONY : t/00unit/lib/http2/hpack.c.s
 
 t/00unit/lib/http2/scheduler.o: t/00unit/lib/http2/scheduler.c.o
@@ -5803,8 +5682,8 @@ t/00unit/lib/http2/scheduler.o: t/00unit/lib/http2/scheduler.c.o
 
 # target to build an object file
 t/00unit/lib/http2/scheduler.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/scheduler.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/scheduler.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/scheduler.c.o
 .PHONY : t/00unit/lib/http2/scheduler.c.o
 
 t/00unit/lib/http2/scheduler.i: t/00unit/lib/http2/scheduler.c.i
@@ -5813,8 +5692,8 @@ t/00unit/lib/http2/scheduler.i: t/00unit/lib/http2/scheduler.c.i
 
 # target to preprocess a source file
 t/00unit/lib/http2/scheduler.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/scheduler.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/scheduler.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/scheduler.c.i
 .PHONY : t/00unit/lib/http2/scheduler.c.i
 
 t/00unit/lib/http2/scheduler.s: t/00unit/lib/http2/scheduler.c.s
@@ -5823,8 +5702,8 @@ t/00unit/lib/http2/scheduler.s: t/00unit/lib/http2/scheduler.c.s
 
 # target to generate assembly for a file
 t/00unit/lib/http2/scheduler.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/scheduler.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/lib/http2/scheduler.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/lib/http2/scheduler.c.s
 .PHONY : t/00unit/lib/http2/scheduler.c.s
 
 t/00unit/src/ssl.o: t/00unit/src/ssl.c.o
@@ -5833,8 +5712,8 @@ t/00unit/src/ssl.o: t/00unit/src/ssl.c.o
 
 # target to build an object file
 t/00unit/src/ssl.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/src/ssl.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/src/ssl.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/src/ssl.c.o
 .PHONY : t/00unit/src/ssl.c.o
 
 t/00unit/src/ssl.i: t/00unit/src/ssl.c.i
@@ -5843,8 +5722,8 @@ t/00unit/src/ssl.i: t/00unit/src/ssl.c.i
 
 # target to preprocess a source file
 t/00unit/src/ssl.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/src/ssl.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/src/ssl.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/src/ssl.c.i
 .PHONY : t/00unit/src/ssl.c.i
 
 t/00unit/src/ssl.s: t/00unit/src/ssl.c.s
@@ -5853,8 +5732,8 @@ t/00unit/src/ssl.s: t/00unit/src/ssl.c.s
 
 # target to generate assembly for a file
 t/00unit/src/ssl.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/src/ssl.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/src/ssl.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/src/ssl.c.s
 .PHONY : t/00unit/src/ssl.c.s
 
 t/00unit/test.o: t/00unit/test.c.o
@@ -5863,8 +5742,8 @@ t/00unit/test.o: t/00unit/test.c.o
 
 # target to build an object file
 t/00unit/test.c.o:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/test.c.o
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/test.c.o
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/test.c.o
 .PHONY : t/00unit/test.c.o
 
 t/00unit/test.i: t/00unit/test.c.i
@@ -5873,8 +5752,8 @@ t/00unit/test.i: t/00unit/test.c.i
 
 # target to preprocess a source file
 t/00unit/test.c.i:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/test.c.i
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/test.c.i
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/test.c.i
 .PHONY : t/00unit/test.c.i
 
 t/00unit/test.s: t/00unit/test.c.s
@@ -5883,8 +5762,8 @@ t/00unit/test.s: t/00unit/test.c.s
 
 # target to generate assembly for a file
 t/00unit/test.c.s:
-	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/test.c.s
 	$(MAKE) -f CMakeFiles/t-00unit-evloop.t.dir/build.make CMakeFiles/t-00unit-evloop.t.dir/t/00unit/test.c.s
+	$(MAKE) -f CMakeFiles/t-00unit-libuv.t.dir/build.make CMakeFiles/t-00unit-libuv.t.dir/t/00unit/test.c.s
 .PHONY : t/00unit/test.c.s
 
 # Help Target
@@ -5894,28 +5773,27 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... list_install_components"
-	@echo "... install"
+	@echo "... install/local"
+	@echo "... check-as-root-valgrind"
 	@echo "... check-as-root"
+	@echo "... check-valgrind"
+	@echo "... check"
+	@echo "... t-00unit-evloop.t"
 	@echo "... lib-examples"
-	@echo "... t-00unit-libuv.t"
+	@echo "... examples-socket-client"
+	@echo "... edit_cache"
 	@echo "... libh2o-evloop"
+	@echo "... libh2o"
+	@echo "... h2o"
+	@echo "... examples-http1client"
+	@echo "... t-00unit-libuv.t"
 	@echo "... bundled-ssl"
 	@echo "... examples-simple"
-	@echo "... examples-socket-client"
-	@echo "... libh2o"
-	@echo "... examples-http1client"
-	@echo "... install/local"
-	@echo "... check-valgrind"
 	@echo "... examples-websocket"
-	@echo "... examples-latency-optimization"
+	@echo "... install"
 	@echo "... seckill"
-	@echo "... mruby"
-	@echo "... h2o"
-	@echo "... check"
-	@echo "... check-as-root-valgrind"
-	@echo "... t-00unit-evloop.t"
+	@echo "... list_install_components"
+	@echo "... examples-latency-optimization"
 	@echo "... SecKill/main.o"
 	@echo "... SecKill/main.i"
 	@echo "... SecKill/main.s"
@@ -6216,9 +6094,6 @@ help:
 	@echo "... lib/handler/configurator/http2_debug_state.o"
 	@echo "... lib/handler/configurator/http2_debug_state.i"
 	@echo "... lib/handler/configurator/http2_debug_state.s"
-	@echo "... lib/handler/configurator/mruby.o"
-	@echo "... lib/handler/configurator/mruby.i"
-	@echo "... lib/handler/configurator/mruby.s"
 	@echo "... lib/handler/configurator/proxy.o"
 	@echo "... lib/handler/configurator/proxy.i"
 	@echo "... lib/handler/configurator/proxy.s"
@@ -6258,15 +6133,6 @@ help:
 	@echo "... lib/handler/mimemap.o"
 	@echo "... lib/handler/mimemap.i"
 	@echo "... lib/handler/mimemap.s"
-	@echo "... lib/handler/mruby.o"
-	@echo "... lib/handler/mruby.i"
-	@echo "... lib/handler/mruby.s"
-	@echo "... lib/handler/mruby/chunked.o"
-	@echo "... lib/handler/mruby/chunked.i"
-	@echo "... lib/handler/mruby/chunked.s"
-	@echo "... lib/handler/mruby/http_request.o"
-	@echo "... lib/handler/mruby/http_request.i"
-	@echo "... lib/handler/mruby/http_request.s"
 	@echo "... lib/handler/proxy.o"
 	@echo "... lib/handler/proxy.i"
 	@echo "... lib/handler/proxy.s"
