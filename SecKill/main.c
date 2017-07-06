@@ -17,6 +17,7 @@
 #define MAX_NUM 1000
 #define MSG_LEN 1024
 #define MAX_ALL 128000
+#define OPTIMISTIC  1
 
 // return json string for /get***All
 static char all_users[MAX_ALL];
@@ -117,11 +118,20 @@ static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
     if (users[uid].dirty) {
         redisReply *reply;
         reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
-        sprintf(result, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s}",
+        sprintf(result, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%s}",
                 users[uid].id, users[uid].name, reply->str);
         freeReplyObject(reply);
+        // Save the balance value in users[uid].balance field,
+        // and set dirty bit to false,
+        // so that we can skip redis next time if no seckill in the middle.
+        // OPTIMISTIC means no concurrency bug are considered.
+        // The same logic is in get_commodity_by_id().
+        if (OPTIMISTIC) {
+            users[uid].balance = atof(reply->str);
+            users[uid].dirty = false;
+        }
     } else {
-        sprintf(result, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s}",
+        sprintf(result, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%f}",
                 users[uid].id, users[uid].name, users[uid].balance);
     }
     
@@ -149,10 +159,18 @@ static int get_user_all(h2o_handler_t *self, h2o_req_t *req)
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; uid < userNum; uid++) {
-        reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", users[uid].id);
-        sprintf(iterator, "{\"user_id\":%s,\"user_name\":%s,\"account_balance\":%s},", 
-                users[uid].id, users[uid].name, reply->str);
-        freeReplyObject(reply);
+        if (users[uid].dirty) {
+            reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", users[uid].id);
+            sprintf(iterator, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%s},", 
+                    users[uid].id, users[uid].name, reply->str);
+            freeReplyObject(reply);
+            if (OPTIMISTIC) {
+                users[uid].balance = atof(reply->str);
+                users[uid].dirty = false;
+            }
+        } else
+            sprintf(iterator, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%f},", 
+                    users[uid].id, users[uid].name, users[uid].balance);
         strcat(all_users, iterator);
     }
     all_users[strlen(all_users) - 1] = ']';
@@ -188,14 +206,18 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
 
     char result[MSG_LEN] = { 0 };
     int cid = id2idx_cmdt(commodity_id), quantity;
+    redisReply *reply;
     if (commodities[cid].dirty) {
-        redisReply *reply;
         reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodity_id);
         quantity = atoi(reply->str);
+        if (OPTIMISTIC) {
+            commodities[cid].number = quantity;
+            commodities[cid].dirty = false;
+        }
     } else
-        quantity = commodities[cid].quantity;    
+        quantity = commodities[cid].number;
     quantity = quantity < 0 ? 0 : quantity;
-    sprintf(result, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%d,\"unit_price\":%f}",
+    sprintf(result, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%f}",
             commodity_id, commodities[cid].name, quantity, commodities[cid].price);
     freeReplyObject(reply);
     
@@ -222,11 +244,18 @@ static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; cid < commodityNum; cid++) {
-        reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodities[cid].id);
-        quantity = atoi(reply->str);
+        if (commodities[cid].dirty) {
+            reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodities[cid].id);
+            quantity = atoi(reply->str);
+            if (OPTIMISTIC) {
+                commodities[cid].number = quantity;
+                commodities[cid].dirty = false;
+            }
+        } else
+            quantity = commodities[cid].number;
         quantity = quantity < 0 ? 0 : quantity;
-        sprintf(iterator, "{\"commodity_id\":%s,\"commodity_name\":%s,\"quantity\":%s,\"unit_price\":%f},",
-                commodities[cid].id, commodities[cid].name, reply->str, commodities[cid].price);
+        sprintf(iterator, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%f},",
+                commodities[cid].id, commodities[cid].name, quantity, commodities[cid].price);
         freeReplyObject(reply);
         strcat(all_commodities, iterator);
     }
@@ -273,36 +302,45 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     char result[MSG_LEN] = { 0 };
     int cid = id2idx_cmdt(commodity_id), uid = id2idx_user(user_id) - 1, quantity;
     float price = commodities[cid].price, balance;
+    // now the user and the commodity are dirty,
+    // so must read theie balance/quantity from redis
     users[uid].dirty = true;
     commodities[cid].dirty = true;
 
     lock(&locks[uid]);
 
     redisReply *reply;
-    reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
+
+    reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s -%f", user_id, price);
     balance = atof(reply->str);
+    // printf("new balance%f\n", balance);
     freeReplyObject(reply);
-    if (balance < price) {
-        sprintf(result, "{\"result\":0,\"order_id\":Insufficient Balance,\"user_id\":%s}", user_id);
+    if (balance < 0) {
+        reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s %f", user_id, price);
+        freeReplyObject(reply);
+        sprintf(result, "{\"result\":0,\"order_id\":\"Insufficient Balance\",\"user_id\":\"%s\"}", user_id);
         goto END;
     }
+
 
     reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
     //printf("quantity: %lld\n", reply->integer);
     quantity = reply->integer;
     freeReplyObject(reply);
     if (quantity < 0) {
-        sprintf(result, "{\"result\":0,\"order_id\":Failed,\"user_id\":%s}", user_id);
+        sprintf(result, "{\"result\":0,\"order_id\":\"Failed\",\"user_id\":\"%s\"}", user_id);
     } else {
         time_t ts;
         time(&ts);
+	struct tm *tmp_time = localtime(&ts);
+	char tmp[100];
+	strftime(tmp, sizeof(tmp), "%04Y-%02m-%02d %H:%M:%S", tmp_time);
         //printf("timestamp: %ld\n", ts);
         unsigned long long oid = _order_id++, 
-        reply = (redisReply *)redisCommand(order_conn, "SET _o_%llu \"user_id\":%s,\"commodity_id\":%s,\"timestamp\":%ld}", oid, user_id, commodity_id, ts);
+        reply = (redisReply *)redisCommand(order_conn, "SET _o_%llu \"user_id\":\"%s\",\"commodity_id\":\"%s\",\"timestamp\":\"%s\"}", oid, user_id, commodity_id, tmp);
         freeReplyObject(reply);
-        reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s -%f", user_id, price);
-        freeReplyObject(reply);
-        sprintf(result, "{\"result\":1,\"order_id\":%llu,\"user_id\":%s,\"commodity_id\":%s}", oid, user_id, commodity_id);
+
+        sprintf(result, "{\"result\":1,\"order_id\":%llu,\"user_id\":\"%s\",\"commodity_id\":\"%s\"}", oid, user_id, commodity_id);
     }
 
 END:
@@ -339,7 +377,7 @@ static int get_order_by_id(h2o_handler_t *self, h2o_req_t *req)
     char result[MSG_LEN] = { 0 };
     redisReply *reply;
     reply = (redisReply *)redisCommand(order_conn, "GET _o_%s", order_id);
-    sprintf(result, "{\"order_id\":%s,%s", order_id, reply->str);
+    sprintf(result, "{\"order_id\":\"%s\",%s", order_id, reply->str);
     freeReplyObject(reply);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
@@ -377,6 +415,23 @@ static int get_order_all(h2o_handler_t *self, h2o_req_t *req)
     req->res.status = 200;
     req->res.reason = "OK";
     h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("application/json"));
+    h2o_start_response(req, &generator);
+    h2o_send(req, &body, 1, 1);
+
+    return 0;
+}
+
+static int verify(h2o_handler_t *self, h2o_req_t *req)
+{
+    static h2o_generator_t generator = {NULL, NULL};
+
+    if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
+        return -1;
+    
+    h2o_iovec_t body = h2o_strdup(&req->pool, "a829251e27c642582110677150b1f2ad", SIZE_MAX);
+    req->res.status = 200;
+    req->res.reason = "OK";
+    h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("plain/text"));
     h2o_start_response(req, &generator);
     h2o_send(req, &body, 1, 1);
 
@@ -478,7 +533,7 @@ static int create_listener(void)
     int r;
 
     uv_tcp_init(ctx.loop, &listener);
-    uv_ip4_addr("localhost", 7890, &addr);
+    uv_ip4_addr("localhost", 80, &addr);
     if ((r = uv_tcp_bind(&listener, (struct sockaddr *)&addr, 0)) != 0) {
         fprintf(stderr, "uv_tcp_bind:%s\n", uv_strerror(r));
         goto Error;
@@ -509,6 +564,7 @@ int main(int argc, char **argv)
     register_handler(hostconf, "/seckill/seckill", seckill);
     register_handler(hostconf, "/seckill/getOrderById", get_order_by_id);
     register_handler(hostconf, "/seckill/getOrderAll", get_order_all);
+    register_handler(hostconf, "/a829251e27c642582110677150b1f2ad.txt", verify);
 
     uv_loop_t loop;
     uv_loop_init(&loop);

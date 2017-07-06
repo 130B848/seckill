@@ -1,5 +1,7 @@
 # SecKill
 * NOTICE:  ./ means the corresponding project's root directory
+* Now we shall start three Redis on ports 6379, 6380 and 6381. Tmux is recommended for spliting windows
+* The HTTP port was changed to 80, just send request to IP/localhost without ":port" is OK.
 
 ## Dependency
 ```bash
@@ -14,8 +16,10 @@ sudo apt install libuv1-dev libssl-dev redis-server
 cd seckill
 cmake -DWITH_BUNDLED_SSL=on .
 make seckill -j8
-# start redis-server in another window
-redis-server # Use *redis-cli* to FLUSHALL if you want to clear and return to initial status
+# start redis-server in other windows or use & to run in background
+redis-server --port 6379 # Use *redis-cli -p 6379* to FLUSHALL if you want to clear and return to initial status
+redis-server --port 6380
+redis-server --port 6381
 ./seckill
 ```
 
@@ -23,10 +27,10 @@ redis-server # Use *redis-cli* to FLUSHALL if you want to clear and return to in
 ```python
 #!/usr/bin/python
 import requests
-request.get('http://localhost:7890/seckill/getUserAll').text
-request.get('http://localhost:7890/seckill/getCommodityAll').text
-request.get('http://localhost:7890/seckill/seckill?user_id=1&commodiy_id=1').text
-request.get('http://localhost:7890/seckill/getOrderAll').text
+requests.get('http://localhost/seckill/getUserAll').text
+requests.get('http://localhost/seckill/getCommodityAll').text
+requests.get('http://localhost/seckill/seckill?user_id=e3351fa5-e422-41db-82b1-888881309cfb&commodity_id=a6bdd278-138c-4f11-bc71-47da49e74b4e').text
+requests.get('http://localhost/seckill/getOrderAll').text
 ```
 
 ## Benchmark 
@@ -38,7 +42,7 @@ sudo apt install wrk
 * *wrk* for single kind of request
 ```bash
 #!/bin/bash
-wrk -t12 -c400 -d30s "http://localhost:7890/seckill/seckill?user_id=1&commodity_id=1"
+wrk -t12 -c400 -d30s "http://localhost/seckill/seckill?user_id=e3351fa5-e422-41db-82b1-888881309cfb&commodity_id=a6bdd278-138c-4f11-bc71-47da49e74b4e"
 ```
 * Install *siege*
 ```bash
@@ -47,6 +51,7 @@ sudo apt update
 sudo apt install autoconf automake libtool
 git clone https://github.com/JoeDog/siege.git
 cd siege
+./utils/bootstrap
 # "which openssl" to get path to ssl, here shows the default path
 ./configure --with-ssl=/usr/bin/openssl
 make -j8
