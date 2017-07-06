@@ -1,8 +1,8 @@
 # TODO List
-* **Change the increment of global order_id by "__sync_add_and_fetch".**
-* **Move the operation of saving orders to Redis after "h2o_send".**
-* **Add a cache for recent orders in memory**
-* **Redo the benchmark.**
+* [ ] **Change the increment of global order_id by "__sync_add_and_fetch".**
+* [ ] **Move the operation of saving orders to Redis after "h2o_send".**
+* [ ] **Add a cache for recent orders in memory**
+* [ ] **Redo the benchmark.**
 
 # SecKill
 * NOTICE:  ./ means the corresponding project's root directory
