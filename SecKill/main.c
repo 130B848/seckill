@@ -269,13 +269,26 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     lock(&locks[uid]);
     
     redisReply *reply;
-    reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
+    // reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
+    // balance = atof(reply->str);
+    // printf("old balance%f\n", balance);
+    // freeReplyObject(reply);
+    // if (balance < price) {
+    //     sprintf(result, "{\"result\":0,\"order_id\":\"Insufficient Balance\",\"user_id\":\"%s\"}", user_id);
+    //     goto END;
+    // }
+
+    reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s -%f", user_id, price);
     balance = atof(reply->str);
+    // printf("new balance%f\n", balance);
     freeReplyObject(reply);
-    if (balance < price) {
+    if (balance < 0) {
+        reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s %f", user_id, price);
+        freeReplyObject(reply);
         sprintf(result, "{\"result\":0,\"order_id\":\"Insufficient Balance\",\"user_id\":\"%s\"}", user_id);
         goto END;
     }
+
 
     reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
     //printf("quantity: %lld\n", reply->integer);
@@ -293,8 +306,7 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
         unsigned long long oid = _order_id++, 
         reply = (redisReply *)redisCommand(order_conn, "SET _o_%llu \"user_id\":\"%s\",\"commodity_id\":\"%s\",\"timestamp\":\"%s\"}", oid, user_id, commodity_id, tmp);
         freeReplyObject(reply);
-        reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s -%f", user_id, price);
-        freeReplyObject(reply);
+
         sprintf(result, "{\"result\":1,\"order_id\":%llu,\"user_id\":\"%s\",\"commodity_id\":\"%s\"}", oid, user_id, commodity_id);
     }
 

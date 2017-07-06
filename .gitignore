@@ -1,0 +1,7 @@
+*.make
+*.o
+*.a
+*.url
+CMakeFiles
+CMakeCache.txt
+*.cmake
