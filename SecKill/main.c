@@ -17,6 +17,7 @@
 #define MAX_NUM 1000
 #define MSG_LEN 1024
 #define MAX_ALL 128000
+#define OPTIMISTIC  1
 
 
 // return json string for /get***All
@@ -129,11 +130,25 @@ static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
     // get info from redis
     char result[MSG_LEN] = { 0 };
     int uid = id2idx_user(user_id);
-    redisReply *reply;
-    reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
-    sprintf(result, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%s}",
-            users[uid].id, users[uid].name, reply->str);
-    freeReplyObject(reply);
+    if (users[uid].dirty) {
+        redisReply *reply;
+        reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
+        sprintf(result, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%s}",
+                users[uid].id, users[uid].name, reply->str);
+        freeReplyObject(reply);
+        // Save the balance value in users[uid].balance field,
+        // and set dirty bit to false,
+        // so that we can skip redis next time if no seckill in the middle.
+        // OPTIMISTIC means no concurrency bug are considered.
+        // The same logic is in get_commodity_by_id().
+        if (OPTIMISTIC) {
+            users[uid].balance = atof(reply->str);
+            users[uid].dirty = false;
+        }
+    } else {
+        sprintf(result, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%f}",
+                users[uid].id, users[uid].name, users[uid].balance);
+    }
     
     // generate response
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
@@ -159,10 +174,18 @@ static int get_user_all(h2o_handler_t *self, h2o_req_t *req)
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; uid < userNum; uid++) {
-        reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", users[uid].id);
-        sprintf(iterator, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%s},", 
-                users[uid].id, users[uid].name, reply->str);
-        freeReplyObject(reply);
+        if (users[uid].dirty) {
+            reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", users[uid].id);
+            sprintf(iterator, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%s},", 
+                    users[uid].id, users[uid].name, reply->str);
+            freeReplyObject(reply);
+            if (OPTIMISTIC) {
+                users[uid].balance = atof(reply->str);
+                users[uid].dirty = false;
+            }
+        } else
+            sprintf(iterator, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%f},", 
+                    users[uid].id, users[uid].name, users[uid].balance);
         strcat(all_users, iterator);
     }
     all_users[strlen(all_users) - 1] = ']';
@@ -199,8 +222,15 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
     char result[MSG_LEN] = { 0 };
     int cid = id2idx_cmdt(commodity_id), quantity;
     redisReply *reply;
-    reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodity_id);
-    quantity = atoi(reply->str);
+    if (commodities[cid].dirty) {
+        reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodity_id);
+        quantity = atoi(reply->str);
+        if (OPTIMISTIC) {
+            commodities[cid].number = quantity;
+            commodities[cid].dirty = false;
+        }
+    } else
+        quantity = commodities[cid].number;
     quantity = quantity < 0 ? 0 : quantity;
     sprintf(result, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%f}",
             commodity_id, commodities[cid].name, quantity, commodities[cid].price);
@@ -229,11 +259,18 @@ static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
     char iterator[MSG_LEN];
     redisReply *reply;
     for (; cid < commodityNum; cid++) {
-        reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodities[cid].id);
-        quantity = atoi(reply->str);
+        if (commodities[cid].dirty) {
+            reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodities[cid].id);
+            quantity = atoi(reply->str);
+            if (OPTIMISTIC) {
+                commodities[cid].number = quantity;
+                commodities[cid].dirty = false;
+            }
+        } else
+            quantity = commodities[cid].number;
         quantity = quantity < 0 ? 0 : quantity;
-        sprintf(iterator, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%s,\"unit_price\":%f},",
-                commodities[cid].id, commodities[cid].name, reply->str, commodities[cid].price);
+        sprintf(iterator, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%f},",
+                commodities[cid].id, commodities[cid].name, quantity, commodities[cid].price);
         freeReplyObject(reply);
         strcat(all_commodities, iterator);
     }
@@ -280,18 +317,14 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     char result[MSG_LEN] = { 0 };
     int cid = id2idx_cmdt(commodity_id), uid = id2idx_user(user_id) - 1, quantity;
     float price = commodities[cid].price, balance;
-    
+    // now the user and the commodity are dirty,
+    // so must read theie balance/quantity from redis
+    users[uid].dirty = true;
+    commodities[cid].dirty = true;
+
     lock(&locks[uid]);
-    
+
     redisReply *reply;
-    // reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
-    // balance = atof(reply->str);
-    // printf("old balance%f\n", balance);
-    // freeReplyObject(reply);
-    // if (balance < price) {
-    //     sprintf(result, "{\"result\":0,\"order_id\":\"Insufficient Balance\",\"user_id\":\"%s\"}", user_id);
-    //     goto END;
-    // }
 
     reply = (redisReply *)redisCommand(user_conn, "INCRBYFLOAT _u_%s -%f", user_id, price);
     balance = atof(reply->str);
@@ -471,22 +504,20 @@ int data_init() {
     
     fscanf(fp, "%u\n", &userNum);
     memset(users, 0, sizeof(user_t) * MAX_NUM);
-    float balance;
     for (i = 0; i < userNum; i++) {
-        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &balance);
+        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &users[i].balance);
         // prefix "_u_" means user
-        reply = redisCommand(user_conn,"SET _u_%s %f", users[i].id, balance);
+        reply = redisCommand(user_conn,"SET _u_%s %f", users[i].id, users[i].balance);
         freeReplyObject(reply);
     }
     
     fscanf(fp, "%u\n", &commodityNum);
     memset(commodities, 0, sizeof(commodity_t) * MAX_NUM);
-    int number;
     for (i = 0; i < commodityNum; i++) {
         fscanf(fp, "%36[^,],%36[^,],%d,%f\n", commodities[i].id, commodities[i].name, 
-                &number, &commodities[i].price);
+                &commodities[i].number, &commodities[i].price);
         // prefix "_c_" means user
-        reply = redisCommand(commodity_conn,"SET _c_%s %u", commodities[i].id, number);
+        reply = redisCommand(commodity_conn,"SET _c_%s %u", commodities[i].id, commodities[i].number);
         freeReplyObject(reply);
     }
 
