@@ -12,6 +12,7 @@
 #include <stdbool.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
+#include <stdatomic.h>
 
 #define MAX_LEN 40
 #define MAX_NUM 1000
@@ -60,8 +61,8 @@ static h2o_globalconf_t config;
 static h2o_context_t ctx;
 static h2o_accept_ctx_t accept_ctx;
 
-static redisContext *conn, *user_conn, *commodity_conn, *order_conn;
-static unsigned long long _order_id = 1LLU;
+static redisContext *user_conn, *commodity_conn, *order_conn;
+static atomic_ullong _order_id = 1LLU;
 
 static int locks[MAX_NUM] = { 0 };
 
@@ -229,12 +230,12 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
             commodities[cid].number = quantity;
             commodities[cid].dirty = false;
         }
+        freeReplyObject(reply);
     } else
         quantity = commodities[cid].number;
     quantity = quantity < 0 ? 0 : quantity;
     sprintf(result, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%f}",
             commodity_id, commodities[cid].name, quantity, commodities[cid].price);
-    freeReplyObject(reply);
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
     req->res.status = 200;
@@ -266,12 +267,12 @@ static int get_commodity_all(h2o_handler_t *self, h2o_req_t *req)
                 commodities[cid].number = quantity;
                 commodities[cid].dirty = false;
             }
+            freeReplyObject(reply);
         } else
             quantity = commodities[cid].number;
         quantity = quantity < 0 ? 0 : quantity;
         sprintf(iterator, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%f},",
                 commodities[cid].id, commodities[cid].name, quantity, commodities[cid].price);
-        freeReplyObject(reply);
         strcat(all_commodities, iterator);
     }
     all_commodities[strlen(all_commodities) - 1] = ']';
@@ -347,11 +348,11 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     } else {
         time_t ts;
         time(&ts);
-	struct tm *tmp_time = localtime(&ts);
-	char tmp[100];
-	strftime(tmp, sizeof(tmp), "%04Y-%02m-%02d %H:%M:%S", tmp_time);
+	    struct tm *tmp_time = localtime(&ts);
+	    char tmp[100];
+	    strftime(tmp, sizeof(tmp), "%04Y-%02m-%02d %H:%M:%S", tmp_time);
         //printf("timestamp: %ld\n", ts);
-        unsigned long long oid = _order_id++, 
+        atomic_ullong oid = atomic_fetch_add(&_order_id, 1); 
         reply = (redisReply *)redisCommand(order_conn, "SET _o_%llu \"user_id\":\"%s\",\"commodity_id\":\"%s\",\"timestamp\":\"%s\"}", oid, user_id, commodity_id, tmp);
         freeReplyObject(reply);
 
