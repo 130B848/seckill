@@ -564,7 +564,7 @@ int main(int argc, char **argv)
     accept_ctx.hosts = config.hosts;
 
     if (create_listener() != 0) {
-        fprintf(stderr, "failed to listen to 127.0.0.1:7890:%s\n", strerror(errno));
+        fprintf(stderr, "failed to listen to 127.0.0.1:80:%s\n", strerror(errno));
         goto Error;
     }
 
