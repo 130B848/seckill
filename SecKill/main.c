@@ -18,6 +18,7 @@
 #define MSG_LEN 1024
 #define MAX_ALL 128000
 
+
 // return json string for /get***All
 static char all_users[MAX_ALL];
 static char all_commodities[MAX_ALL];
@@ -39,6 +40,16 @@ struct commodityInfo {
     float price;
     bool dirty;
 };
+
+#define ORD_CACHE_LEN 5000
+
+struct order_cache_entry {
+    unsigned long long id;
+    char result[MSG_LEN];
+};
+typedef struct order_cache_entry order_cache_entry;
+static order_cache_entry order_cache[ORD_CACHE_LEN];
+
 typedef struct commodityInfo commodity_t;
 static commodity_t commodities[MAX_NUM];
 
@@ -90,6 +101,10 @@ static int id2idx_cmdt(char *id) {
         else return mid;
     }
     return -1;
+}
+
+static unsigned int hash(unsigned long long i) {
+    return i % ORD_CACHE_LEN;
 }
 
 static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
@@ -308,6 +323,10 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
         freeReplyObject(reply);
 
         sprintf(result, "{\"result\":1,\"order_id\":%llu,\"user_id\":\"%s\",\"commodity_id\":\"%s\"}", oid, user_id, commodity_id);
+        order_cache_entry *order_cacheline = &order_cache[hash(oid)];
+        order_cacheline->id = 0;
+        strncpy(order_cacheline->result, result, MSG_LEN);
+        order_cacheline->id = oid;
     }
 
 END:
@@ -342,10 +361,19 @@ static int get_order_by_id(h2o_handler_t *self, h2o_req_t *req)
     }
 
     char result[MSG_LEN] = { 0 };
-    redisReply *reply;
-    reply = (redisReply *)redisCommand(order_conn, "GET _o_%s", order_id);
-    sprintf(result, "{\"order_id\":\"%s\",%s", order_id, reply->str);
-    freeReplyObject(reply);
+
+    unsigned long long id = atoi(order_id);
+    order_cache_entry *order_cacheline = &order_cache[hash(id)];
+    if (order_cacheline->id == id) {
+        strncpy(result, order_cacheline->result, MSG_LEN);
+    }
+
+    if (strstr(result, order_id) != result + strlen("{\"result\":1,\"order_id\":")) {
+        redisReply *reply;
+        reply = (redisReply *)redisCommand(order_conn, "GET _o_%s", order_id);
+        sprintf(result, "{\"order_id\":\"%s\",%s", order_id, reply->str);
+        freeReplyObject(reply);
+    }
     
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
     req->res.status = 200;
@@ -461,6 +489,8 @@ int data_init() {
         reply = redisCommand(commodity_conn,"SET _c_%s %u", commodities[i].id, number);
         freeReplyObject(reply);
     }
+
+    memset(order_cache, 0, sizeof(order_cache));
 
     fclose(fp);
     sort();
