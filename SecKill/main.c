@@ -299,19 +299,20 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     //printf("quantity: %lld\n", reply->integer);
     quantity = reply->integer;
     freeReplyObject(reply);
+    //atomic_ullong oid;
+	//char tmp[100];
     if (quantity < 0) {
         sprintf(result, "{\"result\":0,\"order_id\":\"Failed\",\"user_id\":\"%s\"}", user_id);
     } else {
         time_t ts;
         time(&ts);
-	    struct tm *tmp_time = localtime(&ts);
 	    char tmp[100];
+	    struct tm *tmp_time = localtime(&ts);
 	    strftime(tmp, sizeof(tmp), "%04Y-%02m-%02d %H:%M:%S", tmp_time);
-        //printf("timestamp: %ld\n", ts);
         atomic_ullong oid = atomic_fetch_add(&_order_id, 1); 
+        //oid = atomic_fetch_add(&_order_id, 1); 
         reply = (redisReply *)redisCommand(order_conn, "SET _o_%llu \"user_id\":\"%s\",\"commodity_id\":\"%s\",\"timestamp\":\"%s\"}", oid, user_id, commodity_id, tmp);
         freeReplyObject(reply);
-
         sprintf(result, "{\"result\":1,\"order_id\":%llu,\"user_id\":\"%s\",\"commodity_id\":\"%s\"}", oid, user_id, commodity_id);
         order_cache_entry *order_cacheline = &order_cache[hash(oid)];
         order_cacheline->id = 0;
@@ -329,6 +330,11 @@ END:
     h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("application/json"));
     h2o_start_response(req, &generator);
     h2o_send(req, &body, 1, 1);
+
+    //if (quantity >= 0) {
+    //    reply = (redisReply *)redisCommand(order_conn, "SET _o_%llu \"user_id\":\"%s\",\"commodity_id\":\"%s\",\"timestamp\":\"%s\"}", oid, user_id, commodity_id, tmp);
+    //    freeReplyObject(reply);
+    //}
 
     return 0;
 }
