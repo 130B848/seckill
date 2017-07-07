@@ -1,3 +1,10 @@
+# TODO List
+* [ ] **Change the increment of global order_id by "__sync_add_and_fetch".**
+* [ ] **Move the operation of saving orders to Redis after "h2o_send".**
+* [ ] **Add a cache for recent orders in memory**
+* [ ] **Modify the Redis configuration file for recovery.**
+* [ ] **Redo the benchmark.**
+
 # SecKill
 * NOTICE:  ./ means the corresponding project's root directory
 * Now we shall start three Redis on ports 6379, 6380 and 6381. Tmux is recommended for spliting windows
