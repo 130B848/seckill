@@ -20,6 +20,7 @@
 #define MAX_ALL 128000
 #define OPTIMISTIC  1
 
+#define CMDT_CACHE
 
 // return json string for /get***All
 static char all_users[MAX_ALL];
@@ -37,7 +38,7 @@ static user_t users[MAX_NUM];
 struct commodityInfo {
     char id[MAX_LEN];
     char name[MAX_LEN];
-    unsigned int number;
+    atomic_int number;
     float price;
 };
 
@@ -198,13 +199,16 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
 
     char result[MSG_LEN] = { 0 };
     int cid = id2idx_cmdt(commodity_id), quantity;
+#ifdef CMDT_CACHE
+    quantity = commodities[cid].number;
+#else
     redisReply *reply;
     reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodity_id);
     quantity = atoi(reply->str);
     quantity = quantity < 0 ? 0 : quantity;
+#endif
     sprintf(result, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%f}",
             commodity_id, commodities[cid].name, quantity, commodities[cid].price);
-    
     h2o_iovec_t body = h2o_strdup(&req->pool, result, SIZE_MAX);
     req->res.status = 200;
     req->res.reason = "OK";
@@ -294,13 +298,16 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
         goto END;
     }
 
-
+#ifdef CMDT_CACHE
+    quantity = (int)atomic_fetch_add(&(commodities[cid].number), -1);
+#else
     reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
     //printf("quantity: %lld\n", reply->integer);
     quantity = reply->integer;
     freeReplyObject(reply);
     //atomic_ullong oid;
 	//char tmp[100];
+#endif
     if (quantity < 0) {
         sprintf(result, "{\"result\":0,\"order_id\":\"Failed\",\"user_id\":\"%s\"}", user_id);
     } else {
@@ -574,7 +581,7 @@ int main(int argc, char **argv)
         goto Error;
     }
 
-    struct timeval timeout = { 1, 500000 }; // 1.5 seconds
+    //struct timeval timeout = { 1, 500000 }; // 1.5 seconds
     //user_conn = redisConnectWithTimeout("127.0.0.1", 6379, timeout);
     user_conn = redisConnectUnix("/tmp/user-redis.sock");
     if (user_conn == NULL || user_conn->err) {
