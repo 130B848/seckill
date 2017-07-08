@@ -291,7 +291,7 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
     redisReply *reply;
 
     reply = (redisReply *)redisCommand(user_conn, "DECR _u_%s %u", user_id, price);
-    balance = atof(reply->str);
+    balance = atoi(reply->str);
     // printf("new balance%f\n", balance);
     freeReplyObject(reply);
     if (balance < 0) {
