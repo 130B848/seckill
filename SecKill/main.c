@@ -29,7 +29,7 @@ static char all_orders[MAX_ALL];
 struct userInfo {
     char id[MAX_LEN];
     char name[MAX_LEN];
-    float balance;
+    //float balance;
 };
 typedef struct userInfo user_t;
 static user_t users[MAX_NUM];
@@ -38,7 +38,7 @@ struct commodityInfo {
     char id[MAX_LEN];
     char name[MAX_LEN];
     unsigned int number;
-    float price;
+    unsigned int price;
 };
 
 #define ORD_CACHE_LEN 5000
@@ -419,7 +419,7 @@ static int verify(h2o_handler_t *self, h2o_req_t *req)
     if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
         return -1;
     
-    h2o_iovec_t body = h2o_strdup(&req->pool, "a829251e27c642582110677150b1f2ad", SIZE_MAX);
+    h2o_iovec_t body = h2o_strdup(&req->pool, "669c5b0d80899880ea6c805c280e41c5", SIZE_MAX);
     req->res.status = 200;
     req->res.reason = "OK";
     h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("plain/text"));
@@ -468,17 +468,19 @@ int data_init() {
     fscanf(fp, "%u\n", &userNum);
     memset(users, 0, sizeof(user_t) * MAX_NUM);
     for (i = 0; i < userNum; i++) {
-        fscanf(fp, "%36[^,],%36[^,],%f\n", users[i].id, users[i].name, &users[i].balance);
+	int balance1, balance2;
+        fscanf(fp, "%36[^,],%36[^,],%d.%d\n", users[i].id, users[i].name, balance1, balance2);
         // prefix "_u_" means user
-        reply = redisCommand(user_conn,"SET _u_%s %f", users[i].id, users[i].balance);
+        reply = redisCommand(user_conn,"SET _u_%s %f", users[i].id, balance1 * 100 + balance2);
         freeReplyObject(reply);
     }
     
     fscanf(fp, "%u\n", &commodityNum);
     memset(commodities, 0, sizeof(commodity_t) * MAX_NUM);
     for (i = 0; i < commodityNum; i++) {
-        fscanf(fp, "%36[^,],%36[^,],%d,%f\n", commodities[i].id, commodities[i].name, 
-                &commodities[i].number, &commodities[i].price);
+	int price1, price2;
+        fscanf(fp, "%36[^,],%36[^,],%d,%d.%d\n", commodities[i].id, commodities[i].name, 
+                &commodities[i].number, price1, price2);
         // prefix "_c_" means user
         reply = redisCommand(commodity_conn,"SET _c_%s %u", commodities[i].id, commodities[i].number);
         freeReplyObject(reply);
@@ -557,7 +559,7 @@ int main(int argc, char **argv)
     register_handler(hostconf, "/seckill/seckill", seckill);
     register_handler(hostconf, "/seckill/getOrderById", get_order_by_id);
     register_handler(hostconf, "/seckill/getOrderAll", get_order_all);
-    register_handler(hostconf, "/a829251e27c642582110677150b1f2ad.txt", verify);
+    register_handler(hostconf, "/669c5b0d80899880ea6c805c280e41c5.txt", verify);
 
     uv_loop_t loop;
     uv_loop_init(&loop);
@@ -574,7 +576,7 @@ int main(int argc, char **argv)
         goto Error;
     }
 
-    struct timeval timeout = { 1, 500000 }; // 1.5 seconds
+    //struct timeval timeout = { 1, 500000 }; // 1.5 seconds
     //user_conn = redisConnectWithTimeout("127.0.0.1", 6379, timeout);
     user_conn = redisConnectUnix("/tmp/user-redis.sock");
     if (user_conn == NULL || user_conn->err) {
