@@ -575,7 +575,8 @@ int main(int argc, char **argv)
     }
 
     struct timeval timeout = { 1, 500000 }; // 1.5 seconds
-    user_conn = redisConnectWithTimeout("127.0.0.1", 6379, timeout);
+    //user_conn = redisConnectWithTimeout("127.0.0.1", 6379, timeout);
+    user_conn = redisConnectUnix("/tmp/user-redis.sock");
     if (user_conn == NULL || user_conn->err) {
         if (user_conn) {
             printf("Connection error: %s\n", user_conn->errstr);
@@ -585,7 +586,8 @@ int main(int argc, char **argv)
         }
         return 1;
     }
-    commodity_conn = redisConnectWithTimeout("127.0.0.1", 6380, timeout);
+    //commodity_conn = redisConnectWithTimeout("127.0.0.1", 6380, timeout);
+    commodity_conn = redisConnectUnix("/tmp/commodity-redis.sock");
     if (commodity_conn == NULL || commodity_conn->err) {
         if (commodity_conn) {
             printf("Connection error: %s\n", commodity_conn->errstr);
@@ -595,7 +597,8 @@ int main(int argc, char **argv)
         }
         return 1;
     }
-    order_conn = redisConnectWithTimeout("127.0.0.1", 6381, timeout);
+    //order_conn = redisConnectWithTimeout("127.0.0.1", 6381, timeout);
+    order_conn = redisConnectUnix("/tmp/order-redis.sock");
     if (order_conn == NULL || order_conn->err) {
         if (order_conn) {
             printf("Connection error: %s\n", order_conn->errstr);

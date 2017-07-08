@@ -6,3 +6,7 @@ CMakeFiles
 CMakeCache.txt
 *.cmake
 seckill
+*.log
+redis/commodities/*
+redis/users/*
+redis/orders/*
