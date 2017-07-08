@@ -69,6 +69,7 @@
 #endif
 #include "standalone.h"
 
+#define TCP_FASTOPEN
 #ifdef TCP_FASTOPEN
 #define H2O_DEFAULT_LENGTH_TCP_FASTOPEN_QUEUE 4096
 #else
