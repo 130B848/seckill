@@ -470,7 +470,7 @@ void sort() {
                 unsigned tmp = commodities[i].price;
                 commodities[i].price = commodities[j].price;
                 commodities[j].price = tmp;
-                
+		
 		atomic_int num = commodities[i].number;
                 commodities[i].number = commodities[j].number;
                 commodities[j].number = num;
