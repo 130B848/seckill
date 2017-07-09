@@ -303,6 +303,8 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
 
 #ifdef CMDT_CACHE
     quantity = (int)atomic_fetch_add(&(commodities[cid].number), -1);
+    reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
+    freeReplyObject(reply);
 #else
     reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
     //printf("quantity: %lld\n", reply->integer);
