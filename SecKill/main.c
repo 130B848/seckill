@@ -132,8 +132,8 @@ static int get_user_by_id(h2o_handler_t *self, h2o_req_t *req)
     int uid = id2idx_user(user_id);
     redisReply *reply;
     reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", user_id);
-    unsigned int balance = atoi(reply->str);
-    sprintf(result, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%u.%u}",
+    unsigned long long int balance = atoll(reply->str);
+    sprintf(result, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%llu.%lluu}",
             users[uid].id, users[uid].name, balance / 100, balance % 100);
     freeReplyObject(reply);
     
@@ -162,8 +162,8 @@ static int get_user_all(h2o_handler_t *self, h2o_req_t *req)
     redisReply *reply;
     for (; uid < userNum; uid++) {
         reply = (redisReply *)redisCommand(user_conn, "GET _u_%s", users[uid].id);
-        unsigned int balance = atoi(reply->str);
-        sprintf(iterator, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%u.%u},",
+        unsigned long long int balance = atoi(reply->str);
+        sprintf(iterator, "{\"user_id\":\"%s\",\"user_name\":\"%s\",\"account_balance\":%llu.%llu},",
                 users[uid].id, users[uid].name, balance / 100, balance % 100);
         freeReplyObject(reply);
         strcat(all_users, iterator);
@@ -207,8 +207,8 @@ static int get_commodity_by_id(h2o_handler_t *self, h2o_req_t *req)
     redisReply *reply;
     reply = (redisReply *)redisCommand(commodity_conn, "GET _c_%s", commodity_id);
     quantity = atoi(reply->str);
-    quantity = quantity < 0 ? 0 : quantity;
 #endif
+    quantity = quantity < 0 ? 0 : quantity;
     sprintf(result, "{\"commodity_id\":\"%s\",\"commodity_name\":\"%s\",\"quantity\":%d,\"unit_price\":%u.%u}",
             commodity_id, commodities[cid].name, quantity, commodities[cid].price / 100, commodities[cid].price % 100);
     
@@ -284,26 +284,29 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
 
     char result[MSG_LEN] = { 0 };
     int cid = id2idx_cmdt(commodity_id), uid = id2idx_user(user_id) - 1, quantity;
-    unsigned int price = commodities[cid].price, balance;
+    unsigned int price = commodities[cid].price;
+    long long int balance;
 
     lock(&locks[uid]);
 
     redisReply *reply;
 
-    reply = (redisReply *)redisCommand(user_conn, "DECR _u_%s %u", user_id, price);
-    balance = atoi(reply->str);
-    // printf("new balance%f\n", balance);
+    reply = (redisReply *)redisCommand(user_conn, "INCRBY _u_%s -%u", user_id, price);
+    balance = reply->integer;
+    //printf("price: %u new balance %lld\n", price, reply->integer);
     freeReplyObject(reply);
     if (balance < 0) {
-        reply = (redisReply *)redisCommand(user_conn, "INCR _u_%s %u", user_id, price);
+        reply = (redisReply *)redisCommand(user_conn, "INCRBY _u_%s %u", user_id, price);
         freeReplyObject(reply);
         sprintf(result, "{\"result\":0,\"order_id\":\"Insufficient Balance\",\"user_id\":\"%s\"}", user_id);
         goto END;
     }
 
 #ifdef CMDT_CACHE
-    quantity = (int)atomic_fetch_add(&(commodities[cid].number), -1);
+    quantity = (int)atomic_fetch_add(&(commodities[cid].number), -1) - 1;
     reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
+//    if (quantity != reply->integer)     
+//	printf("quantity: %d, reply->integer: %d\n", quantity, reply->integer);
     freeReplyObject(reply);
 #else
     reply = (redisReply *)redisCommand(commodity_conn, "DECR _c_%s", commodity_id);
@@ -314,6 +317,8 @@ static int seckill(h2o_handler_t *self, h2o_req_t *req)
 	//char tmp[100];
 #endif
     if (quantity < 0) {
+        reply = (redisReply *)redisCommand(user_conn, "INCRBY _u_%s %u", user_id, price);
+        freeReplyObject(reply);
         sprintf(result, "{\"result\":0,\"order_id\":\"Failed\",\"user_id\":\"%s\"}", user_id);
     } else {
         time_t ts;
@@ -431,7 +436,7 @@ static int verify(h2o_handler_t *self, h2o_req_t *req)
     if (!h2o_memis(req->method.base, req->method.len, H2O_STRLIT("GET")))
         return -1;
     
-    h2o_iovec_t body = h2o_strdup(&req->pool, "669c5b0d80899880ea6c805c280e41c5", SIZE_MAX);
+    h2o_iovec_t body = h2o_strdup(&req->pool, "19df661c1d1139050b839191a6ccc5d8", SIZE_MAX);
     req->res.status = 200;
     req->res.reason = "OK";
     h2o_add_header(&req->pool, &req->res.headers, H2O_TOKEN_CONTENT_TYPE, NULL, H2O_STRLIT("plain/text"));
@@ -465,6 +470,10 @@ void sort() {
                 unsigned tmp = commodities[i].price;
                 commodities[i].price = commodities[j].price;
                 commodities[j].price = tmp;
+                
+		atomic_int num = commodities[i].number;
+                commodities[i].number = commodities[j].number;
+                commodities[j].number = num;
             }
 }
 
@@ -480,8 +489,8 @@ int data_init() {
     fscanf(fp, "%u\n", &userNum);
     memset(users, 0, sizeof(user_t) * MAX_NUM);
     for (i = 0; i < userNum; i++) {
-    	unsigned int balance1, balance2;
-        fscanf(fp, "%36[^,],%36[^,],%u.%u\n", users[i].id, users[i].name, &balance1, &balance2);
+    	unsigned long long int balance1, balance2;
+        fscanf(fp, "%36[^,],%36[^,],%llu.%llu\n", users[i].id, users[i].name, &balance1, &balance2);
         // prefix "_u_" means user
         reply = redisCommand(user_conn,"SET _u_%s %u", users[i].id, balance1 * 100 + balance2);
         freeReplyObject(reply);
@@ -493,6 +502,7 @@ int data_init() {
 	    unsigned int price1, price2;
         fscanf(fp, "%36[^,],%36[^,],%d,%u.%u\n", commodities[i].id, commodities[i].name, 
                 &commodities[i].number, &price1, &price2);
+	commodities[i].price = price1 * 100 + price2;
         // prefix "_c_" means user
         reply = redisCommand(commodity_conn,"SET _c_%s %u", commodities[i].id, commodities[i].number);
         freeReplyObject(reply);
@@ -571,7 +581,7 @@ int main(int argc, char **argv)
     register_handler(hostconf, "/seckill/seckill", seckill);
     register_handler(hostconf, "/seckill/getOrderById", get_order_by_id);
     register_handler(hostconf, "/seckill/getOrderAll", get_order_all);
-    register_handler(hostconf, "/669c5b0d80899880ea6c805c280e41c5.txt", verify);
+    register_handler(hostconf, "/19df661c1d1139050b839191a6ccc5d8.txt", verify);
 
     uv_loop_t loop;
     uv_loop_init(&loop);
