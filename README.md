@@ -1,11 +1,6 @@
-# TODO List
-* [ ] **Move the operation of saving orders to Redis after "h2o_send".**
-* [ ] **Modify the Redis configuration file for recovery.**
-* [ ] **Redo the benchmark.**
-
 # SecKill
 * NOTICE:  ./ means the corresponding project's root directory
-* Now we shall start three Redis on ports 6379, 6380 and 6381. Tmux is recommended for spliting windows
+* Now we shall start three Redis. Tmux is recommended for spliting windows
 * The HTTP port was changed to 80, just send request to IP/localhost without ":port" is OK.
 
 ## Dependency
@@ -22,9 +17,14 @@ cd seckill
 cmake -DWITH_BUNDLED_SSL=on .
 make seckill -j8
 # start redis-server in other windows or use & to run in background
-redis-server --port 6379 # Use *redis-cli -p 6379* to FLUSHALL if you want to clear and return to initial status
-redis-server --port 6380
-redis-server --port 6381
+# enter redis dir
+cd ./redis
+./mkdir.sh # mkdir for logs
+redis-server ./user.conf # Use *redis-cli -s /tmp/user-redis.sock* to FLUSHALL if you want to clear DB
+redis-server ./commodity.conf
+redis-server ./order.conf
+# return to root dir
+cd ..
 ./seckill
 ```
 
